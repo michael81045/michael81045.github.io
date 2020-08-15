@@ -1,0 +1,102 @@
+/* This is custom css style for Flex by setting CUSTOM_CSS in pelicanconf.py */
+body {
+    font-size: 1.02em;
+    line-height: 1.8em;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: 600;
+  line-height: 1.1;
+}
+
+h1{
+  font-size: 1.8em
+}
+
+h2 {
+  font-size: 1.52em
+}
+
+h3 {
+  font-size: 1.36em
+}
+
+h4 {
+  font-size: 1.2em
+}
+
+h5 {
+  font-size: 1.1em
+}
+
+h6 {
+  font-size: 1.08em
+}
+
+/* 調整單行指令區塊的寬度與大小 */
+main article *:not(pre)>code {
+  font-size: .9em;
+  white-space: nowrap;
+  color: #c25;
+  padding: 1px 3px;
+  background-color: #f7f7f9;
+  border: 1px solid #e1e1e8;
+  border-radius: 3px;
+  margin: .2em;
+}
+
+/* 調整左半邊區塊的顏色 */
+aside {
+  background-color: #304054;
+  color: #ffffff;
+  text-align: center;
+}
+
+/* 調整引言的文字區塊 */
+main article blockquote {
+  padding: 1px 20px;
+  font-weight: 500;
+  font-size: 1.1em;
+}
+
+/* 調整文章的圖片置中 */
+/* main article p img {
+  margin: auto;
+  display: block;
+  width: 70%;
+} */
+
+ /* Media Query ，也就是當寬度 > 769 px 時將載入下面這段 CSS : */
+ @media only screen and (min-width: 769px) {
+  /* 調整文章的圖片置中 */
+  main article p img {
+    margin: auto;
+    display: block;
+    max-width: 80%;
+  }
+}
+
+ /* Media Query ，也就是當 481px < 寬度 < 768px 時將載入下面這段 CSS : */
+ @media only screen and (min-width: 481px) and (max-width: 768px) {
+  /* 調整文章的圖片置中 */
+  main article p img {
+    margin: auto;
+    display: block;
+    max-width: 85%;
+  }
+}
+
+
+ /* Media Query ，也就是當寬度 < 480 px 時將載入下面這段 CSS : */
+@media only screen and (max-width: 480px) {
+  /* 調整文章的圖片置中 */
+  main article p img {
+    margin: auto;
+    display: block;
+  }
+}
