@@ -104,88 +104,552 @@
   </header>
   <div>
 <h2>About me</h2>
-<div class="row half-bottom">
+<p><body class="ss-bg-white"></p>
+<div class="highlight"><pre><span></span><span class="o">&lt;!--</span> <span class="nv">preloader</span>
+<span class="o">==================================================</span> <span class="o">--&gt;</span>
+<span class="o">&lt;</span><span class="nv">div</span> <span class="nv">id</span><span class="o">=</span><span class="s2">&quot;</span><span class="s">preloader</span><span class="s2">&quot;</span><span class="o">&gt;</span>
+    <span class="o">&lt;</span><span class="nv">div</span> <span class="nv">id</span><span class="o">=</span><span class="s2">&quot;</span><span class="s">loader</span><span class="s2">&quot;</span> <span class="nv">class</span><span class="o">=</span><span class="s2">&quot;</span><span class="s">dots-fade</span><span class="s2">&quot;</span><span class="o">&gt;</span>
+        <span class="o">&lt;</span><span class="nv">div</span><span class="o">&gt;&lt;/</span><span class="nv">div</span><span class="o">&gt;</span>
+        <span class="o">&lt;</span><span class="nv">div</span><span class="o">&gt;&lt;/</span><span class="nv">div</span><span class="o">&gt;</span>
+        <span class="o">&lt;</span><span class="nv">div</span><span class="o">&gt;&lt;/</span><span class="nv">div</span><span class="o">&gt;</span>
+    <span class="o">&lt;/</span><span class="nv">div</span><span class="o">&gt;</span>
+<span class="o">&lt;/</span><span class="nv">div</span><span class="o">&gt;</span>
 
-                        <div class="column large-6 tab-full">
+<span class="o">&lt;</span><span class="nv">div</span> <span class="nv">id</span><span class="o">=</span><span class="s2">&quot;</span><span class="s">top</span><span class="s2">&quot;</span> <span class="nv">class</span><span class="o">=</span><span class="s2">&quot;</span><span class="s">s-wrap site-wrapper</span><span class="s2">&quot;</span><span class="o">&gt;</span>
 
-                            <h3>Example Lists</h3>
+    <span class="o">&lt;!--</span> <span class="nv">site</span> <span class="nv">header</span>
+    <span class="o">==================================================</span> <span class="o">--&gt;</span>
+    <span class="o">&lt;</span><span class="nv">header</span> <span class="nv">class</span><span class="o">=</span><span class="s2">&quot;</span><span class="s">s-header header</span><span class="s2">&quot;</span><span class="o">&gt;</span>
 
-                            <ol>
-                                <li>Here is an example</li>
-                                <li>of an ordered list.</li>
-                                <li>A parent list item.
-                                    <ul>
-                                        <li>one</li>
-                                        <li>two</li>
-                                        <li>three</li>
-                                    </ul>
-                                    </li>
-                                    <li>A list item.</li>
-                                </ol>
+        <span class="o">&lt;</span><span class="nv">div</span> <span class="nv">class</span><span class="o">=</span><span class="s2">&quot;</span><span class="s">header__top</span><span class="s2">&quot;</span><span class="o">&gt;</span>
+            <span class="o">&lt;</span><span class="nv">div</span> <span class="nv">class</span><span class="o">=</span><span class="s2">&quot;</span><span class="s">header__logo</span><span class="s2">&quot;</span><span class="o">&gt;</span>
+                <span class="o">&lt;</span><span class="nv">a</span> <span class="nv">class</span><span class="o">=</span><span class="s2">&quot;</span><span class="s">site-logo</span><span class="s2">&quot;</span> <span class="nv">href</span><span class="o">=</span><span class="s2">&quot;</span><span class="s">index.html</span><span class="s2">&quot;</span><span class="o">&gt;</span>
+                    <span class="o">&lt;</span><span class="nv">img</span> <span class="nv">src</span><span class="o">=</span><span class="s2">&quot;</span><span class="s">images/logo.svg</span><span class="s2">&quot;</span> <span class="nv">alt</span><span class="o">=</span><span class="s2">&quot;</span><span class="s">Homepage</span><span class="s2">&quot;</span><span class="o">&gt;</span>
+                <span class="o">&lt;/</span><span class="nv">a</span><span class="o">&gt;</span>
+            <span class="o">&lt;/</span><span class="nv">div</span><span class="o">&gt;</span>
 
-                            <ul class="disc">
-                                <li>Here is an example</li>
-                                <li>of an unordered list.</li>
-                            </ul>
+            <span class="o">&lt;</span><span class="nv">div</span> <span class="nv">class</span><span class="o">=</span><span class="s2">&quot;</span><span class="s">header__search</span><span class="s2">&quot;</span><span class="o">&gt;</span>
 
-                            <h3>Definition Lists</h3>
+                <span class="o">&lt;</span><span class="nv">form</span> <span class="nv">role</span><span class="o">=</span><span class="s2">&quot;</span><span class="s">search</span><span class="s2">&quot;</span> <span class="nv">method</span><span class="o">=</span><span class="s2">&quot;</span><span class="s">get</span><span class="s2">&quot;</span> <span class="nv">class</span><span class="o">=</span><span class="s2">&quot;</span><span class="s">header__search-form</span><span class="s2">&quot;</span> <span class="nv">action</span><span class="o">=</span><span class="s2">&quot;</span><span class="s">#</span><span class="s2">&quot;</span><span class="o">&gt;</span>
+                    <span class="o">&lt;</span><span class="nv">label</span><span class="o">&gt;</span>
+                        <span class="o">&lt;</span><span class="nv">span</span> <span class="nv">class</span><span class="o">=</span><span class="s2">&quot;</span><span class="s">hide-content</span><span class="s2">&quot;</span><span class="o">&gt;</span><span class="nv">Search</span> <span class="k">for</span>:<span class="o">&lt;/</span><span class="nv">span</span><span class="o">&gt;</span>
+                        <span class="o">&lt;</span><span class="nv">input</span> <span class="nv">type</span><span class="o">=</span><span class="s2">&quot;</span><span class="s">search</span><span class="s2">&quot;</span> <span class="nv">class</span><span class="o">=</span><span class="s2">&quot;</span><span class="s">header__search-field</span><span class="s2">&quot;</span> <span class="nv">placeholder</span><span class="o">=</span><span class="s2">&quot;</span><span class="s">Type Keywords</span><span class="s2">&quot;</span> <span class="nv">value</span><span class="o">=</span><span class="s2">&quot;&quot;</span> <span class="nv">name</span><span class="o">=</span><span class="s2">&quot;</span><span class="s">s</span><span class="s2">&quot;</span> <span class="nv">title</span><span class="o">=</span><span class="s2">&quot;</span><span class="s">Search for:</span><span class="s2">&quot;</span> <span class="nv">autocomplete</span><span class="o">=</span><span class="s2">&quot;</span><span class="s">off</span><span class="s2">&quot;</span><span class="o">&gt;</span>
+                    <span class="o">&lt;/</span><span class="nv">label</span><span class="o">&gt;</span>
+                    <span class="o">&lt;</span><span class="nv">input</span> <span class="nv">type</span><span class="o">=</span><span class="s2">&quot;</span><span class="s">submit</span><span class="s2">&quot;</span> <span class="nv">class</span><span class="o">=</span><span class="s2">&quot;</span><span class="s">header__search-submit</span><span class="s2">&quot;</span> <span class="nv">value</span><span class="o">=</span><span class="s2">&quot;</span><span class="s">Search</span><span class="s2">&quot;</span><span class="o">&gt;</span>
+                <span class="o">&lt;/</span><span class="nv">form</span><span class="o">&gt;</span>
 
-                            <h5>a) Multi-line Definitions (default) </h5>
+                <span class="o">&lt;</span><span class="nv">a</span> <span class="nv">href</span><span class="o">=</span><span class="s2">&quot;</span><span class="s">#0</span><span class="s2">&quot;</span> <span class="nv">title</span><span class="o">=</span><span class="s2">&quot;</span><span class="s">Close Search</span><span class="s2">&quot;</span> <span class="nv">class</span><span class="o">=</span><span class="s2">&quot;</span><span class="s">header__search-close</span><span class="s2">&quot;</span><span class="o">&gt;</span><span class="nv">Close</span><span class="o">&lt;/</span><span class="nv">a</span><span class="o">&gt;</span>
 
-                            <dl>
-                                <dt><strong>This is a term</strong></dt>
-                                    <dd>this is the definition of that term, which both live in a <code>dl</code>.</dd>
-                                <dt><strong>Another Term</strong></dt>
-                                    <dd>And it gets a definition too, which is this line</dd>
-                                    <dd>This is a 2<sup>nd</sup> definition for a single term. A <code>dt</code> may be followed by multiple <code>dd</code>s.</dd>
-                            </dl>
+            <span class="o">&lt;/</span><span class="nv">div</span><span class="o">&gt;</span>  <span class="o">&lt;!--</span> <span class="k">end</span> <span class="nv">header__search</span> <span class="o">--&gt;</span>
 
-                        </div>
+            <span class="o">&lt;!--</span> <span class="nv">toggles</span> <span class="o">--&gt;</span>
+            <span class="o">&lt;</span><span class="nv">a</span> <span class="nv">href</span><span class="o">=</span><span class="s2">&quot;</span><span class="s">#0</span><span class="s2">&quot;</span> <span class="nv">class</span><span class="o">=</span><span class="s2">&quot;</span><span class="s">header__search-trigger</span><span class="s2">&quot;</span><span class="o">&gt;&lt;/</span><span class="nv">a</span><span class="o">&gt;</span>
+            <span class="o">&lt;</span><span class="nv">a</span> <span class="nv">href</span><span class="o">=</span><span class="s2">&quot;</span><span class="s">#0</span><span class="s2">&quot;</span> <span class="nv">class</span><span class="o">=</span><span class="s2">&quot;</span><span class="s">header__menu-toggle</span><span class="s2">&quot;</span><span class="o">&gt;&lt;</span><span class="nv">span</span><span class="o">&gt;</span><span class="nv">Menu</span><span class="o">&lt;/</span><span class="nv">span</span><span class="o">&gt;&lt;/</span><span class="nv">a</span><span class="o">&gt;</span>
 
-                        <div class="column large-6 tab-full">
+        <span class="o">&lt;/</span><span class="nv">div</span><span class="o">&gt;</span>
 
-                            <h3>Buttons</h3>
+        <span class="o">&lt;</span><span class="nv">nav</span> <span class="nv">class</span><span class="o">=</span><span class="s2">&quot;</span><span class="s">header__nav-wrap</span><span class="s2">&quot;</span><span class="o">&gt;</span>
 
-                            <p>
-                                <a class="btn btn--primary full-width" href="#0">Primary Button</a>
-                                <a class="btn full-width" href="#0">Default Button</a>
-                                <a class="btn btn--stroke full-width" href="#0">Stroke Button</a>
-                            </p>
+            <span class="o">&lt;</span><span class="nv">ul</span> <span class="nv">class</span><span class="o">=</span><span class="s2">&quot;</span><span class="s">header__nav</span><span class="s2">&quot;</span><span class="o">&gt;</span>
+                <span class="o">&lt;</span><span class="nv">li</span> <span class="nv">class</span><span class="o">=</span><span class="s2">&quot;</span><span class="s">current</span><span class="s2">&quot;</span><span class="o">&gt;&lt;</span><span class="nv">a</span> <span class="nv">href</span><span class="o">=</span><span class="s2">&quot;</span><span class="s">index.html</span><span class="s2">&quot;</span> <span class="nv">title</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="o">&gt;</span><span class="nv">Home</span><span class="o">&lt;/</span><span class="nv">a</span><span class="o">&gt;&lt;/</span><span class="nv">li</span><span class="o">&gt;</span>
+                <span class="o">&lt;</span><span class="nv">li</span> <span class="nv">class</span><span class="o">=</span><span class="s2">&quot;</span><span class="s">has-children</span><span class="s2">&quot;</span><span class="o">&gt;</span>
+                    <span class="o">&lt;</span><span class="nv">a</span> <span class="nv">href</span><span class="o">=</span><span class="s2">&quot;</span><span class="s">#0</span><span class="s2">&quot;</span> <span class="nv">title</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="o">&gt;</span><span class="nv">Categories</span><span class="o">&lt;/</span><span class="nv">a</span><span class="o">&gt;</span>
+                    <span class="o">&lt;</span><span class="nv">ul</span> <span class="nv">class</span><span class="o">=</span><span class="s2">&quot;</span><span class="s">sub-menu</span><span class="s2">&quot;</span><span class="o">&gt;</span>
+                    <span class="o">&lt;</span><span class="nv">li</span><span class="o">&gt;&lt;</span><span class="nv">a</span> <span class="nv">href</span><span class="o">=</span><span class="s2">&quot;</span><span class="s">category.html</span><span class="s2">&quot;</span><span class="o">&gt;</span><span class="nv">Lifestyle</span><span class="o">&lt;/</span><span class="nv">a</span><span class="o">&gt;&lt;/</span><span class="nv">li</span><span class="o">&gt;</span>
+                    <span class="o">&lt;</span><span class="nv">li</span><span class="o">&gt;&lt;</span><span class="nv">a</span> <span class="nv">href</span><span class="o">=</span><span class="s2">&quot;</span><span class="s">category.html</span><span class="s2">&quot;</span><span class="o">&gt;</span><span class="nv">Health</span><span class="o">&lt;/</span><span class="nv">a</span><span class="o">&gt;&lt;/</span><span class="nv">li</span><span class="o">&gt;</span>
+                    <span class="o">&lt;</span><span class="nv">li</span><span class="o">&gt;&lt;</span><span class="nv">a</span> <span class="nv">href</span><span class="o">=</span><span class="s2">&quot;</span><span class="s">category.html</span><span class="s2">&quot;</span><span class="o">&gt;</span><span class="nv">Family</span><span class="o">&lt;/</span><span class="nv">a</span><span class="o">&gt;&lt;/</span><span class="nv">li</span><span class="o">&gt;</span>
+                    <span class="o">&lt;</span><span class="nv">li</span><span class="o">&gt;&lt;</span><span class="nv">a</span> <span class="nv">href</span><span class="o">=</span><span class="s2">&quot;</span><span class="s">category.html</span><span class="s2">&quot;</span><span class="o">&gt;</span><span class="nv">Management</span><span class="o">&lt;/</span><span class="nv">a</span><span class="o">&gt;&lt;/</span><span class="nv">li</span><span class="o">&gt;</span>
+                    <span class="o">&lt;</span><span class="nv">li</span><span class="o">&gt;&lt;</span><span class="nv">a</span> <span class="nv">href</span><span class="o">=</span><span class="s2">&quot;</span><span class="s">category.html</span><span class="s2">&quot;</span><span class="o">&gt;</span><span class="nv">Travel</span><span class="o">&lt;/</span><span class="nv">a</span><span class="o">&gt;&lt;/</span><span class="nv">li</span><span class="o">&gt;</span>
+                    <span class="o">&lt;</span><span class="nv">li</span><span class="o">&gt;&lt;</span><span class="nv">a</span> <span class="nv">href</span><span class="o">=</span><span class="s2">&quot;</span><span class="s">category.html</span><span class="s2">&quot;</span><span class="o">&gt;</span><span class="nv">Work</span><span class="o">&lt;/</span><span class="nv">a</span><span class="o">&gt;&lt;/</span><span class="nv">li</span><span class="o">&gt;</span>
+                    <span class="o">&lt;/</span><span class="nv">ul</span><span class="o">&gt;</span>
+                <span class="o">&lt;/</span><span class="nv">li</span><span class="o">&gt;</span>
+                <span class="o">&lt;</span><span class="nv">li</span> <span class="nv">class</span><span class="o">=</span><span class="s2">&quot;</span><span class="s">has-children</span><span class="s2">&quot;</span><span class="o">&gt;</span>
+                    <span class="o">&lt;</span><span class="nv">a</span> <span class="nv">href</span><span class="o">=</span><span class="s2">&quot;</span><span class="s">#0</span><span class="s2">&quot;</span> <span class="nv">title</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="o">&gt;</span><span class="nv">Blog</span><span class="o">&lt;/</span><span class="nv">a</span><span class="o">&gt;</span>
+                    <span class="o">&lt;</span><span class="nv">ul</span> <span class="nv">class</span><span class="o">=</span><span class="s2">&quot;</span><span class="s">sub-menu</span><span class="s2">&quot;</span><span class="o">&gt;</span>
+                    <span class="o">&lt;</span><span class="nv">li</span><span class="o">&gt;&lt;</span><span class="nv">a</span> <span class="nv">href</span><span class="o">=</span><span class="s2">&quot;</span><span class="s">single-video.html</span><span class="s2">&quot;</span><span class="o">&gt;</span><span class="nv">Video</span> <span class="nv">Post</span><span class="o">&lt;/</span><span class="nv">a</span><span class="o">&gt;&lt;/</span><span class="nv">li</span><span class="o">&gt;</span>
+                    <span class="o">&lt;</span><span class="nv">li</span><span class="o">&gt;&lt;</span><span class="nv">a</span> <span class="nv">href</span><span class="o">=</span><span class="s2">&quot;</span><span class="s">single-audio.html</span><span class="s2">&quot;</span><span class="o">&gt;</span><span class="nv">Audio</span> <span class="nv">Post</span><span class="o">&lt;/</span><span class="nv">a</span><span class="o">&gt;&lt;/</span><span class="nv">li</span><span class="o">&gt;</span>
+                    <span class="o">&lt;</span><span class="nv">li</span><span class="o">&gt;&lt;</span><span class="nv">a</span> <span class="nv">href</span><span class="o">=</span><span class="s2">&quot;</span><span class="s">single-gallery.html</span><span class="s2">&quot;</span><span class="o">&gt;</span><span class="nv">Gallery</span> <span class="nv">Post</span><span class="o">&lt;/</span><span class="nv">a</span><span class="o">&gt;&lt;/</span><span class="nv">li</span><span class="o">&gt;</span>
+                    <span class="o">&lt;</span><span class="nv">li</span><span class="o">&gt;&lt;</span><span class="nv">a</span> <span class="nv">href</span><span class="o">=</span><span class="s2">&quot;</span><span class="s">single-standard.html</span><span class="s2">&quot;</span><span class="o">&gt;</span><span class="nv">Standard</span> <span class="nv">Post</span><span class="o">&lt;/</span><span class="nv">a</span><span class="o">&gt;&lt;/</span><span class="nv">li</span><span class="o">&gt;</span>
+                    <span class="o">&lt;/</span><span class="nv">ul</span><span class="o">&gt;</span>
+                <span class="o">&lt;/</span><span class="nv">li</span><span class="o">&gt;</span>
+                <span class="o">&lt;</span><span class="nv">li</span> <span class="nv">class</span><span class="o">=</span><span class="s2">&quot;</span><span class="s">current</span><span class="s2">&quot;</span><span class="o">&gt;&lt;</span><span class="nv">a</span> <span class="nv">href</span><span class="o">=</span><span class="s2">&quot;</span><span class="s">styles.html</span><span class="s2">&quot;</span> <span class="nv">title</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="o">&gt;</span><span class="nv">Styles</span><span class="o">&lt;/</span><span class="nv">a</span><span class="o">&gt;&lt;/</span><span class="nv">li</span><span class="o">&gt;</span>
+                <span class="o">&lt;</span><span class="nv">li</span><span class="o">&gt;&lt;</span><span class="nv">a</span> <span class="nv">href</span><span class="o">=</span><span class="s2">&quot;</span><span class="s">page-about.html</span><span class="s2">&quot;</span> <span class="nv">title</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="o">&gt;</span><span class="nv">About</span><span class="o">&lt;/</span><span class="nv">a</span><span class="o">&gt;&lt;/</span><span class="nv">li</span><span class="o">&gt;</span>
+                <span class="o">&lt;</span><span class="nv">li</span><span class="o">&gt;&lt;</span><span class="nv">a</span> <span class="nv">href</span><span class="o">=</span><span class="s2">&quot;</span><span class="s">page-contact.html</span><span class="s2">&quot;</span> <span class="nv">title</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="o">&gt;</span><span class="nv">Contact</span><span class="o">&lt;/</span><span class="nv">a</span><span class="o">&gt;&lt;/</span><span class="nv">li</span><span class="o">&gt;</span>
+            <span class="o">&lt;/</span><span class="nv">ul</span><span class="o">&gt;</span> <span class="o">&lt;!--</span> <span class="k">end</span> <span class="nv">header__nav</span> <span class="o">--&gt;</span>
 
-                            <h3>Skill Bars</h3>
+            <span class="o">&lt;</span><span class="nv">ul</span> <span class="nv">class</span><span class="o">=</span><span class="s2">&quot;</span><span class="s">header__social</span><span class="s2">&quot;</span><span class="o">&gt;</span>
+                <span class="o">&lt;</span><span class="nv">li</span> <span class="nv">class</span><span class="o">=</span><span class="s2">&quot;</span><span class="s">ss-facebook</span><span class="s2">&quot;</span><span class="o">&gt;</span>
+                    <span class="o">&lt;</span><span class="nv">a</span> <span class="nv">href</span><span class="o">=</span><span class="s2">&quot;</span><span class="s">https://facebook.com/</span><span class="s2">&quot;</span><span class="o">&gt;</span>
+                        <span class="o">&lt;</span><span class="nv">span</span> <span class="nv">class</span><span class="o">=</span><span class="s2">&quot;</span><span class="s">screen-reader-text</span><span class="s2">&quot;</span><span class="o">&gt;</span><span class="nv">Facebook</span><span class="o">&lt;/</span><span class="nv">span</span><span class="o">&gt;</span>
+                    <span class="o">&lt;/</span><span class="nv">a</span><span class="o">&gt;</span>
+                <span class="o">&lt;/</span><span class="nv">li</span><span class="o">&gt;</span>
+                <span class="o">&lt;</span><span class="nv">li</span> <span class="nv">class</span><span class="o">=</span><span class="s2">&quot;</span><span class="s">ss-twitter</span><span class="s2">&quot;</span><span class="o">&gt;</span>
+                    <span class="o">&lt;</span><span class="nv">a</span> <span class="nv">href</span><span class="o">=</span><span class="s2">&quot;</span><span class="s">#0</span><span class="s2">&quot;</span><span class="o">&gt;</span>
+                        <span class="o">&lt;</span><span class="nv">span</span> <span class="nv">class</span><span class="o">=</span><span class="s2">&quot;</span><span class="s">screen-reader-text</span><span class="s2">&quot;</span><span class="o">&gt;</span><span class="nv">Twitter</span><span class="o">&lt;/</span><span class="nv">span</span><span class="o">&gt;</span>
+                    <span class="o">&lt;/</span><span class="nv">a</span><span class="o">&gt;</span>
+                <span class="o">&lt;/</span><span class="nv">li</span><span class="o">&gt;</span>
+                <span class="o">&lt;</span><span class="nv">li</span> <span class="nv">class</span><span class="o">=</span><span class="s2">&quot;</span><span class="s">ss-dribbble</span><span class="s2">&quot;</span><span class="o">&gt;</span>
+                    <span class="o">&lt;</span><span class="nv">a</span> <span class="nv">href</span><span class="o">=</span><span class="s2">&quot;</span><span class="s">#0</span><span class="s2">&quot;</span><span class="o">&gt;</span>
+                        <span class="o">&lt;</span><span class="nv">span</span> <span class="nv">class</span><span class="o">=</span><span class="s2">&quot;</span><span class="s">screen-reader-text</span><span class="s2">&quot;</span><span class="o">&gt;</span><span class="nv">Instagram</span><span class="o">&lt;/</span><span class="nv">span</span><span class="o">&gt;</span>
+                    <span class="o">&lt;/</span><span class="nv">a</span><span class="o">&gt;</span>
+                <span class="o">&lt;/</span><span class="nv">li</span><span class="o">&gt;</span>
+                <span class="o">&lt;</span><span class="nv">li</span> <span class="nv">class</span><span class="o">=</span><span class="s2">&quot;</span><span class="s">ss-behance</span><span class="s2">&quot;</span><span class="o">&gt;</span>
+                    <span class="o">&lt;</span><span class="nv">a</span> <span class="nv">href</span><span class="o">=</span><span class="s2">&quot;</span><span class="s">#0</span><span class="s2">&quot;</span><span class="o">&gt;</span>
+                        <span class="o">&lt;</span><span class="nv">span</span> <span class="nv">class</span><span class="o">=</span><span class="s2">&quot;</span><span class="s">screen-reader-text</span><span class="s2">&quot;</span><span class="o">&gt;</span><span class="nv">Behance</span><span class="o">&lt;/</span><span class="nv">span</span><span class="o">&gt;</span>
+                    <span class="o">&lt;/</span><span class="nv">a</span><span class="o">&gt;</span>
+                <span class="o">&lt;/</span><span class="nv">li</span><span class="o">&gt;</span>
+            <span class="o">&lt;/</span><span class="nv">ul</span><span class="o">&gt;</span>
 
-                            <ul class="skill-bars">
-                                <li>
-                                <div class="progress percent90"><span>90%</span></div>
-                                <strong>HTML5</strong>
-                                </li>
-                                <li>
-                                <div class="progress percent85"><span>85%</span></div>
-                                <strong>CSS3</strong>
-                                </li>
-                                <li>
-                                <div class="progress percent70"><span>70%</span></div>
-                                <strong>JQuery</strong>
-                                </li>
-                                <li>
-                                <div class="progress percent95"><span>95%</span></div>
-                                <strong>PHP</strong>
-                                </li>
-                                <li>
-                                <div class="progress percent75"><span>75%</span></div>
-                                <strong>Wordpress</strong>
-                                </li>
-                                <li>
-                                <div class="progress percent90"><span>90%</span></div>
-                                <strong>Angular JS</strong>
-                                </li>
-                            </ul>
+        <span class="o">&lt;/</span><span class="nv">nav</span><span class="o">&gt;</span> <span class="o">&lt;!--</span> <span class="k">end</span> <span class="nv">header__nav</span><span class="o">-</span><span class="nv">wrap</span> <span class="o">--&gt;</span>
 
-                        </div>
+    <span class="o">&lt;/</span><span class="nv">header</span><span class="o">&gt;</span> <span class="o">&lt;!--</span> <span class="k">end</span> <span class="nv">s</span><span class="o">-</span><span class="nv">header</span> <span class="o">--&gt;</span>
 
-                    </div>
 
-<!-- end row -->  </div>
+    <span class="o">&lt;!--</span> <span class="nv">site</span> <span class="nv">content</span>
+    <span class="o">==================================================</span> <span class="o">--&gt;</span>
+    <span class="o">&lt;</span><span class="nv">div</span> <span class="nv">class</span><span class="o">=</span><span class="s2">&quot;</span><span class="s">s-content content</span><span class="s2">&quot;</span><span class="o">&gt;</span>
+        <span class="o">&lt;</span><span class="nv">main</span> <span class="nv">class</span><span class="o">=</span><span class="s2">&quot;</span><span class="s">row s-styles</span><span class="s2">&quot;</span><span class="o">&gt;</span>
+
+            <span class="o">&lt;!--</span> <span class="nv">styles</span>
+            <span class="o">==================================================</span> <span class="o">--&gt;</span>
+            <span class="o">&lt;</span><span class="nv">section</span> <span class="nv">id</span><span class="o">=</span><span class="s2">&quot;</span><span class="s">styles</span><span class="s2">&quot;</span> <span class="nv">class</span><span class="o">=</span><span class="s2">&quot;</span><span class="s">column large-full</span><span class="s2">&quot;</span><span class="o">&gt;</span>
+
+                <span class="o">&lt;</span><span class="nv">div</span> <span class="nv">class</span><span class="o">=</span><span class="s2">&quot;</span><span class="s">row section-intro add-bottom</span><span class="s2">&quot;</span><span class="o">&gt;</span>
+
+                    <span class="o">&lt;</span><span class="nv">div</span> <span class="nv">class</span><span class="o">=</span><span class="s2">&quot;</span><span class="s">column large-full</span><span class="s2">&quot;</span><span class="o">&gt;</span>
+
+                        <span class="o">&lt;</span><span class="nv">h1</span> <span class="nv">class</span><span class="o">=</span><span class="s2">&quot;</span><span class="s">display-1</span><span class="s2">&quot;</span><span class="o">&gt;</span><span class="nv">Style</span> <span class="nv">Guide</span>.<span class="o">&lt;/</span><span class="nv">h1</span><span class="o">&gt;</span>
+
+                        <span class="o">&lt;</span><span class="nv">p</span> <span class="nv">class</span><span class="o">=</span><span class="s2">&quot;</span><span class="s">lead</span><span class="s2">&quot;</span><span class="o">&gt;</span><span class="nv">Lorem</span> <span class="nv">ipsum</span> <span class="nv">Officia</span> <span class="nv">elit</span> <span class="nv">ad</span> <span class="nv">tempor</span> <span class="nv">dolore</span> <span class="nv">est</span> <span class="nv">ex</span> <span class="nv">incididunt</span> <span class="nv">incididunt</span> <span class="nv">occaecat</span> <span class="nv">culpa</span> <span class="nv">deserunt</span> 
+                        <span class="nv">sunt</span> <span class="nv">labore</span> <span class="nv">in</span> <span class="nv">cillum</span> <span class="nv">ullamco</span> <span class="nv">magna</span> <span class="nv">in</span> <span class="nv">Excepteur</span> <span class="nv">consequat</span> <span class="nv">in</span> <span class="nv">reprehenderit</span> <span class="nv">proident</span> <span class="nv">mollit</span> <span class="nv">incididunt</span> <span class="nv">officia</span> <span class="nv">commodo</span>.
+                        <span class="nv">Duis</span> <span class="nv">ea</span> <span class="nv">officia</span> <span class="nv">sed</span> <span class="nv">dolor</span> <span class="nv">pariatur</span> <span class="nv">enim</span> <span class="nv">dolore</span> <span class="nv">dolore</span> <span class="nv">quis</span> <span class="nv">incididunt</span> <span class="nv">nulla</span> <span class="nv">exercitation</span> <span class="nv">commodo</span> <span class="nv">veniam</span> <span class="nv">et</span> <span class="nv">ea</span> <span class="nv">incididunt</span>.
+                        <span class="o">&lt;/</span><span class="nv">p</span><span class="o">&gt;</span>
+
+                    <span class="o">&lt;/</span><span class="nv">div</span><span class="o">&gt;</span>
+
+                <span class="o">&lt;/</span><span class="nv">div</span><span class="o">&gt;</span>
+
+                <span class="o">&lt;</span><span class="nv">div</span> <span class="nv">class</span><span class="o">=</span><span class="s2">&quot;</span><span class="s">row</span><span class="s2">&quot;</span><span class="o">&gt;</span>
+
+                    <span class="o">&lt;</span><span class="nv">div</span> <span class="nv">class</span><span class="o">=</span><span class="s2">&quot;</span><span class="s">column large-6 tab-full</span><span class="s2">&quot;</span><span class="o">&gt;</span>
+
+                        <span class="o">&lt;</span><span class="nv">h3</span><span class="o">&gt;</span><span class="nv">Paragraph</span> <span class="nv">and</span> <span class="nv">Image</span><span class="o">&lt;/</span><span class="nv">h3</span><span class="o">&gt;</span>
+
+                        <span class="o">&lt;</span><span class="nv">p</span><span class="o">&gt;&lt;</span><span class="nv">a</span> <span class="nv">href</span><span class="o">=</span><span class="s2">&quot;</span><span class="s">#</span><span class="s2">&quot;</span><span class="o">&gt;&lt;</span><span class="nv">img</span> <span class="nv">width</span><span class="o">=</span><span class="s2">&quot;</span><span class="s">120</span><span class="s2">&quot;</span> <span class="nv">height</span><span class="o">=</span><span class="s2">&quot;</span><span class="s">120</span><span class="s2">&quot;</span> <span class="nv">class</span><span class="o">=</span><span class="s2">&quot;</span><span class="s">pull-left</span><span class="s2">&quot;</span> <span class="nv">alt</span><span class="o">=</span><span class="s2">&quot;</span><span class="s">sample-image</span><span class="s2">&quot;</span> <span class="nv">src</span><span class="o">=</span><span class="s2">&quot;</span><span class="s">images/sample-image.jpg</span><span class="s2">&quot;</span><span class="o">&gt;&lt;/</span><span class="nv">a</span><span class="o">&gt;</span>
+                        <span class="nv">Lorem</span> <span class="nv">ipsum</span> <span class="nv">dolor</span> <span class="nv">sit</span> <span class="nv">amet</span>, <span class="nv">consectetuer</span> <span class="nv">adipiscing</span> <span class="nv">elit</span>. <span class="nv">Donec</span> <span class="nv">libero</span>. <span class="nv">Suspendisse</span> <span class="nv">bibendum</span>.<span class="nv">Cras</span> <span class="nv">id</span> <span class="nv">urna</span>. <span class="nv">Morbi</span> 
+                        <span class="nv">tincidunt</span>, <span class="nv">orci</span> <span class="nv">ac</span> <span class="nv">convallis</span> <span class="nv">aliquam</span>, <span class="nv">lectus</span> <span class="nv">turpis</span> <span class="nv">varius</span> <span class="nv">lorem</span>, <span class="nv">eu</span> <span class="nv">posuere</span> <span class="nv">nunc</span> <span class="nv">justo</span> <span class="nv">tempus</span> <span class="nv">leo</span>. <span class="nv">Donec</span> <span class="nv">mattis</span>, 
+                        <span class="nv">purus</span> <span class="nv">nec</span> <span class="nv">placerat</span> <span class="nv">bibendum</span>, <span class="nv">dui</span> <span class="nv">pede</span> <span class="nv">condimentum</span> <span class="nv">odio</span>, <span class="nv">ac</span> <span class="nv">blandit</span> <span class="nv">ante</span> <span class="nv">orci</span> <span class="nv">ut</span> <span class="nv">diam</span>. <span class="nv">Cras</span> <span class="nv">fringilla</span> <span class="nv">magna</span>. 
+                        <span class="nv">Phasellus</span> <span class="nv">suscipit</span>, <span class="nv">leo</span> <span class="nv">a</span> <span class="nv">pharetra</span> <span class="nv">condimentum</span>, <span class="nv">lorem</span> <span class="nv">tellus</span> <span class="nv">eleifend</span> <span class="nv">magna</span>, <span class="nv">eget</span> <span class="nv">fringilla</span> <span class="nv">velit</span> <span class="nv">magna</span> <span class="nv">id</span> 
+                        <span class="nv">neque</span> <span class="nv">posuere</span> <span class="nv">nunc</span> <span class="nv">justo</span> <span class="nv">tempus</span> <span class="nv">leo</span>. <span class="o">&lt;/</span><span class="nv">p</span><span class="o">&gt;</span>
+
+                        <span class="o">&lt;</span><span class="nv">p</span><span class="o">&gt;</span>
+                        <span class="nv">Lorem</span> <span class="nv">ipsum</span> <span class="nv">dolor</span> <span class="nv">sit</span> <span class="nv">amet</span>, <span class="nv">consectetuer</span> <span class="nv">adipiscing</span> <span class="nv">elit</span>. <span class="nv">Donec</span> <span class="nv">libero</span>. <span class="nv">Suspendisse</span> <span class="nv">bibendum</span>. <span class="nv">Cras</span> <span class="nv">id</span> <span class="nv">urna</span>. 
+                        <span class="nv">Morbi</span> <span class="nv">tincidunt</span>, <span class="nv">orci</span> <span class="nv">ac</span> <span class="nv">convallis</span> <span class="nv">aliquam</span>, <span class="nv">lectus</span> <span class="nv">turpis</span> <span class="nv">varius</span> <span class="nv">lorem</span>, <span class="nv">eu</span> <span class="nv">posuere</span> <span class="nv">nunc</span> <span class="nv">justo</span> <span class="nv">tempus</span> <span class="nv">leo</span>. 
+                        <span class="nv">Donec</span> <span class="nv">mattis</span>, <span class="nv">purus</span> <span class="nv">nec</span> <span class="nv">placerat</span> <span class="nv">bibendum</span>, <span class="nv">dui</span> <span class="nv">pede</span> <span class="nv">condimentumodio</span>, <span class="nv">ac</span> <span class="nv">blandit</span> <span class="nv">ante</span> <span class="nv">orci</span> <span class="nv">ut</span> <span class="nv">diam</span>.  
+                        <span class="o">&lt;/</span><span class="nv">p</span><span class="o">&gt;</span>
+
+                        <span class="o">&lt;</span><span class="nv">p</span><span class="o">&gt;</span><span class="nv">A</span> <span class="o">&lt;</span><span class="nv">a</span> <span class="nv">href</span><span class="o">=</span><span class="s2">&quot;</span><span class="s">#</span><span class="s2">&quot;</span><span class="o">&gt;</span><span class="nv">link</span><span class="o">&lt;/</span><span class="nv">a</span><span class="o">&gt;</span>,
+                        <span class="o">&lt;</span><span class="nv">abbr</span> <span class="nv">title</span><span class="o">=</span><span class="s2">&quot;</span><span class="s">this really isn&#39;t a very good description</span><span class="s2">&quot;</span><span class="o">&gt;</span><span class="nv">abbrebation</span><span class="o">&lt;/</span><span class="nv">abbr</span><span class="o">&gt;</span>,
+                        <span class="o">&lt;</span><span class="nv">strong</span><span class="o">&gt;</span><span class="nv">strong</span> <span class="nv">text</span><span class="o">&lt;/</span><span class="nv">strong</span><span class="o">&gt;</span>,
+                        <span class="o">&lt;</span><span class="nv">em</span><span class="o">&gt;</span><span class="nv">em</span> <span class="nv">text</span><span class="o">&lt;/</span><span class="nv">em</span><span class="o">&gt;</span>,
+                        <span class="o">&lt;</span><span class="nv">del</span><span class="o">&gt;</span><span class="nv">deleted</span> <span class="nv">text</span><span class="o">&lt;/</span><span class="nv">del</span><span class="o">&gt;</span>, <span class="nv">and</span>
+                        <span class="o">&lt;</span><span class="nv">mark</span><span class="o">&gt;</span><span class="nv">this</span> <span class="nv">is</span> <span class="nv">a</span> <span class="nv">mark</span> <span class="nv">text</span>.<span class="o">&lt;/</span><span class="nv">mark</span><span class="o">&gt;</span>
+                        <span class="o">&lt;</span><span class="nv">code</span><span class="o">&gt;</span>.<span class="nv">code</span><span class="o">&lt;/</span><span class="nv">code</span><span class="o">&gt;</span>
+                        <span class="o">&lt;/</span><span class="nv">p</span><span class="o">&gt;</span>
+
+                    <span class="o">&lt;/</span><span class="nv">div</span><span class="o">&gt;</span>
+
+                    <span class="o">&lt;</span><span class="nv">div</span> <span class="nv">class</span><span class="o">=</span><span class="s2">&quot;</span><span class="s">column large-6 tab-full</span><span class="s2">&quot;</span><span class="o">&gt;</span>
+
+                        <span class="o">&lt;</span><span class="nv">h3</span><span class="o">&gt;</span><span class="nv">Drop</span> <span class="nv">Caps</span><span class="o">&lt;/</span><span class="nv">h3</span><span class="o">&gt;</span>
+
+                        <span class="o">&lt;</span><span class="nv">p</span> <span class="nv">class</span><span class="o">=</span><span class="s2">&quot;</span><span class="s">drop-cap</span><span class="s2">&quot;</span><span class="o">&gt;</span><span class="nv">Far</span> <span class="nv">far</span> <span class="nv">away</span>, <span class="nv">behind</span> <span class="nv">the</span> <span class="nv">word</span> <span class="nv">mountains</span>, <span class="nv">far</span> <span class="nv">from</span> <span class="nv">the</span> <span class="nv">countries</span> <span class="nv">Vokalia</span> <span class="nv">and</span> <span class="nv">Consonantia</span>,
+                        <span class="nv">there</span> <span class="nv">live</span> <span class="nv">the</span> <span class="nv">blind</span> <span class="nv">texts</span>. <span class="nv">Separated</span> <span class="nv">they</span> <span class="nv">live</span> <span class="nv">in</span> <span class="nv">Bookmarksgrove</span> <span class="nv">right</span> <span class="nv">at</span> <span class="nv">the</span> <span class="nv">coast</span> <span class="nv">of</span> <span class="nv">the</span>
+                        <span class="nv">Semantics</span>, <span class="nv">a</span> <span class="nv">large</span> <span class="nv">language</span> <span class="nv">ocean</span>. <span class="nv">A</span> <span class="nv">small</span> <span class="nv">river</span> <span class="nv">named</span> <span class="nv">Duden</span> <span class="nv">flows</span> <span class="nv">by</span> <span class="nv">their</span> <span class="nv">place</span> <span class="nv">and</span> <span class="nv">supplies</span> <span class="nv">it</span> <span class="nv">with</span> <span class="nv">the</span> 
+                        <span class="nv">necessary</span> <span class="nv">regelialia</span>. <span class="nv">Morbi</span> <span class="nv">tincidunt</span>, <span class="nv">orci</span> <span class="nv">ac</span> <span class="nv">convallis</span> <span class="nv">aliquam</span>, <span class="nv">lectus</span> <span class="nv">turpis</span> <span class="nv">varius</span> <span class="nv">lorem</span>, 
+                        <span class="nv">euposuere</span> <span class="nv">nunc</span> <span class="nv">justo</span> <span class="nv">tempus</span> <span class="nv">leo</span>. <span class="nv">Donec</span> <span class="nv">mattis</span>, <span class="nv">purus</span> <span class="nv">nec</span> <span class="nv">placerat</span> <span class="nv">bibendum</span>, <span class="nv">dui</span> <span class="nv">pede</span> <span class="nv">condimentum</span> <span class="nv">odio</span>, 
+                        <span class="nv">ac</span> <span class="nv">blandit</span> <span class="nv">ante</span> <span class="nv">orci</span> <span class="nv">ut</span> <span class="nv">diam</span>. <span class="nv">Cras</span> <span class="nv">fringilla</span> <span class="nv">magna</span>. <span class="nv">Phasellus</span> <span class="nv">suscipit</span>, <span class="nv">leo</span> <span class="nv">a</span> <span class="nv">pharetra</span> <span class="nv">condimentum</span>, 
+                        <span class="nv">lorem</span> <span class="nv">tellus</span> <span class="nv">eleifend</span> <span class="nv">magna</span>, <span class="nv">eget</span> <span class="nv">fringilla</span> <span class="nv">velit</span> <span class="nv">magna</span> <span class="nv">id</span> <span class="nv">neque</span>.
+                        <span class="o">&lt;/</span><span class="nv">p</span><span class="o">&gt;</span>
+
+                        <span class="o">&lt;</span><span class="nv">h3</span><span class="o">&gt;</span><span class="nv">Small</span> <span class="nv">Print</span><span class="o">&lt;/</span><span class="nv">h3</span><span class="o">&gt;</span>
+
+                        <span class="o">&lt;</span><span class="nv">p</span><span class="o">&gt;</span><span class="nv">Buy</span> <span class="nv">one</span> <span class="nv">widget</span>, <span class="nv">get</span> <span class="nv">one</span> <span class="nv">free</span><span class="o">!</span>
+                        <span class="o">&lt;</span><span class="nv">small</span><span class="o">&gt;</span><span class="ss">(</span><span class="k">While</span> <span class="nv">supplies</span> <span class="nv">last</span>. <span class="nv">Offer</span> <span class="nv">expires</span> <span class="nv">on</span> <span class="nv">the</span> <span class="nv">vernal</span> <span class="nv">equinox</span>. <span class="nv">Not</span> <span class="nv">valid</span> <span class="nv">in</span> <span class="nv">Ohio</span>.<span class="ss">)</span><span class="o">&lt;/</span><span class="nv">small</span><span class="o">&gt;</span>
+                        <span class="o">&lt;/</span><span class="nv">p</span><span class="o">&gt;</span>
+
+                    <span class="o">&lt;/</span><span class="nv">div</span><span class="o">&gt;</span>
+
+                <span class="o">&lt;/</span><span class="nv">div</span><span class="o">&gt;</span> <span class="o">&lt;!--</span> <span class="k">end</span> <span class="nv">row</span> <span class="o">--&gt;</span>
+
+                <span class="o">&lt;</span><span class="nv">div</span> <span class="nv">class</span><span class="o">=</span><span class="s2">&quot;</span><span class="s">row</span><span class="s2">&quot;</span><span class="o">&gt;</span>
+
+                    <span class="o">&lt;</span><span class="nv">div</span> <span class="nv">class</span><span class="o">=</span><span class="s2">&quot;</span><span class="s">column large-6 tab-full</span><span class="s2">&quot;</span><span class="o">&gt;</span>
+
+                        <span class="o">&lt;</span><span class="nv">h3</span><span class="o">&gt;</span><span class="nv">Pull</span> <span class="nv">Quotes</span><span class="o">&lt;/</span><span class="nv">h3</span><span class="o">&gt;</span>
+
+                        <span class="o">&lt;</span><span class="nv">aside</span> <span class="nv">class</span><span class="o">=</span><span class="s2">&quot;</span><span class="s">pull-quote</span><span class="s2">&quot;</span><span class="o">&gt;</span>
+                            <span class="o">&lt;</span><span class="nv">blockquote</span><span class="o">&gt;</span>
+                            <span class="o">&lt;</span><span class="nv">p</span><span class="o">&gt;</span>
+                            <span class="nv">When</span> <span class="nv">you</span> <span class="nv">look</span> <span class="nv">in</span> <span class="nv">the</span> <span class="nv">eyes</span> <span class="nv">of</span> <span class="nv">grace</span>, <span class="nv">when</span> <span class="nv">you</span> <span class="nv">meet</span> <span class="nv">grace</span>, 
+                            <span class="nv">when</span> <span class="nv">you</span> <span class="nv">embrace</span> <span class="nv">grace</span>, <span class="nv">when</span> <span class="nv">you</span> <span class="nv">see</span> <span class="nv">the</span> <span class="nv">nail</span> <span class="nv">prints</span> <span class="nv">in</span> 
+                            <span class="nv">grace</span>’<span class="nv">s</span> <span class="nv">hands</span> <span class="nv">and</span> <span class="nv">the</span> <span class="nv">fire</span> <span class="nv">in</span> <span class="nv">his</span> <span class="nv">eyes</span>, <span class="nv">when</span> <span class="nv">you</span> <span class="nv">feel</span> <span class="nv">his</span> 
+                            <span class="nv">relentless</span> <span class="nv">love</span> <span class="k">for</span> <span class="nv">you</span> <span class="o">-</span> <span class="nv">it</span> <span class="nv">will</span> <span class="nv">not</span> <span class="nv">motivate</span> <span class="nv">you</span> <span class="nv">to</span> <span class="nv">sin</span>. 
+                            <span class="nv">It</span> <span class="nv">will</span> <span class="nv">motivate</span> <span class="nv">you</span> <span class="nv">to</span> <span class="nv">righteousness</span>.
+                            <span class="o">&lt;/</span><span class="nv">p</span><span class="o">&gt;</span>
+                            <span class="o">&lt;/</span><span class="nv">blockquote</span><span class="o">&gt;</span>
+                        <span class="o">&lt;/</span><span class="nv">aside</span><span class="o">&gt;</span>
+
+                    <span class="o">&lt;/</span><span class="nv">div</span><span class="o">&gt;</span>
+
+                    <span class="o">&lt;</span><span class="nv">div</span> <span class="nv">class</span><span class="o">=</span><span class="s2">&quot;</span><span class="s">column large-6 tab-full</span><span class="s2">&quot;</span><span class="o">&gt;</span>
+
+                        <span class="o">&lt;</span><span class="nv">h3</span><span class="o">&gt;</span><span class="nv">Block</span> <span class="nv">Quotes</span><span class="o">&lt;/</span><span class="nv">h3</span><span class="o">&gt;</span>
+
+                        <span class="o">&lt;</span><span class="nv">blockquote</span> <span class="nv">cite</span><span class="o">=</span><span class="s2">&quot;</span><span class="s">http://where-i-got-my-info-from.com</span><span class="s2">&quot;</span><span class="o">&gt;</span>
+                            <span class="o">&lt;</span><span class="nv">p</span><span class="o">&gt;</span>
+                            <span class="k">For</span> <span class="nv">God</span> <span class="nv">so</span> <span class="nv">loved</span> <span class="nv">the</span> <span class="nv">world</span>, <span class="nv">that</span> <span class="nv">he</span> <span class="nv">gave</span> <span class="nv">his</span> <span class="nv">only</span> <span class="nv">Son</span>, <span class="nv">that</span> <span class="nv">whoever</span> <span class="nv">believes</span> <span class="nv">in</span> 
+                            <span class="nv">him</span> <span class="nv">should</span> <span class="nv">not</span> <span class="nv">perish</span> <span class="nv">but</span> <span class="nv">have</span> <span class="nv">eternal</span> <span class="nv">life</span>. <span class="k">For</span> <span class="nv">God</span> <span class="nv">did</span> <span class="nv">not</span> <span class="k">send</span> <span class="nv">his</span> <span class="nv">Son</span> <span class="nv">into</span> 
+                            <span class="nv">the</span> <span class="nv">world</span> <span class="nv">to</span> <span class="nv">condemn</span> <span class="nv">the</span> <span class="nv">world</span>, <span class="nv">but</span> <span class="nv">in</span> <span class="nv">order</span> <span class="nv">that</span> <span class="nv">the</span> <span class="nv">world</span> <span class="nv">might</span> <span class="nv">be</span> 
+                            <span class="nv">saved</span> <span class="nv">through</span> <span class="nv">him</span>.
+                            <span class="o">&lt;/</span><span class="nv">p</span><span class="o">&gt;</span>
+                            <span class="o">&lt;</span><span class="nv">cite</span><span class="o">&gt;</span>
+                                <span class="o">&lt;</span><span class="nv">a</span> <span class="nv">href</span><span class="o">=</span><span class="s2">&quot;</span><span class="s">#0</span><span class="s2">&quot;</span><span class="o">&gt;</span><span class="nv">John</span> <span class="mi">3</span>:<span class="mi">16</span><span class="o">-</span><span class="mi">17</span> <span class="nv">ESV</span><span class="o">&lt;/</span><span class="nv">a</span><span class="o">&gt;</span>
+                            <span class="o">&lt;/</span><span class="nv">cite</span><span class="o">&gt;</span>
+                        <span class="o">&lt;/</span><span class="nv">blockquote</span><span class="o">&gt;</span>
+
+                        <span class="o">&lt;</span><span class="nv">blockquote</span><span class="o">&gt;</span>
+                        <span class="o">&lt;</span><span class="nv">p</span><span class="o">&gt;</span><span class="nv">There</span> <span class="nv">is</span> <span class="nv">a</span> <span class="nv">God</span><span class="o">-</span><span class="nv">shaped</span> <span class="nv">vacuum</span> <span class="nv">in</span> <span class="nv">the</span> <span class="nv">heart</span> <span class="nv">of</span> <span class="nv">each</span> <span class="nv">man</span> <span class="nv">which</span> <span class="nv">cannot</span> <span class="nv">be</span> <span class="nv">satisfied</span> 
+                        <span class="nv">by</span> <span class="nv">any</span> <span class="nv">created</span> <span class="nv">thing</span> <span class="nv">but</span> <span class="nv">only</span> <span class="nv">by</span> <span class="nv">God</span> <span class="nv">the</span> <span class="nv">Creator</span>.<span class="o">&lt;/</span><span class="nv">p</span><span class="o">&gt;</span>
+                        <span class="o">&lt;</span><span class="nv">cite</span><span class="o">&gt;</span><span class="nv">Blaise</span> <span class="nv">Pascal</span><span class="o">&lt;/</span><span class="nv">cite</span><span class="o">&gt;</span>
+                        <span class="o">&lt;/</span><span class="nv">blockquote</span><span class="o">&gt;</span>
+
+                    <span class="o">&lt;/</span><span class="nv">div</span><span class="o">&gt;</span>
+
+                <span class="o">&lt;/</span><span class="nv">div</span><span class="o">&gt;</span> <span class="o">&lt;!--</span> <span class="k">end</span> <span class="nv">row</span> <span class="o">--&gt;</span>
+
+
+                <span class="o">&lt;</span><span class="nv">div</span> <span class="nv">class</span><span class="o">=</span><span class="s2">&quot;</span><span class="s">row half-bottom</span><span class="s2">&quot;</span><span class="o">&gt;</span>
+
+                    <span class="o">&lt;</span><span class="nv">div</span> <span class="nv">class</span><span class="o">=</span><span class="s2">&quot;</span><span class="s">column large-6 tab-full</span><span class="s2">&quot;</span><span class="o">&gt;</span>
+
+                        <span class="o">&lt;</span><span class="nv">h3</span><span class="o">&gt;</span><span class="nv">Example</span> <span class="nv">Lists</span><span class="o">&lt;/</span><span class="nv">h3</span><span class="o">&gt;</span>
+
+                        <span class="o">&lt;</span><span class="nv">ol</span><span class="o">&gt;</span>
+                            <span class="o">&lt;</span><span class="nv">li</span><span class="o">&gt;</span><span class="nv">Here</span> <span class="nv">is</span> <span class="nv">an</span> <span class="nv">example</span><span class="o">&lt;/</span><span class="nv">li</span><span class="o">&gt;</span>
+                            <span class="o">&lt;</span><span class="nv">li</span><span class="o">&gt;</span><span class="nv">of</span> <span class="nv">an</span> <span class="nv">ordered</span> <span class="nv">list</span>.<span class="o">&lt;/</span><span class="nv">li</span><span class="o">&gt;</span>
+                            <span class="o">&lt;</span><span class="nv">li</span><span class="o">&gt;</span><span class="nv">A</span> <span class="nv">parent</span> <span class="nv">list</span> <span class="nv">item</span>.
+                                <span class="o">&lt;</span><span class="nv">ul</span><span class="o">&gt;</span>
+                                    <span class="o">&lt;</span><span class="nv">li</span><span class="o">&gt;</span><span class="nv">one</span><span class="o">&lt;/</span><span class="nv">li</span><span class="o">&gt;</span>
+                                    <span class="o">&lt;</span><span class="nv">li</span><span class="o">&gt;</span><span class="nv">two</span><span class="o">&lt;/</span><span class="nv">li</span><span class="o">&gt;</span>
+                                    <span class="o">&lt;</span><span class="nv">li</span><span class="o">&gt;</span><span class="nv">three</span><span class="o">&lt;/</span><span class="nv">li</span><span class="o">&gt;</span>
+                                <span class="o">&lt;/</span><span class="nv">ul</span><span class="o">&gt;</span>
+                                <span class="o">&lt;/</span><span class="nv">li</span><span class="o">&gt;</span>
+                                <span class="o">&lt;</span><span class="nv">li</span><span class="o">&gt;</span><span class="nv">A</span> <span class="nv">list</span> <span class="nv">item</span>.<span class="o">&lt;/</span><span class="nv">li</span><span class="o">&gt;</span>
+                            <span class="o">&lt;/</span><span class="nv">ol</span><span class="o">&gt;</span>
+
+                        <span class="o">&lt;</span><span class="nv">ul</span> <span class="nv">class</span><span class="o">=</span><span class="s2">&quot;</span><span class="s">disc</span><span class="s2">&quot;</span><span class="o">&gt;</span>
+                            <span class="o">&lt;</span><span class="nv">li</span><span class="o">&gt;</span><span class="nv">Here</span> <span class="nv">is</span> <span class="nv">an</span> <span class="nv">example</span><span class="o">&lt;/</span><span class="nv">li</span><span class="o">&gt;</span>
+                            <span class="o">&lt;</span><span class="nv">li</span><span class="o">&gt;</span><span class="nv">of</span> <span class="nv">an</span> <span class="nv">unordered</span> <span class="nv">list</span>.<span class="o">&lt;/</span><span class="nv">li</span><span class="o">&gt;</span>
+                        <span class="o">&lt;/</span><span class="nv">ul</span><span class="o">&gt;</span>
+
+                        <span class="o">&lt;</span><span class="nv">h3</span><span class="o">&gt;</span><span class="nv">Definition</span> <span class="nv">Lists</span><span class="o">&lt;/</span><span class="nv">h3</span><span class="o">&gt;</span>
+
+                        <span class="o">&lt;</span><span class="nv">h5</span><span class="o">&gt;</span><span class="nv">a</span><span class="ss">)</span> <span class="nv">Multi</span><span class="o">-</span><span class="nv">line</span> <span class="nv">Definitions</span> <span class="ss">(</span><span class="nv">default</span><span class="ss">)</span> <span class="o">&lt;/</span><span class="nv">h5</span><span class="o">&gt;</span>
+
+                        <span class="o">&lt;</span><span class="nv">dl</span><span class="o">&gt;</span>
+                            <span class="o">&lt;</span><span class="nv">dt</span><span class="o">&gt;&lt;</span><span class="nv">strong</span><span class="o">&gt;</span><span class="nv">This</span> <span class="nv">is</span> <span class="nv">a</span> <span class="nv">term</span><span class="o">&lt;/</span><span class="nv">strong</span><span class="o">&gt;&lt;/</span><span class="nv">dt</span><span class="o">&gt;</span>
+                                <span class="o">&lt;</span><span class="nv">dd</span><span class="o">&gt;</span><span class="nv">this</span> <span class="nv">is</span> <span class="nv">the</span> <span class="nv">definition</span> <span class="nv">of</span> <span class="nv">that</span> <span class="nv">term</span>, <span class="nv">which</span> <span class="nv">both</span> <span class="nv">live</span> <span class="nv">in</span> <span class="nv">a</span> <span class="o">&lt;</span><span class="nv">code</span><span class="o">&gt;</span><span class="nv">dl</span><span class="o">&lt;/</span><span class="nv">code</span><span class="o">&gt;</span>.<span class="o">&lt;/</span><span class="nv">dd</span><span class="o">&gt;</span>
+                            <span class="o">&lt;</span><span class="nv">dt</span><span class="o">&gt;&lt;</span><span class="nv">strong</span><span class="o">&gt;</span><span class="nv">Another</span> <span class="nv">Term</span><span class="o">&lt;/</span><span class="nv">strong</span><span class="o">&gt;&lt;/</span><span class="nv">dt</span><span class="o">&gt;</span>
+                                <span class="o">&lt;</span><span class="nv">dd</span><span class="o">&gt;</span><span class="nv">And</span> <span class="nv">it</span> <span class="nv">gets</span> <span class="nv">a</span> <span class="nv">definition</span> <span class="nv">too</span>, <span class="nv">which</span> <span class="nv">is</span> <span class="nv">this</span> <span class="nv">line</span><span class="o">&lt;/</span><span class="nv">dd</span><span class="o">&gt;</span>
+                                <span class="o">&lt;</span><span class="nv">dd</span><span class="o">&gt;</span><span class="nv">This</span> <span class="nv">is</span> <span class="nv">a</span> <span class="mi">2</span><span class="o">&lt;</span><span class="nv">sup</span><span class="o">&gt;</span><span class="nv">nd</span><span class="o">&lt;/</span><span class="nv">sup</span><span class="o">&gt;</span> <span class="nv">definition</span> <span class="k">for</span> <span class="nv">a</span> <span class="nv">single</span> <span class="nv">term</span>. <span class="nv">A</span> <span class="o">&lt;</span><span class="nv">code</span><span class="o">&gt;</span><span class="nv">dt</span><span class="o">&lt;/</span><span class="nv">code</span><span class="o">&gt;</span> <span class="nv">may</span> <span class="nv">be</span> <span class="nv">followed</span> <span class="nv">by</span> <span class="nv">multiple</span> <span class="o">&lt;</span><span class="nv">code</span><span class="o">&gt;</span><span class="nv">dd</span><span class="o">&lt;/</span><span class="nv">code</span><span class="o">&gt;</span><span class="nv">s</span>.<span class="o">&lt;/</span><span class="nv">dd</span><span class="o">&gt;</span>
+                        <span class="o">&lt;/</span><span class="nv">dl</span><span class="o">&gt;</span>
+
+                    <span class="o">&lt;/</span><span class="nv">div</span><span class="o">&gt;</span>
+
+                    <span class="o">&lt;</span><span class="nv">div</span> <span class="nv">class</span><span class="o">=</span><span class="s2">&quot;</span><span class="s">column large-6 tab-full</span><span class="s2">&quot;</span><span class="o">&gt;</span>
+
+                        <span class="o">&lt;</span><span class="nv">h3</span><span class="o">&gt;</span><span class="nv">Buttons</span><span class="o">&lt;/</span><span class="nv">h3</span><span class="o">&gt;</span>
+
+                        <span class="o">&lt;</span><span class="nv">p</span><span class="o">&gt;</span>
+                            <span class="o">&lt;</span><span class="nv">a</span> <span class="nv">class</span><span class="o">=</span><span class="s2">&quot;</span><span class="s">btn btn--primary full-width</span><span class="s2">&quot;</span> <span class="nv">href</span><span class="o">=</span><span class="s2">&quot;</span><span class="s">#0</span><span class="s2">&quot;</span><span class="o">&gt;</span><span class="nv">Primary</span> <span class="nv">Button</span><span class="o">&lt;/</span><span class="nv">a</span><span class="o">&gt;</span>
+                            <span class="o">&lt;</span><span class="nv">a</span> <span class="nv">class</span><span class="o">=</span><span class="s2">&quot;</span><span class="s">btn full-width</span><span class="s2">&quot;</span> <span class="nv">href</span><span class="o">=</span><span class="s2">&quot;</span><span class="s">#0</span><span class="s2">&quot;</span><span class="o">&gt;</span><span class="nv">Default</span> <span class="nv">Button</span><span class="o">&lt;/</span><span class="nv">a</span><span class="o">&gt;</span>
+                            <span class="o">&lt;</span><span class="nv">a</span> <span class="nv">class</span><span class="o">=</span><span class="s2">&quot;</span><span class="s">btn btn--stroke full-width</span><span class="s2">&quot;</span> <span class="nv">href</span><span class="o">=</span><span class="s2">&quot;</span><span class="s">#0</span><span class="s2">&quot;</span><span class="o">&gt;</span><span class="nv">Stroke</span> <span class="nv">Button</span><span class="o">&lt;/</span><span class="nv">a</span><span class="o">&gt;</span>
+                        <span class="o">&lt;/</span><span class="nv">p</span><span class="o">&gt;</span>
+
+                        <span class="o">&lt;</span><span class="nv">h3</span><span class="o">&gt;</span><span class="nv">Skill</span> <span class="nv">Bars</span><span class="o">&lt;/</span><span class="nv">h3</span><span class="o">&gt;</span>
+
+                        <span class="o">&lt;</span><span class="nv">ul</span> <span class="nv">class</span><span class="o">=</span><span class="s2">&quot;</span><span class="s">skill-bars</span><span class="s2">&quot;</span><span class="o">&gt;</span>
+                            <span class="o">&lt;</span><span class="nv">li</span><span class="o">&gt;</span>
+                            <span class="o">&lt;</span><span class="nv">div</span> <span class="nv">class</span><span class="o">=</span><span class="s2">&quot;</span><span class="s">progress percent90</span><span class="s2">&quot;</span><span class="o">&gt;&lt;</span><span class="nv">span</span><span class="o">&gt;</span><span class="mi">90</span><span class="o">%&lt;/</span><span class="nv">span</span><span class="o">&gt;&lt;/</span><span class="nv">div</span><span class="o">&gt;</span>
+                            <span class="o">&lt;</span><span class="nv">strong</span><span class="o">&gt;</span><span class="nv">HTML5</span><span class="o">&lt;/</span><span class="nv">strong</span><span class="o">&gt;</span>
+                            <span class="o">&lt;/</span><span class="nv">li</span><span class="o">&gt;</span>
+                            <span class="o">&lt;</span><span class="nv">li</span><span class="o">&gt;</span>
+                            <span class="o">&lt;</span><span class="nv">div</span> <span class="nv">class</span><span class="o">=</span><span class="s2">&quot;</span><span class="s">progress percent85</span><span class="s2">&quot;</span><span class="o">&gt;&lt;</span><span class="nv">span</span><span class="o">&gt;</span><span class="mi">85</span><span class="o">%&lt;/</span><span class="nv">span</span><span class="o">&gt;&lt;/</span><span class="nv">div</span><span class="o">&gt;</span>
+                            <span class="o">&lt;</span><span class="nv">strong</span><span class="o">&gt;</span><span class="nv">CSS3</span><span class="o">&lt;/</span><span class="nv">strong</span><span class="o">&gt;</span>
+                            <span class="o">&lt;/</span><span class="nv">li</span><span class="o">&gt;</span>
+                            <span class="o">&lt;</span><span class="nv">li</span><span class="o">&gt;</span>
+                            <span class="o">&lt;</span><span class="nv">div</span> <span class="nv">class</span><span class="o">=</span><span class="s2">&quot;</span><span class="s">progress percent70</span><span class="s2">&quot;</span><span class="o">&gt;&lt;</span><span class="nv">span</span><span class="o">&gt;</span><span class="mi">70</span><span class="o">%&lt;/</span><span class="nv">span</span><span class="o">&gt;&lt;/</span><span class="nv">div</span><span class="o">&gt;</span>
+                            <span class="o">&lt;</span><span class="nv">strong</span><span class="o">&gt;</span><span class="nv">JQuery</span><span class="o">&lt;/</span><span class="nv">strong</span><span class="o">&gt;</span>
+                            <span class="o">&lt;/</span><span class="nv">li</span><span class="o">&gt;</span>
+                            <span class="o">&lt;</span><span class="nv">li</span><span class="o">&gt;</span>
+                            <span class="o">&lt;</span><span class="nv">div</span> <span class="nv">class</span><span class="o">=</span><span class="s2">&quot;</span><span class="s">progress percent95</span><span class="s2">&quot;</span><span class="o">&gt;&lt;</span><span class="nv">span</span><span class="o">&gt;</span><span class="mi">95</span><span class="o">%&lt;/</span><span class="nv">span</span><span class="o">&gt;&lt;/</span><span class="nv">div</span><span class="o">&gt;</span>
+                            <span class="o">&lt;</span><span class="nv">strong</span><span class="o">&gt;</span><span class="nv">PHP</span><span class="o">&lt;/</span><span class="nv">strong</span><span class="o">&gt;</span>
+                            <span class="o">&lt;/</span><span class="nv">li</span><span class="o">&gt;</span>
+                            <span class="o">&lt;</span><span class="nv">li</span><span class="o">&gt;</span>
+                            <span class="o">&lt;</span><span class="nv">div</span> <span class="nv">class</span><span class="o">=</span><span class="s2">&quot;</span><span class="s">progress percent75</span><span class="s2">&quot;</span><span class="o">&gt;&lt;</span><span class="nv">span</span><span class="o">&gt;</span><span class="mi">75</span><span class="o">%&lt;/</span><span class="nv">span</span><span class="o">&gt;&lt;/</span><span class="nv">div</span><span class="o">&gt;</span>
+                            <span class="o">&lt;</span><span class="nv">strong</span><span class="o">&gt;</span><span class="nv">Wordpress</span><span class="o">&lt;/</span><span class="nv">strong</span><span class="o">&gt;</span>
+                            <span class="o">&lt;/</span><span class="nv">li</span><span class="o">&gt;</span>
+                            <span class="o">&lt;</span><span class="nv">li</span><span class="o">&gt;</span>
+                            <span class="o">&lt;</span><span class="nv">div</span> <span class="nv">class</span><span class="o">=</span><span class="s2">&quot;</span><span class="s">progress percent90</span><span class="s2">&quot;</span><span class="o">&gt;&lt;</span><span class="nv">span</span><span class="o">&gt;</span><span class="mi">90</span><span class="o">%&lt;/</span><span class="nv">span</span><span class="o">&gt;&lt;/</span><span class="nv">div</span><span class="o">&gt;</span>
+                            <span class="o">&lt;</span><span class="nv">strong</span><span class="o">&gt;</span><span class="nv">Angular</span> <span class="nv">JS</span><span class="o">&lt;/</span><span class="nv">strong</span><span class="o">&gt;</span>
+                            <span class="o">&lt;/</span><span class="nv">li</span><span class="o">&gt;</span>
+                        <span class="o">&lt;/</span><span class="nv">ul</span><span class="o">&gt;</span>
+
+                    <span class="o">&lt;/</span><span class="nv">div</span><span class="o">&gt;</span>
+
+                <span class="o">&lt;/</span><span class="nv">div</span><span class="o">&gt;</span> <span class="o">&lt;!--</span> <span class="k">end</span> <span class="nv">row</span> <span class="o">--&gt;</span>
+
+                <span class="o">&lt;</span><span class="nv">div</span> <span class="nv">class</span><span class="o">=</span><span class="s2">&quot;</span><span class="s">row half-bottom</span><span class="s2">&quot;</span><span class="o">&gt;</span>
+
+                    <span class="o">&lt;</span><span class="nv">div</span> <span class="nv">class</span><span class="o">=</span><span class="s2">&quot;</span><span class="s">column large-6 tab-full</span><span class="s2">&quot;</span><span class="o">&gt;</span>
+
+                        <span class="o">&lt;</span><span class="nv">h1</span><span class="o">&gt;</span><span class="nv">H1</span> <span class="nv">Heading</span><span class="o">&lt;/</span><span class="nv">h1</span><span class="o">&gt;</span>
+                        <span class="o">&lt;</span><span class="nv">p</span><span class="o">&gt;</span><span class="nv">Doloremque</span> <span class="nv">dolor</span> <span class="nv">voluptas</span> <span class="nv">est</span> <span class="nv">sequi</span> <span class="nv">omnis</span>. <span class="nv">Pariatur</span> <span class="nv">ut</span> <span class="nv">aut</span>. <span class="nv">Sed</span> <span class="nv">enim</span> <span class="nv">tempora</span> <span class="nv">qui</span> <span class="nv">veniam</span> <span class="nv">qui</span> <span class="nv">cum</span> <span class="nv">vel</span>. 
+                        <span class="nv">Voluptas</span> <span class="nv">odit</span> <span class="nv">at</span> <span class="nv">vitae</span> <span class="nv">minima</span>. <span class="nv">In</span> <span class="nv">assumenda</span> <span class="nv">ut</span>. <span class="nv">Voluptatem</span> <span class="nv">totam</span> <span class="nv">impedit</span> <span class="nv">accusantium</span> <span class="nv">reiciendis</span> <span class="nv">excepturi</span> <span class="nv">aut</span> <span class="nv">qui</span> <span class="nv">accusamus</span> <span class="nv">praesentium</span>.<span class="o">&lt;/</span><span class="nv">p</span><span class="o">&gt;</span>
+
+                        <span class="o">&lt;</span><span class="nv">h2</span><span class="o">&gt;</span><span class="nv">H2</span> <span class="nv">Heading</span><span class="o">&lt;/</span><span class="nv">h2</span><span class="o">&gt;</span>
+                        <span class="o">&lt;</span><span class="nv">p</span><span class="o">&gt;</span><span class="nv">Doloremque</span> <span class="nv">dolor</span> <span class="nv">voluptas</span> <span class="nv">est</span> <span class="nv">sequi</span> <span class="nv">omnis</span>. <span class="nv">Pariatur</span> <span class="nv">ut</span> <span class="nv">aut</span>. <span class="nv">Sed</span> <span class="nv">enim</span> <span class="nv">tempora</span> <span class="nv">qui</span> <span class="nv">veniam</span> <span class="nv">qui</span> <span class="nv">cum</span> <span class="nv">vel</span>. 
+                        <span class="nv">Voluptas</span> <span class="nv">odit</span> <span class="nv">at</span> <span class="nv">vitae</span> <span class="nv">minima</span>. <span class="nv">In</span> <span class="nv">assumenda</span> <span class="nv">ut</span>. <span class="nv">Voluptatem</span> <span class="nv">totam</span> <span class="nv">impedit</span> <span class="nv">accusantium</span> <span class="nv">reiciendis</span> <span class="nv">excepturi</span> <span class="nv">aut</span> <span class="nv">qui</span> <span class="nv">accusamus</span> <span class="nv">praesentium</span>.<span class="o">&lt;/</span><span class="nv">p</span><span class="o">&gt;</span>
+
+                        <span class="o">&lt;</span><span class="nv">h3</span><span class="o">&gt;</span><span class="nv">H3</span> <span class="nv">Heading</span><span class="o">&lt;/</span><span class="nv">h3</span><span class="o">&gt;</span>
+                        <span class="o">&lt;</span><span class="nv">p</span><span class="o">&gt;</span><span class="nv">Doloremque</span> <span class="nv">dolor</span> <span class="nv">voluptas</span> <span class="nv">est</span> <span class="nv">sequi</span> <span class="nv">omnis</span>. <span class="nv">Pariatur</span> <span class="nv">ut</span> <span class="nv">aut</span>. <span class="nv">Sed</span> <span class="nv">enim</span> <span class="nv">tempora</span> <span class="nv">qui</span> <span class="nv">veniam</span> <span class="nv">qui</span> <span class="nv">cum</span> <span class="nv">vel</span>. 
+                        <span class="nv">Voluptas</span> <span class="nv">odit</span> <span class="nv">at</span> <span class="nv">vitae</span> <span class="nv">minima</span>. <span class="nv">In</span> <span class="nv">assumenda</span> <span class="nv">ut</span>. <span class="nv">Voluptatem</span> <span class="nv">totam</span> <span class="nv">impedit</span> <span class="nv">accusantium</span> <span class="nv">reiciendis</span> <span class="nv">excepturi</span> <span class="nv">aut</span> <span class="nv">qui</span> <span class="nv">accusamus</span> <span class="nv">praesentium</span>.<span class="o">&lt;/</span><span class="nv">p</span><span class="o">&gt;</span>
+
+                    <span class="o">&lt;/</span><span class="nv">div</span><span class="o">&gt;</span>
+
+                    <span class="o">&lt;</span><span class="nv">div</span> <span class="nv">class</span><span class="o">=</span><span class="s2">&quot;</span><span class="s">column large-6 tab-full</span><span class="s2">&quot;</span><span class="o">&gt;</span>
+
+                        <span class="o">&lt;</span><span class="nv">h4</span><span class="o">&gt;</span><span class="nv">H4</span> <span class="nv">Heading</span><span class="o">&lt;/</span><span class="nv">h4</span><span class="o">&gt;</span>
+                        <span class="o">&lt;</span><span class="nv">p</span><span class="o">&gt;</span><span class="nv">Doloremque</span> <span class="nv">dolor</span> <span class="nv">voluptas</span> <span class="nv">est</span> <span class="nv">sequi</span> <span class="nv">omnis</span>. <span class="nv">Pariatur</span> <span class="nv">ut</span> <span class="nv">aut</span>. <span class="nv">Sed</span> <span class="nv">enim</span> <span class="nv">tempora</span> <span class="nv">qui</span> <span class="nv">veniam</span> <span class="nv">qui</span> <span class="nv">cum</span> <span class="nv">vel</span>. 
+                        <span class="nv">Voluptas</span> <span class="nv">odit</span> <span class="nv">at</span> <span class="nv">vitae</span> <span class="nv">minima</span>. <span class="nv">In</span> <span class="nv">assumenda</span> <span class="nv">ut</span>. <span class="nv">Voluptatem</span> <span class="nv">totam</span> <span class="nv">impedit</span> <span class="nv">accusantium</span> <span class="nv">reiciendis</span> <span class="nv">excepturi</span> <span class="nv">aut</span> <span class="nv">qui</span> <span class="nv">accusamus</span> <span class="nv">praesentium</span>.<span class="o">&lt;/</span><span class="nv">p</span><span class="o">&gt;</span>
+
+                        <span class="o">&lt;</span><span class="nv">h5</span><span class="o">&gt;</span><span class="nv">H5</span> <span class="nv">Heading</span><span class="o">&lt;/</span><span class="nv">h5</span><span class="o">&gt;</span>
+                        <span class="o">&lt;</span><span class="nv">p</span><span class="o">&gt;</span><span class="nv">Doloremque</span> <span class="nv">dolor</span> <span class="nv">voluptas</span> <span class="nv">est</span> <span class="nv">sequi</span> <span class="nv">omnis</span>. <span class="nv">Pariatur</span> <span class="nv">ut</span> <span class="nv">aut</span>. <span class="nv">Sed</span> <span class="nv">enim</span> <span class="nv">tempora</span> <span class="nv">qui</span> <span class="nv">veniam</span> <span class="nv">qui</span> <span class="nv">cum</span> <span class="nv">vel</span>. 
+                        <span class="nv">Voluptas</span> <span class="nv">odit</span> <span class="nv">at</span> <span class="nv">vitae</span> <span class="nv">minima</span>. <span class="nv">In</span> <span class="nv">assumenda</span> <span class="nv">ut</span>. <span class="nv">Voluptatem</span> <span class="nv">totam</span> <span class="nv">impedit</span> <span class="nv">accusantium</span> <span class="nv">reiciendis</span> <span class="nv">excepturi</span> <span class="nv">aut</span> <span class="nv">qui</span> <span class="nv">accusamus</span> <span class="nv">praesentium</span>.<span class="o">&lt;/</span><span class="nv">p</span><span class="o">&gt;</span>
+
+                        <span class="o">&lt;</span><span class="nv">h6</span><span class="o">&gt;</span><span class="nv">H6</span> <span class="nv">Heading</span><span class="o">&lt;/</span><span class="nv">h6</span><span class="o">&gt;</span>
+                        <span class="o">&lt;</span><span class="nv">p</span><span class="o">&gt;</span><span class="nv">Doloremque</span> <span class="nv">dolor</span> <span class="nv">voluptas</span> <span class="nv">est</span> <span class="nv">sequi</span> <span class="nv">omnis</span>. <span class="nv">Pariatur</span> <span class="nv">ut</span> <span class="nv">aut</span>. <span class="nv">Sed</span> <span class="nv">enim</span> <span class="nv">tempora</span> <span class="nv">qui</span> <span class="nv">veniam</span> <span class="nv">qui</span> <span class="nv">cum</span> <span class="nv">vel</span>. 
+                        <span class="nv">Voluptas</span> <span class="nv">odit</span> <span class="nv">at</span> <span class="nv">vitae</span> <span class="nv">minima</span>. <span class="nv">In</span> <span class="nv">assumenda</span> <span class="nv">ut</span>. <span class="nv">Voluptatem</span> <span class="nv">totam</span> <span class="nv">impedit</span> <span class="nv">accusantium</span> <span class="nv">reiciendis</span> <span class="nv">excepturi</span> <span class="nv">aut</span> <span class="nv">qui</span> <span class="nv">accusamus</span> <span class="nv">praesentium</span>.<span class="o">&lt;/</span><span class="nv">p</span><span class="o">&gt;</span>
+
+                    <span class="o">&lt;/</span><span class="nv">div</span><span class="o">&gt;</span>
+
+                <span class="o">&lt;/</span><span class="nv">div</span><span class="o">&gt;</span>
+
+                <span class="o">&lt;</span><span class="nv">div</span> <span class="nv">class</span><span class="o">=</span><span class="s2">&quot;</span><span class="s">row half-bottom</span><span class="s2">&quot;</span><span class="o">&gt;</span>
+
+                    <span class="o">&lt;</span><span class="nv">div</span> <span class="nv">class</span><span class="o">=</span><span class="s2">&quot;</span><span class="s">column large-six tab-full</span><span class="s2">&quot;</span><span class="o">&gt;</span>
+
+                            <span class="o">&lt;</span><span class="nv">h3</span><span class="o">&gt;</span><span class="nv">Stats</span> <span class="nv">Tabs</span><span class="o">&lt;/</span><span class="nv">h3</span><span class="o">&gt;</span>
+
+                        <span class="o">&lt;</span><span class="nv">ul</span> <span class="nv">class</span><span class="o">=</span><span class="s2">&quot;</span><span class="s">stats-tabs</span><span class="s2">&quot;</span><span class="o">&gt;</span>
+                            <span class="o">&lt;</span><span class="nv">li</span><span class="o">&gt;&lt;</span><span class="nv">a</span> <span class="nv">href</span><span class="o">=</span><span class="s2">&quot;</span><span class="s">#</span><span class="s2">&quot;</span><span class="o">&gt;</span><span class="mi">1</span>,<span class="mi">234</span> <span class="o">&lt;</span><span class="nv">em</span><span class="o">&gt;</span><span class="nv">Sasuke</span><span class="o">&lt;/</span><span class="nv">em</span><span class="o">&gt;&lt;/</span><span class="nv">a</span><span class="o">&gt;&lt;/</span><span class="nv">li</span><span class="o">&gt;</span>
+                            <span class="o">&lt;</span><span class="nv">li</span><span class="o">&gt;&lt;</span><span class="nv">a</span> <span class="nv">href</span><span class="o">=</span><span class="s2">&quot;</span><span class="s">#</span><span class="s2">&quot;</span><span class="o">&gt;</span><span class="mi">567</span> <span class="o">&lt;</span><span class="nv">em</span><span class="o">&gt;</span><span class="nv">Hinata</span><span class="o">&lt;/</span><span class="nv">em</span><span class="o">&gt;&lt;/</span><span class="nv">a</span><span class="o">&gt;&lt;/</span><span class="nv">li</span><span class="o">&gt;</span>
+                            <span class="o">&lt;</span><span class="nv">li</span><span class="o">&gt;&lt;</span><span class="nv">a</span> <span class="nv">href</span><span class="o">=</span><span class="s2">&quot;</span><span class="s">#</span><span class="s2">&quot;</span><span class="o">&gt;</span><span class="mi">23</span>,<span class="mi">456</span> <span class="o">&lt;</span><span class="nv">em</span><span class="o">&gt;</span><span class="nv">Naruto</span><span class="o">&lt;/</span><span class="nv">em</span><span class="o">&gt;&lt;/</span><span class="nv">a</span><span class="o">&gt;&lt;/</span><span class="nv">li</span><span class="o">&gt;</span>
+                            <span class="o">&lt;</span><span class="nv">li</span><span class="o">&gt;&lt;</span><span class="nv">a</span> <span class="nv">href</span><span class="o">=</span><span class="s2">&quot;</span><span class="s">#</span><span class="s2">&quot;</span><span class="o">&gt;</span><span class="mi">3</span>,<span class="mi">456</span> <span class="o">&lt;</span><span class="nv">em</span><span class="o">&gt;</span><span class="nv">Kiba</span><span class="o">&lt;/</span><span class="nv">em</span><span class="o">&gt;&lt;/</span><span class="nv">a</span><span class="o">&gt;&lt;/</span><span class="nv">li</span><span class="o">&gt;</span>
+                            <span class="o">&lt;</span><span class="nv">li</span><span class="o">&gt;&lt;</span><span class="nv">a</span> <span class="nv">href</span><span class="o">=</span><span class="s2">&quot;</span><span class="s">#</span><span class="s2">&quot;</span><span class="o">&gt;</span><span class="mi">456</span> <span class="o">&lt;</span><span class="nv">em</span><span class="o">&gt;</span><span class="nv">Shikamaru</span><span class="o">&lt;/</span><span class="nv">em</span><span class="o">&gt;&lt;/</span><span class="nv">a</span><span class="o">&gt;&lt;/</span><span class="nv">li</span><span class="o">&gt;</span>
+                            <span class="o">&lt;</span><span class="nv">li</span><span class="o">&gt;&lt;</span><span class="nv">a</span> <span class="nv">href</span><span class="o">=</span><span class="s2">&quot;</span><span class="s">#</span><span class="s2">&quot;</span><span class="o">&gt;</span><span class="mi">26</span> <span class="o">&lt;</span><span class="nv">em</span><span class="o">&gt;</span><span class="nv">Sakura</span><span class="o">&lt;/</span><span class="nv">em</span><span class="o">&gt;&lt;/</span><span class="nv">a</span><span class="o">&gt;&lt;/</span><span class="nv">li</span><span class="o">&gt;</span>
+                        <span class="o">&lt;/</span><span class="nv">ul</span><span class="o">&gt;</span>
+
+                    <span class="o">&lt;/</span><span class="nv">div</span><span class="o">&gt;</span>
+
+                    <span class="o">&lt;</span><span class="nv">div</span> <span class="nv">class</span><span class="o">=</span><span class="s2">&quot;</span><span class="s">column large-six tab-full</span><span class="s2">&quot;</span><span class="o">&gt;</span>
+                        <span class="o">&lt;</span><span class="nv">h3</span><span class="o">&gt;</span><span class="nv">Code</span> <span class="nv">Block</span><span class="o">&lt;/</span><span class="nv">h3</span><span class="o">&gt;</span>
+</pre></div>
+
+
+<pre><code>
+    code {
+        font-size: 1.4rem;
+        margin: 0 .2rem;
+        padding: .2rem .6rem;
+        white-space: nowrap;
+        background: #F1F1F1;
+        border: 1px solid #E1E1E1;  
+        border-radius: 3px;
+    }
+</code></pre>
+
+<div class="highlight"><pre><span></span>                    <span class="o">&lt;/</span><span class="nv">div</span><span class="o">&gt;</span>
+
+                <span class="o">&lt;/</span><span class="nv">div</span><span class="o">&gt;</span> <span class="o">&lt;!--</span> <span class="k">end</span> <span class="nv">row</span> <span class="o">--&gt;</span>
+
+                <span class="o">&lt;</span><span class="nv">div</span> <span class="nv">class</span><span class="o">=</span><span class="s2">&quot;</span><span class="s">row half-bottom</span><span class="s2">&quot;</span><span class="o">&gt;</span>
+
+                    <span class="o">&lt;</span><span class="nv">div</span> <span class="nv">class</span><span class="o">=</span><span class="s2">&quot;</span><span class="s">column large-6 tab-full</span><span class="s2">&quot;</span><span class="o">&gt;</span>
+
+                        <span class="o">&lt;</span><span class="nv">h3</span><span class="o">&gt;</span><span class="nv">Responsive</span> <span class="nv">Image</span><span class="o">&lt;/</span><span class="nv">h3</span><span class="o">&gt;</span>
+                        <span class="o">&lt;</span><span class="nv">p</span><span class="o">&gt;&lt;</span><span class="nv">img</span> <span class="nv">src</span><span class="o">=</span><span class="s2">&quot;</span><span class="s">images/wheel-500.jpg</span><span class="s2">&quot;</span> 
+                            <span class="nv">srcset</span><span class="o">=</span><span class="s2">&quot;</span><span class="s">images/wheel-1000.jpg 1000w, </span>
+                            <span class="nv">images</span><span class="o">/</span><span class="nv">wheel</span><span class="o">-</span><span class="mi">500</span>.<span class="nv">jpg</span> <span class="mi">500</span><span class="nv">w</span><span class="s2">&quot;</span><span class="s"> </span>
+                            <span class="nv">sizes</span><span class="o">=</span><span class="s2">&quot;</span><span class="s">(max-width: 1000px) 100vw, 1000px</span><span class="s2">&quot;</span> <span class="nv">alt</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="o">&gt;</span>
+                        <span class="o">&lt;/</span><span class="nv">p</span><span class="o">&gt;</span>
+
+                    <span class="o">&lt;/</span><span class="nv">div</span><span class="o">&gt;</span>
+
+                    <span class="o">&lt;</span><span class="nv">div</span> <span class="nv">class</span><span class="o">=</span><span class="s2">&quot;</span><span class="s">column large-6 tab-full</span><span class="s2">&quot;</span><span class="o">&gt;</span>
+
+                        <span class="o">&lt;</span><span class="nv">h3</span><span class="o">&gt;</span><span class="nv">Responsive</span> <span class="nv">video</span><span class="o">&lt;/</span><span class="nv">h3</span><span class="o">&gt;</span>
+
+                        <span class="o">&lt;</span><span class="nv">div</span> <span class="nv">class</span><span class="o">=</span><span class="s2">&quot;</span><span class="s">video-container</span><span class="s2">&quot;</span><span class="o">&gt;</span>
+                        <span class="o">&lt;</span><span class="nv">iframe</span> <span class="nv">src</span><span class="o">=</span><span class="s2">&quot;</span><span class="s">https://player.vimeo.com/video/14592941?color=00a650&amp;title=0&amp;byline=0&amp;portrait=0</span><span class="s2">&quot;</span> <span class="nv">width</span><span class="o">=</span><span class="s2">&quot;</span><span class="s">500</span><span class="s2">&quot;</span> <span class="nv">height</span><span class="o">=</span><span class="s2">&quot;</span><span class="s">281</span><span class="s2">&quot;</span> <span class="nv">frameborder</span><span class="o">=</span><span class="s2">&quot;</span><span class="s">0</span><span class="s2">&quot;</span> <span class="nv">webkitallowfullscreen</span> <span class="nv">mozallowfullscreen</span> <span class="nv">allowfullscreen</span><span class="o">&gt;&lt;/</span><span class="nv">iframe</span><span class="o">&gt;</span> 
+                        <span class="o">&lt;/</span><span class="nv">div</span><span class="o">&gt;</span>
+
+                    <span class="o">&lt;/</span><span class="nv">div</span><span class="o">&gt;</span>
+
+                <span class="o">&lt;/</span><span class="nv">div</span><span class="o">&gt;</span> <span class="o">&lt;!--</span> <span class="k">end</span> <span class="nv">row</span> <span class="o">--&gt;</span>
+
+                <span class="o">&lt;</span><span class="nv">div</span> <span class="nv">class</span><span class="o">=</span><span class="s2">&quot;</span><span class="s">row add-bottom</span><span class="s2">&quot;</span><span class="o">&gt;</span>
+
+                    <span class="o">&lt;</span><span class="nv">div</span> <span class="nv">class</span><span class="o">=</span><span class="s2">&quot;</span><span class="s">column large-full</span><span class="s2">&quot;</span><span class="o">&gt;</span>
+
+                        <span class="o">&lt;</span><span class="nv">h3</span><span class="o">&gt;</span><span class="nv">Tables</span><span class="o">&lt;/</span><span class="nv">h3</span><span class="o">&gt;</span>
+                        <span class="o">&lt;</span><span class="nv">p</span><span class="o">&gt;</span><span class="nv">Be</span> <span class="nv">sure</span> <span class="nv">to</span> <span class="nv">use</span> <span class="nv">properly</span> <span class="nv">formed</span> <span class="nv">table</span> <span class="nv">markup</span> <span class="nv">with</span> <span class="o">&lt;</span><span class="nv">code</span><span class="o">&gt;&lt;</span><span class="nv">thead</span><span class="o">&gt;&lt;/</span><span class="nv">code</span><span class="o">&gt;</span> <span class="nv">and</span> <span class="o">&lt;</span><span class="nv">code</span><span class="o">&gt;&lt;</span><span class="nv">tbody</span><span class="o">&gt;&lt;/</span><span class="nv">code</span><span class="o">&gt;</span> <span class="nv">when</span> <span class="nv">building</span> <span class="nv">a</span> <span class="o">&lt;</span><span class="nv">code</span><span class="o">&gt;</span><span class="nv">table</span><span class="o">&lt;/</span><span class="nv">code</span><span class="o">&gt;</span>.<span class="o">&lt;/</span><span class="nv">p</span><span class="o">&gt;</span>
+
+                        <span class="o">&lt;</span><span class="nv">div</span> <span class="nv">class</span><span class="o">=</span><span class="s2">&quot;</span><span class="s">table-responsive</span><span class="s2">&quot;</span><span class="o">&gt;</span>
+
+                            <span class="o">&lt;</span><span class="nv">table</span><span class="o">&gt;</span>
+                                    <span class="o">&lt;</span><span class="nv">thead</span><span class="o">&gt;</span>
+                                    <span class="o">&lt;</span><span class="nv">tr</span><span class="o">&gt;</span>
+                                        <span class="o">&lt;</span><span class="nv">th</span><span class="o">&gt;</span><span class="nv">Name</span><span class="o">&lt;/</span><span class="nv">th</span><span class="o">&gt;</span>
+                                        <span class="o">&lt;</span><span class="nv">th</span><span class="o">&gt;</span><span class="nv">Age</span><span class="o">&lt;/</span><span class="nv">th</span><span class="o">&gt;</span>
+                                        <span class="o">&lt;</span><span class="nv">th</span><span class="o">&gt;</span><span class="nv">Sex</span><span class="o">&lt;/</span><span class="nv">th</span><span class="o">&gt;</span>
+                                        <span class="o">&lt;</span><span class="nv">th</span><span class="o">&gt;</span><span class="nv">Location</span><span class="o">&lt;/</span><span class="nv">th</span><span class="o">&gt;</span>
+                                    <span class="o">&lt;/</span><span class="nv">tr</span><span class="o">&gt;</span>
+                                    <span class="o">&lt;/</span><span class="nv">thead</span><span class="o">&gt;</span>
+                                    <span class="o">&lt;</span><span class="nv">tbody</span><span class="o">&gt;</span>
+                                    <span class="o">&lt;</span><span class="nv">tr</span><span class="o">&gt;</span>
+                                        <span class="o">&lt;</span><span class="nv">td</span><span class="o">&gt;</span><span class="nv">Naruto</span> <span class="nv">Uzumaki</span><span class="o">&lt;/</span><span class="nv">td</span><span class="o">&gt;</span>
+                                        <span class="o">&lt;</span><span class="nv">td</span><span class="o">&gt;</span><span class="mi">16</span><span class="o">&lt;/</span><span class="nv">td</span><span class="o">&gt;</span>
+                                        <span class="o">&lt;</span><span class="nv">td</span><span class="o">&gt;</span><span class="nv">Male</span><span class="o">&lt;/</span><span class="nv">td</span><span class="o">&gt;</span>
+                                        <span class="o">&lt;</span><span class="nv">td</span><span class="o">&gt;</span><span class="nv">Konoha</span><span class="o">&lt;/</span><span class="nv">td</span><span class="o">&gt;</span>
+                                    <span class="o">&lt;/</span><span class="nv">tr</span><span class="o">&gt;</span>
+                                    <span class="o">&lt;</span><span class="nv">tr</span><span class="o">&gt;</span>
+                                        <span class="o">&lt;</span><span class="nv">td</span><span class="o">&gt;</span><span class="nv">Sakura</span> <span class="nv">Haruno</span><span class="o">&lt;/</span><span class="nv">td</span><span class="o">&gt;</span>
+                                        <span class="o">&lt;</span><span class="nv">td</span><span class="o">&gt;</span><span class="mi">16</span><span class="o">&lt;/</span><span class="nv">td</span><span class="o">&gt;</span>
+                                        <span class="o">&lt;</span><span class="nv">td</span><span class="o">&gt;</span><span class="nv">Female</span><span class="o">&lt;/</span><span class="nv">td</span><span class="o">&gt;</span>
+                                        <span class="o">&lt;</span><span class="nv">td</span><span class="o">&gt;</span><span class="nv">Konoha</span><span class="o">&lt;/</span><span class="nv">td</span><span class="o">&gt;</span>
+                                    <span class="o">&lt;/</span><span class="nv">tr</span><span class="o">&gt;</span>
+                                    <span class="o">&lt;/</span><span class="nv">tbody</span><span class="o">&gt;</span>
+                            <span class="o">&lt;/</span><span class="nv">table</span><span class="o">&gt;</span>
+
+                        <span class="o">&lt;/</span><span class="nv">div</span><span class="o">&gt;</span>
+
+                    <span class="o">&lt;/</span><span class="nv">div</span><span class="o">&gt;</span>
+
+                <span class="o">&lt;/</span><span class="nv">div</span><span class="o">&gt;</span> <span class="o">&lt;!--</span> <span class="k">end</span> <span class="nv">row</span> <span class="o">--&gt;</span>
+
+                <span class="o">&lt;</span><span class="nv">div</span> <span class="nv">class</span><span class="o">=</span><span class="s2">&quot;</span><span class="s">row</span><span class="s2">&quot;</span><span class="o">&gt;</span>
+
+                    <span class="o">&lt;</span><span class="nv">div</span> <span class="nv">class</span><span class="o">=</span><span class="s2">&quot;</span><span class="s">column large-6 tab-full</span><span class="s2">&quot;</span><span class="o">&gt;</span>
+
+                        <span class="o">&lt;</span><span class="nv">h3</span><span class="o">&gt;</span><span class="nv">Form</span> <span class="nv">Styles</span><span class="o">&lt;/</span><span class="nv">h3</span><span class="o">&gt;</span>
+
+                        <span class="o">&lt;</span><span class="nv">form</span><span class="o">&gt;</span>
+                            <span class="o">&lt;</span><span class="nv">div</span><span class="o">&gt;</span>
+                                <span class="o">&lt;</span><span class="nv">label</span> <span class="k">for</span><span class="o">=</span><span class="s2">&quot;</span><span class="s">sampleInput</span><span class="s2">&quot;</span><span class="o">&gt;</span><span class="nv">Your</span> <span class="nv">email</span><span class="o">&lt;/</span><span class="nv">label</span><span class="o">&gt;</span>
+                                <span class="o">&lt;</span><span class="nv">input</span> <span class="nv">class</span><span class="o">=</span><span class="s2">&quot;</span><span class="s">full-width</span><span class="s2">&quot;</span> <span class="nv">type</span><span class="o">=</span><span class="s2">&quot;</span><span class="s">email</span><span class="s2">&quot;</span> <span class="nv">placeholder</span><span class="o">=</span><span class="s2">&quot;</span><span class="s">test@mailbox.com</span><span class="s2">&quot;</span> <span class="nv">id</span><span class="o">=</span><span class="s2">&quot;</span><span class="s">sampleInput</span><span class="s2">&quot;</span><span class="o">&gt;</span>
+                            <span class="o">&lt;/</span><span class="nv">div</span><span class="o">&gt;</span>
+                            <span class="o">&lt;</span><span class="nv">div</span><span class="o">&gt;</span>
+                                <span class="o">&lt;</span><span class="nv">label</span> <span class="k">for</span><span class="o">=</span><span class="s2">&quot;</span><span class="s">sampleRecipientInput</span><span class="s2">&quot;</span><span class="o">&gt;</span><span class="nv">Reason</span> <span class="k">for</span> <span class="nv">contacting</span><span class="o">&lt;/</span><span class="nv">label</span><span class="o">&gt;</span>
+                                <span class="o">&lt;</span><span class="nv">div</span> <span class="nv">class</span><span class="o">=</span><span class="s2">&quot;</span><span class="s">ss-custom-select</span><span class="s2">&quot;</span><span class="o">&gt;</span>
+                                    <span class="o">&lt;</span><span class="nv">select</span> <span class="nv">class</span><span class="o">=</span><span class="s2">&quot;</span><span class="s">full-width</span><span class="s2">&quot;</span> <span class="nv">id</span><span class="o">=</span><span class="s2">&quot;</span><span class="s">sampleRecipientInput</span><span class="s2">&quot;</span><span class="o">&gt;</span>
+                                        <span class="o">&lt;</span><span class="nv">option</span> <span class="nv">value</span><span class="o">=</span><span class="s2">&quot;</span><span class="s">Option 1</span><span class="s2">&quot;</span><span class="o">&gt;</span><span class="nv">Questions</span><span class="o">&lt;/</span><span class="nv">option</span><span class="o">&gt;</span>
+                                        <span class="o">&lt;</span><span class="nv">option</span> <span class="nv">value</span><span class="o">=</span><span class="s2">&quot;</span><span class="s">Option 2</span><span class="s2">&quot;</span><span class="o">&gt;</span><span class="nv">Report</span><span class="o">&lt;/</span><span class="nv">option</span><span class="o">&gt;</span>
+                                        <span class="o">&lt;</span><span class="nv">option</span> <span class="nv">value</span><span class="o">=</span><span class="s2">&quot;</span><span class="s">Option 3</span><span class="s2">&quot;</span><span class="o">&gt;</span><span class="nv">Others</span><span class="o">&lt;/</span><span class="nv">option</span><span class="o">&gt;</span>
+                                    <span class="o">&lt;/</span><span class="nv">select</span><span class="o">&gt;</span>
+                                <span class="o">&lt;/</span><span class="nv">div</span><span class="o">&gt;</span>
+                            <span class="o">&lt;/</span><span class="nv">div</span><span class="o">&gt;</span>
+
+                            <span class="o">&lt;</span><span class="nv">label</span> <span class="k">for</span><span class="o">=</span><span class="s2">&quot;</span><span class="s">exampleMessage</span><span class="s2">&quot;</span><span class="o">&gt;</span><span class="nv">Message</span><span class="o">&lt;/</span><span class="nv">label</span><span class="o">&gt;</span>
+                            <span class="o">&lt;</span><span class="nv">textarea</span> <span class="nv">class</span><span class="o">=</span><span class="s2">&quot;</span><span class="s">full-width</span><span class="s2">&quot;</span> <span class="nv">placeholder</span><span class="o">=</span><span class="s2">&quot;</span><span class="s">Your message</span><span class="s2">&quot;</span> <span class="nv">id</span><span class="o">=</span><span class="s2">&quot;</span><span class="s">exampleMessage</span><span class="s2">&quot;</span><span class="o">&gt;&lt;/</span><span class="nv">textarea</span><span class="o">&gt;</span>
+
+                            <span class="o">&lt;</span><span class="nv">label</span> <span class="nv">class</span><span class="o">=</span><span class="s2">&quot;</span><span class="s">add-bottom</span><span class="s2">&quot;</span><span class="o">&gt;</span>
+                                <span class="o">&lt;</span><span class="nv">input</span> <span class="nv">type</span><span class="o">=</span><span class="s2">&quot;</span><span class="s">checkbox</span><span class="s2">&quot;</span><span class="o">&gt;</span>
+                                <span class="o">&lt;</span><span class="nv">span</span> <span class="nv">class</span><span class="o">=</span><span class="s2">&quot;</span><span class="s">label-text</span><span class="s2">&quot;</span><span class="o">&gt;</span><span class="k">Send</span> <span class="nv">a</span> <span class="nv">copy</span> <span class="nv">to</span> <span class="nv">yourself</span><span class="o">&lt;/</span><span class="nv">span</span><span class="o">&gt;</span>
+                            <span class="o">&lt;/</span><span class="nv">label</span><span class="o">&gt;</span>
+
+                            <span class="o">&lt;</span><span class="nv">input</span> <span class="nv">class</span><span class="o">=</span><span class="s2">&quot;</span><span class="s">btn--primary full-width</span><span class="s2">&quot;</span> <span class="nv">type</span><span class="o">=</span><span class="s2">&quot;</span><span class="s">submit</span><span class="s2">&quot;</span> <span class="nv">value</span><span class="o">=</span><span class="s2">&quot;</span><span class="s">Submit</span><span class="s2">&quot;</span><span class="o">&gt;</span>
+                        <span class="o">&lt;/</span><span class="nv">form</span><span class="o">&gt;</span>
+
+                    <span class="o">&lt;/</span><span class="nv">div</span><span class="o">&gt;</span>
+
+                    <span class="o">&lt;</span><span class="nv">div</span> <span class="nv">class</span><span class="o">=</span><span class="s2">&quot;</span><span class="s">column large-6 tab-full</span><span class="s2">&quot;</span><span class="o">&gt;</span>
+
+                        <span class="o">&lt;</span><span class="nv">h3</span><span class="o">&gt;</span><span class="nv">Alert</span> <span class="nv">Boxes</span><span class="o">&lt;/</span><span class="nv">h3</span><span class="o">&gt;</span>
+
+                        <span class="o">&lt;</span><span class="nv">br</span><span class="o">&gt;</span>
+
+                        <span class="o">&lt;</span><span class="nv">div</span> <span class="nv">class</span><span class="o">=</span><span class="s2">&quot;</span><span class="s">alert-box alert-box--error hideit</span><span class="s2">&quot;</span><span class="o">&gt;</span>
+                            <span class="o">&lt;</span><span class="nv">p</span><span class="o">&gt;</span><span class="nv">Error</span> <span class="nv">Message</span>. <span class="nv">Your</span> <span class="nv">Message</span> <span class="nv">Goes</span> <span class="nv">Here</span>.<span class="o">&lt;/</span><span class="nv">p</span><span class="o">&gt;</span>
+                            <span class="o">&lt;</span><span class="nv">i</span> <span class="nv">class</span><span class="o">=</span><span class="s2">&quot;</span><span class="s">fa fa-times alert-box__close</span><span class="s2">&quot;</span> <span class="nv">aria</span><span class="o">-</span><span class="nv">hidden</span><span class="o">=</span><span class="s2">&quot;</span><span class="s">true</span><span class="s2">&quot;</span><span class="o">&gt;&lt;/</span><span class="nv">i</span><span class="o">&gt;</span>
+                        <span class="o">&lt;/</span><span class="nv">div</span><span class="o">&gt;&lt;!--</span> <span class="k">end</span> <span class="nv">error</span> <span class="o">--&gt;</span>
+
+                        <span class="o">&lt;</span><span class="nv">div</span> <span class="nv">class</span><span class="o">=</span><span class="s2">&quot;</span><span class="s">alert-box alert-box--success hideit</span><span class="s2">&quot;</span><span class="o">&gt;</span>
+                            <span class="o">&lt;</span><span class="nv">p</span><span class="o">&gt;</span><span class="nv">Success</span> <span class="nv">Message</span>. <span class="nv">Your</span> <span class="nv">Message</span> <span class="nv">Goes</span> <span class="nv">Here</span>.<span class="o">&lt;/</span><span class="nv">p</span><span class="o">&gt;</span>
+                            <span class="o">&lt;</span><span class="nv">i</span> <span class="nv">class</span><span class="o">=</span><span class="s2">&quot;</span><span class="s">fa fa-times alert-box__close</span><span class="s2">&quot;</span> <span class="nv">aria</span><span class="o">-</span><span class="nv">hidden</span><span class="o">=</span><span class="s2">&quot;</span><span class="s">true</span><span class="s2">&quot;</span><span class="o">&gt;&lt;/</span><span class="nv">i</span><span class="o">&gt;</span>
+                        <span class="o">&lt;/</span><span class="nv">div</span><span class="o">&gt;&lt;!--</span> <span class="k">end</span> <span class="nv">success</span> <span class="o">--&gt;</span>
+
+                        <span class="o">&lt;</span><span class="nv">div</span> <span class="nv">class</span><span class="o">=</span><span class="s2">&quot;</span><span class="s">alert-box alert-box--info hideit</span><span class="s2">&quot;</span><span class="o">&gt;</span>
+                            <span class="o">&lt;</span><span class="nv">p</span><span class="o">&gt;</span><span class="nv">Info</span> <span class="nv">Message</span>. <span class="nv">Your</span> <span class="nv">Message</span> <span class="nv">Goes</span> <span class="nv">Here</span>.<span class="o">&lt;/</span><span class="nv">p</span><span class="o">&gt;</span>
+                            <span class="o">&lt;</span><span class="nv">i</span> <span class="nv">class</span><span class="o">=</span><span class="s2">&quot;</span><span class="s">fa fa-times alert-box__close</span><span class="s2">&quot;</span> <span class="nv">aria</span><span class="o">-</span><span class="nv">hidden</span><span class="o">=</span><span class="s2">&quot;</span><span class="s">true</span><span class="s2">&quot;</span><span class="o">&gt;&lt;/</span><span class="nv">i</span><span class="o">&gt;</span>
+                        <span class="o">&lt;/</span><span class="nv">div</span><span class="o">&gt;&lt;!--</span> <span class="k">end</span> <span class="nv">info</span> <span class="o">--&gt;</span>
+
+                        <span class="o">&lt;</span><span class="nv">div</span> <span class="nv">class</span><span class="o">=</span><span class="s2">&quot;</span><span class="s">alert-box alert-box--notice hideit</span><span class="s2">&quot;</span><span class="o">&gt;</span>
+                            <span class="o">&lt;</span><span class="nv">p</span><span class="o">&gt;</span><span class="nv">Notice</span> <span class="nv">Message</span>. <span class="nv">Your</span> <span class="nv">Message</span> <span class="nv">Goes</span> <span class="nv">Here</span>.<span class="o">&lt;/</span><span class="nv">p</span><span class="o">&gt;</span>
+                            <span class="o">&lt;</span><span class="nv">i</span> <span class="nv">class</span><span class="o">=</span><span class="s2">&quot;</span><span class="s">fa fa-times alert-box__close</span><span class="s2">&quot;</span> <span class="nv">aria</span><span class="o">-</span><span class="nv">hidden</span><span class="o">=</span><span class="s2">&quot;</span><span class="s">true</span><span class="s2">&quot;</span><span class="o">&gt;&lt;/</span><span class="nv">i</span><span class="o">&gt;</span>
+                        <span class="o">&lt;/</span><span class="nv">div</span><span class="o">&gt;&lt;!--</span> <span class="k">end</span> <span class="nv">notice</span> <span class="o">--&gt;</span>
+
+                    <span class="o">&lt;/</span><span class="nv">div</span><span class="o">&gt;</span>
+
+                <span class="o">&lt;/</span><span class="nv">div</span><span class="o">&gt;</span> <span class="o">&lt;!--</span> <span class="k">end</span> <span class="nv">row</span> <span class="o">--&gt;</span>
+
+            <span class="o">&lt;/</span><span class="nv">section</span><span class="o">&gt;</span> <span class="o">&lt;!--</span> <span class="k">end</span> <span class="nv">styles</span> <span class="o">--&gt;</span>
+
+        <span class="o">&lt;/</span><span class="nv">main</span><span class="o">&gt;</span>
+
+    <span class="o">&lt;/</span><span class="nv">div</span><span class="o">&gt;</span> <span class="o">&lt;!--</span> <span class="k">end</span> <span class="nv">s</span><span class="o">-</span><span class="nv">content</span> <span class="o">--&gt;</span>
+
+
+    <span class="o">&lt;!--</span> <span class="nv">footer</span>
+    <span class="o">==================================================</span> <span class="o">--&gt;</span>
+    <span class="o">&lt;</span><span class="nv">footer</span> <span class="nv">class</span><span class="o">=</span><span class="s2">&quot;</span><span class="s">s-footer footer</span><span class="s2">&quot;</span><span class="o">&gt;</span>
+        <span class="o">&lt;</span><span class="nv">div</span> <span class="nv">class</span><span class="o">=</span><span class="s2">&quot;</span><span class="s">row</span><span class="s2">&quot;</span><span class="o">&gt;</span>
+            <span class="o">&lt;</span><span class="nv">div</span> <span class="nv">class</span><span class="o">=</span><span class="s2">&quot;</span><span class="s">column large-full footer__content</span><span class="s2">&quot;</span><span class="o">&gt;</span>
+                <span class="o">&lt;</span><span class="nv">div</span> <span class="nv">class</span><span class="o">=</span><span class="s2">&quot;</span><span class="s">footer__copyright</span><span class="s2">&quot;</span><span class="o">&gt;</span>
+                    <span class="o">&lt;</span><span class="nv">span</span><span class="o">&gt;</span>© <span class="nv">Copyright</span> <span class="nv">Typerite</span> <span class="mi">2019</span><span class="o">&lt;/</span><span class="nv">span</span><span class="o">&gt;</span> 
+                    <span class="o">&lt;</span><span class="nv">span</span><span class="o">&gt;</span><span class="nv">Design</span> <span class="nv">by</span> <span class="o">&lt;</span><span class="nv">a</span> <span class="nv">href</span><span class="o">=</span><span class="s2">&quot;</span><span class="s">https://www.styleshout.com/</span><span class="s2">&quot;</span><span class="o">&gt;</span><span class="nv">StyleShout</span><span class="o">&lt;/</span><span class="nv">a</span><span class="o">&gt;&lt;/</span><span class="nv">span</span><span class="o">&gt;</span>
+                <span class="o">&lt;/</span><span class="nv">div</span><span class="o">&gt;</span>
+            <span class="o">&lt;/</span><span class="nv">div</span><span class="o">&gt;</span>
+        <span class="o">&lt;/</span><span class="nv">div</span><span class="o">&gt;</span>
+
+        <span class="o">&lt;</span><span class="nv">div</span> <span class="nv">class</span><span class="o">=</span><span class="s2">&quot;</span><span class="s">go-top</span><span class="s2">&quot;</span><span class="o">&gt;</span>
+            <span class="o">&lt;</span><span class="nv">a</span> <span class="nv">class</span><span class="o">=</span><span class="s2">&quot;</span><span class="s">smoothscroll</span><span class="s2">&quot;</span> <span class="nv">title</span><span class="o">=</span><span class="s2">&quot;</span><span class="s">Back to Top</span><span class="s2">&quot;</span> <span class="nv">href</span><span class="o">=</span><span class="s2">&quot;</span><span class="s">#top</span><span class="s2">&quot;</span><span class="o">&gt;&lt;/</span><span class="nv">a</span><span class="o">&gt;</span>
+        <span class="o">&lt;/</span><span class="nv">div</span><span class="o">&gt;</span>
+    <span class="o">&lt;/</span><span class="nv">footer</span><span class="o">&gt;</span>
+
+<span class="o">&lt;/</span><span class="nv">div</span><span class="o">&gt;</span> <span class="o">&lt;!--</span> <span class="k">end</span> <span class="nv">s</span><span class="o">-</span><span class="nv">wrap</span> <span class="o">--&gt;</span>
+
+
+<span class="o">&lt;!--</span> <span class="nv">Java</span> <span class="nv">Script</span>
+<span class="o">==================================================</span> <span class="o">--&gt;</span>
+<span class="o">&lt;</span><span class="nv">script</span> <span class="nv">src</span><span class="o">=</span><span class="s2">&quot;</span><span class="s">js/jquery-3.2.1.min.js</span><span class="s2">&quot;</span><span class="o">&gt;&lt;/</span><span class="nv">script</span><span class="o">&gt;</span>
+<span class="o">&lt;</span><span class="nv">script</span> <span class="nv">src</span><span class="o">=</span><span class="s2">&quot;</span><span class="s">js/plugins.js</span><span class="s2">&quot;</span><span class="o">&gt;&lt;/</span><span class="nv">script</span><span class="o">&gt;</span>
+<span class="o">&lt;</span><span class="nv">script</span> <span class="nv">src</span><span class="o">=</span><span class="s2">&quot;</span><span class="s">js/main.js</span><span class="s2">&quot;</span><span class="o">&gt;&lt;/</span><span class="nv">script</span><span class="o">&gt;</span>
+</pre></div>
+
+
+<p></body></p>  </div>
 </article>
 
     <footer>
@@ -209,13 +673,6 @@ Built with <a href="http://getpelican.com" target="_blank">Pelican</a> using <a 
 }
 </script>
 
-
-  
-      <!-- Java Script
-    ================================================== -->
-    <script src="js/jquery-3.2.1.min.js"></script>
-    <script src="js/plugins.js"></script>
-    <script src="js/main.js"></script>
 
 </body>
 </html>
