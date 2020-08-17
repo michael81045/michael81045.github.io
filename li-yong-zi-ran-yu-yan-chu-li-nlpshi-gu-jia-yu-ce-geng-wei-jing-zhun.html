@@ -29,13 +29,13 @@
 
 
 <meta name="author" content="Michael Chien" />
-<meta name="description" content="前言 (2020/08/13更新) 股價的漲跌往往不是我們這些股市菜鳥所能夠理解的，尤其是在股價的起伏還受到各種消息面的影響，甚至老闆的一句話就可以讓股價一飛沖天或跌落谷底，近年來最著名的例子就是特斯拉的執行長Elon Musk，若沒有掌握到這些消息將會對股價的漲幅丈二金剛摸不著頭緒。 因此本篇將透過自然語言處理(Natural Language Processing,NLP)試著將公司行號釋出的重大消息資訊納入，來預測股價的漲跌。 NLP進程" />
+<meta name="description" content="前言 (2020/08/13更新) 股價的漲跌往往不是我們這些股市菜鳥所能夠理解的，尤其是在股價的起伏還受到各種消息面的影響，甚至老闆的一句話就可以讓股價一飛沖天或跌落谷底，近年來最著名的例子就是特斯拉的執行長Elon Musk，若沒有掌握到這些消息將會對股價的漲幅丈二金剛摸不著頭緒。 甚至會有些股市老手會說：哎呀花時間閱讀那些資訊是沒有用的，等你看到時早就已經反映在股價上了，但事實上可能有些資訊早就潛藏在其中，只是礙於我們的經驗不足而無法做出適當的判斷。 因此本篇將透過自然語言處理(Natural Language Processing,NLP)試著將公司行號釋出的重大消息資訊納入，透過科技來輔佐我們在茫茫的資訊海中抽絲剝繭，以期望能輔助我們尋找出其中的脈絡並先行做出部署，來預測股價的漲跌。 語言的博大精深！！ 舉個有趣的例子為例: I arrived at the bank after crossing the river. I arrived at the bank after crossing the street. 當這兩句併排在一起我們能很明顯的判別出 bank 這一個字分別有不同的意思： 而判斷的基準則是必須透過上下文的方式來判斷這個單字真正的涵義，這樣的現象在中文當中同樣也可以發現到。 那我們如何將文字轉換為有意義的量值呢 …" />
 <meta name="keywords" content="Natural Language Processing, Stock">
 
 
 <meta property="og:site_name" content="Learning note & Build some side projects | Michael Chien"/>
 <meta property="og:title" content="利用自然語言處理(NLP)使股價預測更為精準"/>
-<meta property="og:description" content="前言 (2020/08/13更新) 股價的漲跌往往不是我們這些股市菜鳥所能夠理解的，尤其是在股價的起伏還受到各種消息面的影響，甚至老闆的一句話就可以讓股價一飛沖天或跌落谷底，近年來最著名的例子就是特斯拉的執行長Elon Musk，若沒有掌握到這些消息將會對股價的漲幅丈二金剛摸不著頭緒。 因此本篇將透過自然語言處理(Natural Language Processing,NLP)試著將公司行號釋出的重大消息資訊納入，來預測股價的漲跌。 NLP進程"/>
+<meta property="og:description" content="前言 (2020/08/13更新) 股價的漲跌往往不是我們這些股市菜鳥所能夠理解的，尤其是在股價的起伏還受到各種消息面的影響，甚至老闆的一句話就可以讓股價一飛沖天或跌落谷底，近年來最著名的例子就是特斯拉的執行長Elon Musk，若沒有掌握到這些消息將會對股價的漲幅丈二金剛摸不著頭緒。 甚至會有些股市老手會說：哎呀花時間閱讀那些資訊是沒有用的，等你看到時早就已經反映在股價上了，但事實上可能有些資訊早就潛藏在其中，只是礙於我們的經驗不足而無法做出適當的判斷。 因此本篇將透過自然語言處理(Natural Language Processing,NLP)試著將公司行號釋出的重大消息資訊納入，透過科技來輔佐我們在茫茫的資訊海中抽絲剝繭，以期望能輔助我們尋找出其中的脈絡並先行做出部署，來預測股價的漲跌。 語言的博大精深！！ 舉個有趣的例子為例: I arrived at the bank after crossing the river. I arrived at the bank after crossing the street. 當這兩句併排在一起我們能很明顯的判別出 bank 這一個字分別有不同的意思： 而判斷的基準則是必須透過上下文的方式來判斷這個單字真正的涵義，這樣的現象在中文當中同樣也可以發現到。 那我們如何將文字轉換為有意義的量值呢 …"/>
 <meta property="og:locale" content="en_US"/>
 <meta property="og:url" content="/li-yong-zi-ran-yu-yan-chu-li-nlpshi-gu-jia-yu-ce-geng-wei-jing-zhun.html"/>
 <meta property="og:type" content="article"/>
@@ -120,8 +120,19 @@
 <p>(2020/08/13更新)</p>
 <p>股價的漲跌往往不是我們這些股市菜鳥所能夠理解的，尤其是在股價的起伏還受到各種消息面的影響，甚至老闆的一句話就可以讓股價一飛沖天或跌落谷底，近年來最著名的例子就是特斯拉的執行長Elon Musk，若沒有掌握到這些消息將會對股價的漲幅丈二金剛摸不著頭緒。</p>
 <p><img alt="" src="../extra/musk.png"></p>
-<p>因此本篇將透過自然語言處理(Natural Language Processing,NLP)試著將公司行號釋出的重大消息資訊納入，來預測股價的漲跌。</p>
-<h1><font size = 5 >NLP進程</font></h1>
+<p>甚至會有些股市老手會說：哎呀花時間閱讀那些資訊是沒有用的，等你看到時早就已經反映在股價上了，但事實上可能有些資訊早就潛藏在其中，只是礙於我們的經驗不足而無法做出適當的判斷。</p>
+<p><img alt="" src="../extra/NLP_process.png"></p>
+<p>因此本篇將透過自然語言處理(Natural Language Processing,NLP)試著將公司行號釋出的重大消息資訊納入，透過科技來輔佐我們在茫茫的資訊海中抽絲剝繭，以期望能輔助我們尋找出其中的脈絡並先行做出部署，來預測股價的漲跌。</p>
+<h1><font size = 5 >語言的博大精深！！</font></h1>
+<p>舉個有趣的例子為例:</p>
+<p><font size = 4 > <strong>I arrived at the <font color = #FF4500 > bank </font> after crossing the river.</strong> </font>  </p>
+<p><font size = 4 > <strong>I arrived at the <font color = #FF4500 > bank </font> after crossing the street.</strong> </font> </p>
+<p>當這兩句併排在一起我們能很明顯的判別出 <font color = #FF4500 > 
+<strong>bank</strong> </font> 這一個字分別有不同的意思：</p>
+<p><img alt="" src="../extra/bank_translate.png"> </p>
+<p>而判斷的基準則是必須透過上下文的方式來判斷這個單字真正的涵義，這樣的現象在中文當中同樣也可以發現到。</br></p>
+<h1><font size = 5 >那我們如何將文字轉換為有意義的量值呢?</font></h1>
+<p><img alt="" src="../extra/word_embedding.png"> </p>
   </div>
   <div class="tag-cloud">
     <p>
