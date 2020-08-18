@@ -29,13 +29,13 @@
 
 
 <meta name="author" content="Michael Chien" />
-<meta name="description" content="前言 (2020/08/13更新) 股價的漲跌往往不是我們這些股市菜鳥所能夠理解的，尤其是在股價的起伏還受到各種消息面的影響，甚至老闆的一句話就可以讓股價一飛沖天或跌落谷底，近年來最著名的例子就是特斯拉的執行長Elon Musk，若沒有掌握到這些消息將會對股價的漲幅丈二金剛摸不著頭緒。 甚至會有些股市老手會說：哎呀花時間閱讀那些資訊是沒有用的，等你看到時早就已經反映在股價上了，但事實上可能有些資訊早就潛藏在其中，只是礙於我們的經驗不足而無法做出適當的判斷。 因此本篇將透過自然語言處理(Natural Language Processing,NLP)試著將公司行號釋出的重大消息資訊納入，透過科技來輔佐我們在茫茫的資訊海中抽絲剝繭，以期望能輔助我們尋找出其中的脈絡並先行做出部署，來預測股價的漲跌。 語言的博大精深！！ 舉個有趣的例子為例: I arrived at the bank after crossing the river. I arrived at the bank after crossing the street. 當這兩句併排在一起我們能很明顯的判別出 bank 這一個字分別有不同的意思： 而判斷的基準則是必須透過上下文的方式來判斷這個單字真正的涵義，這樣的現象在中文當中同樣也可以發現到。 那我們如何將文字轉換為有意義的量值呢 …" />
+<meta name="description" content="本篇結合自然語言處理的相關技術與統計資料分析為2019年選修資工所類神經網路課程時所做的side project 前言 (2020/08/13更新) 股價的漲跌往往不是我們這些股市菜鳥所能夠理解的，尤其是在股價的起伏還受到各種消息面的影響，甚至老闆的一句話就可以讓股價一飛沖天或跌落谷底，近年來最著名的例子就是特斯拉的執行長Elon Musk，若沒有掌握到這些消息將會對股價的漲幅丈二金剛摸不著頭緒。 有些股市老手會說：哎呀花時間閱讀那些資訊是沒有用的，等你看到時早就已經反映在股價上了，但事實上可能有些資訊早就潛藏在其中，只是礙於我們的經驗不足而無法做出適當的判斷。 因此本篇將透過自然語言處理(Natural Language Processing,NLP)試著將公司行號釋出的重大消息資訊納入，透過科技來輔佐我們在茫茫的資訊海中抽絲剝繭，以期望能輔助我們尋找出其中的脈絡並先行做出部署，來預測股價的漲跌。 資料來源 首先透過爬蟲(web crawler)的方式取得本篇拿來分析用的歷史股價－玉晶光(3406) import numpy as np import pandas as pd import requests import datetime url = &#34;https://query1.finance.yahoo …" />
 <meta name="keywords" content="Natural Language Processing, Stock">
 
 
 <meta property="og:site_name" content="Learning note & Build some side projects | Michael Chien"/>
 <meta property="og:title" content="利用自然語言處理(NLP)使股價預測更為精準"/>
-<meta property="og:description" content="前言 (2020/08/13更新) 股價的漲跌往往不是我們這些股市菜鳥所能夠理解的，尤其是在股價的起伏還受到各種消息面的影響，甚至老闆的一句話就可以讓股價一飛沖天或跌落谷底，近年來最著名的例子就是特斯拉的執行長Elon Musk，若沒有掌握到這些消息將會對股價的漲幅丈二金剛摸不著頭緒。 甚至會有些股市老手會說：哎呀花時間閱讀那些資訊是沒有用的，等你看到時早就已經反映在股價上了，但事實上可能有些資訊早就潛藏在其中，只是礙於我們的經驗不足而無法做出適當的判斷。 因此本篇將透過自然語言處理(Natural Language Processing,NLP)試著將公司行號釋出的重大消息資訊納入，透過科技來輔佐我們在茫茫的資訊海中抽絲剝繭，以期望能輔助我們尋找出其中的脈絡並先行做出部署，來預測股價的漲跌。 語言的博大精深！！ 舉個有趣的例子為例: I arrived at the bank after crossing the river. I arrived at the bank after crossing the street. 當這兩句併排在一起我們能很明顯的判別出 bank 這一個字分別有不同的意思： 而判斷的基準則是必須透過上下文的方式來判斷這個單字真正的涵義，這樣的現象在中文當中同樣也可以發現到。 那我們如何將文字轉換為有意義的量值呢 …"/>
+<meta property="og:description" content="本篇結合自然語言處理的相關技術與統計資料分析為2019年選修資工所類神經網路課程時所做的side project 前言 (2020/08/13更新) 股價的漲跌往往不是我們這些股市菜鳥所能夠理解的，尤其是在股價的起伏還受到各種消息面的影響，甚至老闆的一句話就可以讓股價一飛沖天或跌落谷底，近年來最著名的例子就是特斯拉的執行長Elon Musk，若沒有掌握到這些消息將會對股價的漲幅丈二金剛摸不著頭緒。 有些股市老手會說：哎呀花時間閱讀那些資訊是沒有用的，等你看到時早就已經反映在股價上了，但事實上可能有些資訊早就潛藏在其中，只是礙於我們的經驗不足而無法做出適當的判斷。 因此本篇將透過自然語言處理(Natural Language Processing,NLP)試著將公司行號釋出的重大消息資訊納入，透過科技來輔佐我們在茫茫的資訊海中抽絲剝繭，以期望能輔助我們尋找出其中的脈絡並先行做出部署，來預測股價的漲跌。 資料來源 首先透過爬蟲(web crawler)的方式取得本篇拿來分析用的歷史股價－玉晶光(3406) import numpy as np import pandas as pd import requests import datetime url = &#34;https://query1.finance.yahoo …"/>
 <meta property="og:locale" content="en_US"/>
 <meta property="og:url" content="/li-yong-zi-ran-yu-yan-chu-li-nlpshi-gu-jia-yu-ce-geng-wei-jing-zhun.html"/>
 <meta property="og:type" content="article"/>
@@ -116,18 +116,81 @@
 
 
   <div>
-    <h1><font color = #000000 size = 6 >前言</font></h1>
+    <p><strong>本篇結合自然語言處理的相關技術與統計資料分析為2019年選修資工所類神經網路課程時所做的side project</strong></p>
+<h1><font color = #000000 size = 6 > 前言 </font></h1>
 <p>(2020/08/13更新)</p>
 <p>股價的漲跌往往不是我們這些股市菜鳥所能夠理解的，尤其是在股價的起伏還受到各種消息面的影響，甚至老闆的一句話就可以讓股價一飛沖天或跌落谷底，近年來最著名的例子就是特斯拉的執行長Elon Musk，若沒有掌握到這些消息將會對股價的漲幅丈二金剛摸不著頭緒。</p>
-<p><img alt="" src="../extra/musk.png"></p>
-<p>甚至會有些股市老手會說：哎呀花時間閱讀那些資訊是沒有用的，等你看到時早就已經反映在股價上了，但事實上可能有些資訊早就潛藏在其中，只是礙於我們的經驗不足而無法做出適當的判斷。</p>
-<p><img alt="" src="../extra/NLP_process.png"></p>
+<p><img alt="圖片來源:科技新報" src="../extra/musk.png"></p>
+<p>有些股市老手會說：哎呀花時間閱讀那些資訊是沒有用的，等你看到時早就已經反映在股價上了，但事實上可能有些資訊早就潛藏在其中，只是礙於我們的經驗不足而無法做出適當的判斷。</p>
 <p>因此本篇將透過自然語言處理(Natural Language Processing,NLP)試著將公司行號釋出的重大消息資訊納入，透過科技來輔佐我們在茫茫的資訊海中抽絲剝繭，以期望能輔助我們尋找出其中的脈絡並先行做出部署，來預測股價的漲跌。</p>
+<h1><font color = #000000 size = 6 > 資料來源 </font></h1>
+<p>首先透過爬蟲(web crawler)的方式取得本篇拿來分析用的歷史股價－玉晶光(3406)</p>
+<div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">np</span> 
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="kn">as</span> <span class="nn">pd</span> 
+<span class="kn">import</span> <span class="nn">requests</span>
+<span class="kn">import</span> <span class="nn">datetime</span>
+
+<span class="n">url</span> <span class="o">=</span> <span class="s2">&quot;https://query1.finance.yahoo.com/v7/finance/download/3406.TW?period1=0&amp;period2=1549258857&amp;interval=1d&amp;events=history&amp;crumb=hP2rOschxO0&quot;</span>
+
+<span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="n">url</span><span class="p">)</span>
+
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;file.csv&#39;</span><span class="p">,</span> <span class="s1">&#39;w&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+    <span class="n">f</span><span class="o">.</span><span class="n">writelines</span><span class="p">(</span><span class="n">response</span><span class="o">.</span><span class="n">text</span><span class="p">)</span>
+
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;file.csv&#39;</span><span class="p">,</span> <span class="n">index_col</span><span class="o">=</span><span class="s1">&#39;Date&#39;</span><span class="p">,</span> <span class="n">parse_dates</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;Date&#39;</span><span class="p">])</span>
+<span class="n">df</span><span class="o">.</span><span class="n">Close</span><span class="o">.</span><span class="n">plot</span><span class="p">()</span>
+
+<span class="n">stock_TW</span><span class="o">=</span><span class="n">crawl_price</span><span class="p">(</span><span class="s2">&quot;3406.TW&quot;</span><span class="p">)</span>
+<span class="n">stock_TW</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="s2">&quot;3406.csv&quot;</span><span class="p">)</span>
+
+<span class="n">stock_TW</span>
+</pre></div>
+
+
+<p><img alt="" src="../extra/stock_3406.png"></p>
+<p>再來我們一樣透過爬蟲的方式將公開資訊網站(https://mops.twse.com.tw/)內的"重大消息與公告"給抓取下來</p>
+<p>抓到的內容如下:</p>
 <blockquote>
-<blockquote>
-<p><font size = 5 >語言的博大精深！！</font> </p>
+<p>1.事實發生日:108/05/14
+2.接受資金貸與之:
+(1)公司名稱:玉晶光電(廈門)有限公司
+(2)與資金貸與他人公司之關係:
+聯屬關係
+(3)資金貸與之限額(仟元):541617
+(4)原資金貸與之餘額(仟元):289440
+(5)本次新增資金貸與之金額(仟元):62000
+(6)是否為董事會授權董事長對同一貸與對象分次撥貸或循環動用之資金貸與:否
+(7)迄事實發生日止資金貸與餘額(仟元):351440
+(8)本次新增資金貸與之原因:
+為因應玉晶光電(廈門)有限公司營運周轉而從事之資金貸與，並供做資金
+貸與借新還舊之用。
+3.接受資金貸與公司所提供擔保品之:
+(1)內容:
+無
+(2)價值(仟元):0
+4.接受資金貸與公司最近期財務報表之:
+(1)資本(仟元):4620848
+(2)累積盈虧金額(仟元):1403737
+5.計息方式:
+年利率不低於同幣別借款之最高利率，到期一次付息。
+6.還款之:
+(1)條件:
+視接受資金貸與公司之營運狀況，於借款期限內還清。
+(2)日期:
+借款日起一年內還清。
+7.迄事實發生日為止，資金貸與餘額(仟元):
+2062882
+8.迄事實發生日為止，資金貸與餘額占公開發行公司最近期財務報表淨值之比率:
+25.54
+9.公司貸與他人資金之來源:
+子公司本身
+10.其他應敘明事項:
+無</p>
 </blockquote>
-</blockquote>
+<p></br></p>
+<p>我們能夠從重大消息公告當中得知公司的財務資訊, 交易對象等，甚至是該消息發布的緣由都會附上詳盡的文字敘述，</p>
+<p>而新聞媒體所發布的新聞稿在本篇分析當中將先不納入我們的資料來源，因為考量到不同媒體報導的角度可能不同，導致對於事件的描述上有所差異，用詞上情感的強烈亦會影響模型判斷的依據，徒增資料分析上的變因。</p>
+<h1><font size = 5 > 語言的博大精深！！</font></h1>
 <p>舉個有趣的例子為例:</p>
 <p><font size = 4 > <strong>I arrived at the <font color = #FF4500 > bank </font> after crossing the river.</strong> </font>  </p>
 <p><font size = 4 > <strong>I arrived at the <font color = #FF4500 > bank </font> after crossing the street.</strong> </font> </p>
@@ -136,7 +199,13 @@
 <p><img alt="" src="../extra/bank_translate.png"> </p>
 <p>而判斷的基準則是必須透過上下文的方式來判斷這個單字真正的涵義，這樣的現象在中文當中同樣也可以發現到。</br></p>
 <h1><font size = 5 >那我們如何將文字轉換為有意義的量值呢?</font></h1>
-<p><img alt="" src="../extra/word_embedding.png"> </p>
+<p><img alt="" src="../extra/word_embedding.png"></p>
+<h1><font size = 5 > 雛型架構 Naive model </font></h1>
+<ol>
+<li>Extractor 用來提取重大消息中有用的資訊</li>
+<li>Classifier 將提取出的資訊結合股價區分為不同的類別，給予適當的數值範圍辨別漲跌的趨勢。</li>
+</ol>
+<p>接下來就看我是怎麼實做這個部分的內容瞜</p>
   </div>
   <div class="tag-cloud">
     <p>
