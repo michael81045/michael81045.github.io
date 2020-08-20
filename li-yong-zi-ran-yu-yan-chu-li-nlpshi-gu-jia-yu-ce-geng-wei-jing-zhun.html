@@ -120,7 +120,7 @@
 </br></p>
 <p><strong>本篇結合自然語言處理的相關技術與統計資料分析為2019年選修資工所類神經網路課程時所做的side project。</strong></p>
 <p></br></p>
-<h1 id="_1"><font size = 5 > <strong>前言</strong> </font></h1>
+<h1><font size = 5 > <strong>前言</strong> </font></h1>
 <p>(2020/08/13更新)</p>
 <p>股價的漲跌往往不是我們這些股市菜鳥所能夠理解的，尤其是在股價的起伏還受到各種消息面的影響，甚至老闆的一句話就可以讓股價一飛沖天或跌落谷底，近年來最著名的例子就是特斯拉的執行長Elon Musk，若沒有掌握到這些消息將會對股價的漲幅丈二金剛摸不著頭緒。</p>
 <style>
@@ -143,7 +143,7 @@
 <p>有些股市老手會說：哎呀花時間閱讀那些資訊是沒有用的，等你看到時早就已經反映在股價上了，但事實上可能有些資訊早就潛藏在其中，只是礙於我們的經驗不足而無法做出適當的判斷。</p>
 <p>因此本篇將透過自然語言處理(Natural Language Processing,NLP)試著將公司行號釋出的重大消息資訊納入，透過科技來輔佐我們在茫茫的資訊海中抽絲剝繭，以期望能輔助我們尋找出其中的脈絡並先行做出部署，來預測股價的漲跌。</p>
 <p></br></p>
-<h1 id="_2"><font size = 5 > <strong>資料來源</strong> </font></h1>
+<h1><font size = 5 > <strong>資料來源</strong> </font></h1>
 <p>首先透過爬蟲(web crawler)的方式取得本篇拿來分析用的歷史股價－玉晶光(3406)。</p>
 <div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">np</span> 
 <span class="kn">import</span> <span class="nn">pandas</span> <span class="kn">as</span> <span class="nn">pd</span> 
@@ -211,7 +211,7 @@
 <p></br></p>
 <p>我們能夠從重大消息公告當中得知公司的財務資訊, 交易對象等，甚至是該消息發布的緣由都會附上詳盡的文字敘述。而新聞媒體所發布的新聞稿在本篇分析當中將先不納入我們的資料來源，因為考量到不同媒體報導的角度可能不同，導致對於事件的描述上有所差異，用詞上情感的強烈亦會影響模型判斷的依據，徒增資料分析上的變因。</p>
 <p></br></p>
-<h1 id="_3"><font size = 5 > 語言的博大精深！！</font></h1>
+<h1><font size = 5 > 語言的博大精深！！</font></h1>
 <p>舉個有趣的例子為例:</p>
 <blockquote>
 <p><font size = 4 > <strong>I arrived at the <font color = #FF4500 > bank </font> after crossing the river.</strong> </font><br>
@@ -229,7 +229,7 @@
 <p></br></p>
 <p>而判斷的基準則是必須透過上下文的方式來判斷這個單字真正的涵義，這樣的現象在中文當中同樣也可以發現到。</p>
 <p></br></p>
-<h1 id="_4"><font size = 5 ><strong>那我們如何將文字轉換為有意義的量值呢?</strong></font></h1>
+<h1><font size = 5 ><strong>那我們如何將文字轉換為有意義的量值呢?</strong></font></h1>
 <p>一個詞彙的涵義可能在不同使用者的經歷或是書寫的習慣上的差異，而使得語意上有所差距，因此如何使一個詞彙表達出表達出語意上真正的涵義，Tomas Mikolov在2013年提出了他的看法：<font color = #FF4500 ><strong>字詞就如同我們人一般，能夠透過周遭相似的詞彙（context）反映出它真正的涵義。</strong></font> [<a href="https://arxiv.org/pdf/1301.3781.pdf">原文連結</a>]</p>
 <p></br></p>
 <p>概念如下圖：</p>
@@ -243,7 +243,7 @@
 </p>
 
 <p></br></p>
-<h1 id="naive-model"><font size = 5 > <strong>雛型架構 Naive model</strong> </font></h1>
+<h1><font size = 5 > <strong>雛型架構 Naive model</strong> </font></h1>
 <blockquote>
 <ol>
 <li>Extractor 用來提取重大消息中有用的資訊</li>
@@ -252,7 +252,7 @@
 </blockquote>
 <p>接下來就看我是怎麼實做這個部分的內容瞜</p>
 <p></br></p>
-<h1 id="document-classification"><font size = 5 > <strong>文章分類 Document Classification</strong> </font></h1>
+<h1><font size = 5 > <strong>文章分類 Document Classification</strong> </font></h1>
 <p>在斷詞的使用上我是透過 <a href="https://github.com/fxsjy/jieba">jieba</a> 的 <code>search_mode</code>。</p>
 <p>以下方的例子為例，將 <code>text = "101在台北市信義區"</code>，可以很明顯的看出不同模式在斷詞結果上的差別。</p>
 <ul>
@@ -292,19 +292,7 @@
 <p>log(字詞在文章中出現的次數 / 文章的總詞彙數)</p>
 </blockquote>
 <p>並將TF與IDF相乘得到該篇公開消息的特徵值。</p>
-<p>接下來我們可以利用consine</p>
-<div class="highlight"><pre><span></span><span class="n">text</span> <span class="o">=</span> <span class="s2">&quot;101在台北市信義區&quot;</span>
-<span class="k">print</span><span class="p">(</span><span class="n">jieba</span><span class="o">.</span><span class="n">lcut_for_search</span><span class="p">(</span><span class="n">text</span><span class="p">))</span>       <span class="c1"># serch_mode</span>
-<span class="c1"># [&#39;101&#39;, &#39;在&#39;, &#39;台北&#39;, &#39;北市&#39;, &#39;台北市&#39;, &#39;信義區&#39;]</span>
-
-<span class="k">print</span><span class="p">(</span><span class="n">jieba</span><span class="o">.</span><span class="n">lcut</span><span class="p">(</span><span class="n">text</span><span class="p">,</span> <span class="n">cut_all</span> <span class="o">=</span> <span class="bp">True</span><span class="p">))</span>  <span class="c1"># full_mode</span>
-<span class="c1"># [&#39;101&#39;, &#39;在&#39;, &#39;台北&#39;, &#39;台北市&#39;, &#39;北市&#39;, &#39;信&#39;, &#39;義&#39;, &#39;區&#39;]</span>
-
-<span class="k">print</span><span class="p">(</span><span class="n">jieba</span><span class="o">.</span><span class="n">lcut</span><span class="p">(</span><span class="n">text</span><span class="p">,</span> <span class="n">cut_all</span> <span class="o">=</span> <span class="bp">False</span><span class="p">))</span> <span class="c1"># precise_mode (default mode)</span>
-<span class="c1"># [&#39;101&#39;, &#39;在&#39;, &#39;台北市&#39;, &#39;信義區&#39;]</span>
-</pre></div>
-
-
+<p>接下來我們可以利用 <code>consine similarity</code></p>
 <p><a href="https://www.kesci.com/home/project/5be7e948954d6e0010632ef2">文本分類算法錦集</a> </br>
 <a href="https://www.jishuwen.com/d/2M6u/zh-tw">BERT模型詳解</a> </br>
 <a href="https://www.youtube.com/watch?v=UYPa347-DdE">ELMO, BERT, GPT</a> </br>
