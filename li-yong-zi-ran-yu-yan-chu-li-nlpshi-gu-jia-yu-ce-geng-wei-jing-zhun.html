@@ -131,7 +131,13 @@
 </style>
 
 <p></br></p>
-<p><img alt="圖片來源:科技新報" src="../extra/musk.png"> <center><em>圖片來源：科技新報</em></center></p>
+<p align="center">
+
+  <img src="../extra/musk.png">
+  <font color = #AAAAAA> 圖片來源：科技新報 </font>
+
+</p>
+
 <p></br></p>
 <p>有些股市老手會說：哎呀花時間閱讀那些資訊是沒有用的，等你看到時早就已經反映在股價上了，但事實上可能有些資訊早就潛藏在其中，只是礙於我們的經驗不足而無法做出適當的判斷。</p>
 <p>因此本篇將透過自然語言處理(Natural Language Processing,NLP)試著將公司行號釋出的重大消息資訊納入，透過科技來輔佐我們在茫茫的資訊海中抽絲剝繭，以期望能輔助我們尋找出其中的脈絡並先行做出部署，來預測股價的漲跌。</p>
@@ -206,41 +212,56 @@
 <p></br></p>
 <h1><font size = 5 > 語言的博大精深！！</font></h1>
 <p>舉個有趣的例子為例:</p>
-<p><font size = 4 > <strong>I arrived at the <font color = #FF4500 > bank </font> after crossing the river.</strong> </font>  </p>
-<p><font size = 4 > <strong>I arrived at the <font color = #FF4500 > bank </font> after crossing the street.</strong> </font> </p>
+<blockquote>
+<p><font size = 4 > <strong>I arrived at the <font color = #FF4500 > bank </font> after crossing the river.</strong> </font><br>
+<font size = 4 > <strong>I arrived at the <font color = #FF4500 > bank </font> after crossing the street.</strong> </font> </p>
+</blockquote>
 <p>當這兩句併排在一起我們能很明顯的判別出 <font color = #FF4500 > 
-<strong>bank</strong> </font> 這一個字分別有不同的意思：</p>
-<p><img alt="" src="../extra/bank_translate.png"> <center> 同一個詞在不同的句子當中會有不同的意義 </center></p>
+<strong>bank</strong> </font> 這一個字分別有不同的意思： </p>
+<p align="center">
+
+  <img src="../extra/bank_translate.png">
+  <font color = #AAAAAA> 同一個詞在不同的句子當中會有不同的意義 </font>
+
+</p>
+
 <p></br></p>
-<p>而判斷的基準則是必須透過上下文的方式來判斷這個單字真正的涵義，這樣的現象在中文當中同樣也可以發現到。</br></p>
+<p>而判斷的基準則是必須透過上下文的方式來判斷這個單字真正的涵義，這樣的現象在中文當中同樣也可以發現到。</p>
+<p></br></p>
 <h1><font size = 5 ><strong>那我們如何將文字轉換為有意義的量值呢?</strong></font></h1>
-<p>一個詞彙的涵義可能在不同使用者的經歷或是書寫的習慣上的差異，而使得語意上有所差距，因此如何使一個詞彙表達出表達出語意上真正的涵義，Tomas Mikolov在2013年提出了他的看法：<font color = #FF4500 ><strong>字詞就如同我們人一般，能夠透過周遭相似的詞彙（context）反映出它真正的涵義。</strong></font> <a href="https://arxiv.org/pdf/1301.3781.pdf">原文連結</a></p>
+<p>一個詞彙的涵義可能在不同使用者的經歷或是書寫的習慣上的差異，而使得語意上有所差距，因此如何使一個詞彙表達出表達出語意上真正的涵義，Tomas Mikolov在2013年提出了他的看法：<font color = #FF4500 ><strong>字詞就如同我們人一般，能夠透過周遭相似的詞彙（context）反映出它真正的涵義。</strong></font> [<a href="https://arxiv.org/pdf/1301.3781.pdf">原文連結</a>]</p>
 <p></br></p>
-<p>概念如下圖：
- <img alt="" src="../extra/word_embedding.png"> <center> 將所有字詞以向量方式表示 </center></p>
+<p>概念如下圖：</p>
+<p align="center">
+
+  <img src="../extra/word_embedding.png">
+  <font color = #AAAAAA> 將所有字詞以向量方式表示( 
+  <a href="https://www.youtube.com/watch?v=UYPa347-DdE">圖片來源</a> )
+  </font>
+
+</p>
+
 <p></br></p>
 <h1><font size = 5 > <strong>雛型架構 Naive model</strong> </font></h1>
+<blockquote>
 <ol>
 <li>Extractor 用來提取重大消息中有用的資訊</li>
 <li>Classifier 將提取出的資訊結合股價區分為不同的類別，給予適當的數值範圍辨別漲跌的趨勢。</li>
 </ol>
+</blockquote>
 <p>接下來就看我是怎麼實做這個部分的內容瞜</p>
 <p></br></p>
 <h1><font size = 5 > <strong>文章分類 Document Classification</strong> </font></h1>
-<p>在斷詞的使用上我是透過<a href="https://github.com/fxsjy/jieba">jieba</a>的<code>search_mode</code>。</p>
-<div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">jieba</span>
-<span class="n">text</span> <span class="o">=</span> <span class="s2">&quot;玉晶光澄清市場傳聞 股價勁揚逾4%&quot;</span>
-<span class="k">print</span><span class="p">(</span><span class="n">jieba</span><span class="o">.</span><span class="n">lcut_for_search</span><span class="p">(</span><span class="n">text</span><span class="p">))</span>       <span class="c1"># serch_mode</span>
-<span class="c1"># [&#39;玉晶光&#39;, &#39;澄清&#39;, &#39;市場&#39;, &#39;傳聞&#39;, &#39; &#39;, &#39;股價勁揚&#39;, &#39;逾&#39;, &#39;4%&#39;]</span>
-
-<span class="k">print</span><span class="p">(</span><span class="n">jieba</span><span class="o">.</span><span class="n">lcut</span><span class="p">(</span><span class="n">text</span><span class="p">,</span> <span class="n">cut_all</span> <span class="o">=</span> <span class="bp">True</span><span class="p">))</span>  <span class="c1"># full_mode</span>
-<span class="c1"># [&#39;玉&#39;, &#39;晶&#39;, &#39;光&#39;, &#39;澄清&#39;, &#39;市&#39;, &#39;場&#39;, &#39;傳&#39;, &#39;聞&#39;, &#39;&#39;, &#39; &#39;, &#39;&#39;, &#39;股&#39;, &#39;價&#39;, &#39;勁&#39;, &#39;揚&#39;, &#39;逾&#39;, &#39;4&#39;, &#39;%&#39;]</span>
-
-<span class="k">print</span><span class="p">(</span><span class="n">jieba</span><span class="o">.</span><span class="n">lcut</span><span class="p">(</span><span class="n">text</span><span class="p">,</span> <span class="n">cut_all</span> <span class="o">=</span> <span class="bp">False</span><span class="p">))</span> <span class="c1"># precise_mode (default mode)</span>
-<span class="c1"># [&#39;玉晶光&#39;, &#39;澄清&#39;, &#39;市場&#39;, &#39;傳聞&#39;, &#39; &#39;, &#39;股價勁揚&#39;, &#39;逾&#39;, &#39;4%&#39;]</span>
-</pre></div>
-
-
+<p>在斷詞的使用上我是透過 <a href="https://github.com/fxsjy/jieba">jieba</a> 的 <code>search_mode</code>。</p>
+<p>以下方的例子為例，將 <code>text = "101在台北市信義區"</code>，可以很明顯的看出不同模式在斷詞結果上的差別。</p>
+<ul>
+<li>search_mode </br>
+101 / 在 / 台北 / 北市 / 台北市 / 信義區</li>
+<li>full_mode </br>
+101 / 在 / 台北 / 台北市 / 北市 / 信 / 義 / 區</li>
+<li>precise_mode </br>
+101 / 在 / 台北 / 北市 / 台北市 / 信義區</li>
+</ul>
 <div class="highlight"><pre><span></span><span class="n">text</span> <span class="o">=</span> <span class="s2">&quot;101在台北市信義區&quot;</span>
 <span class="k">print</span><span class="p">(</span><span class="n">jieba</span><span class="o">.</span><span class="n">lcut_for_search</span><span class="p">(</span><span class="n">text</span><span class="p">))</span>       <span class="c1"># serch_mode</span>
 <span class="c1"># [&#39;101&#39;, &#39;在&#39;, &#39;台北&#39;, &#39;北市&#39;, &#39;台北市&#39;, &#39;信義區&#39;]</span>
@@ -251,6 +272,31 @@
 <span class="k">print</span><span class="p">(</span><span class="n">jieba</span><span class="o">.</span><span class="n">lcut</span><span class="p">(</span><span class="n">text</span><span class="p">,</span> <span class="n">cut_all</span> <span class="o">=</span> <span class="bp">False</span><span class="p">))</span> <span class="c1"># precise_mode (default mode)</span>
 <span class="c1"># [&#39;101&#39;, &#39;在&#39;, &#39;台北市&#39;, &#39;信義區&#39;]</span>
 </pre></div>
+
+
+<p>選擇使用 <code>search_mode</code> 是為了提高模型的召回率（recall），而模型的準確率（precision）與召回率之間的權衡是未來我們在針對模型作微調以提升預測的準確率時能夠著墨的地方，但現在先讓我們粗步地完成整個模型後再回頭過來調校，有關這方面的討論可以參考以下文章： </br></p>
+<ul>
+<li><a href="https://www.ycc.idv.tw/confusion-matrix.html">如何辨別機器學習模型的好壞？秒懂Confusion Matrix</a> </br></li>
+</ul>
+<p>按照上述的方式我們將所有抓取到的玉晶光重大公開消息做為本篇文本分析的語料庫（corpus），在刪除停用詞（stopword）等一些常用的詞或沒有意義的符號，例如：<code>在</code>、<code>不外乎</code>、<code>不只</code>等這一類的詞，將所有的詞集合而成一個向量。</p>
+<blockquote>
+<p>101 / 台北 / 北市 / 台北市 / 信義區</p>
+</blockquote>
+<p>我們可以很直觀的認為如果一個詞很頻繁的在一篇重大消息當中出現，表示這個詞可能與這篇公開消息的關聯性越高，可以將其出現的頻率－詞頻（Term Frequency,　TF）透過下方的公式計算得出：</p>
+<blockquote>
+<p>字詞在文章中出現的次數 / 文章的總詞彙數</p>
+</blockquote>
+<p>但是今天如果有一個詞（ex. 撤資）它只出現在特定的幾篇相較於廣泛出現的用語（ex. 資金），前者的重要性以及獨特性應該要更高，這也是逆向文件頻率（Inverse Document Frequency, IDF）的概念，計算的公式為：</p>
+<blockquote>
+<p>log(字詞在文章中出現的次數 / 文章的總詞彙數)</p>
+</blockquote>
+<p>並將TF與IDF相乘得到該篇公開消息的特徵值。</p>
+<p>接下來我們可以利用consine</p>
+<p><a href="https://www.kesci.com/home/project/5be7e948954d6e0010632ef2">文本分類算法錦集</a> </br>
+<a href="https://www.jishuwen.com/d/2M6u/zh-tw">BERT模型詳解</a> </br>
+<a href="https://www.youtube.com/watch?v=UYPa347-DdE">ELMO, BERT, GPT</a> </br>
+<a href="https://leemeng.tw/attack_on_bert_transfer_learning_in_nlp.html">進擊的 BERT：NLP 界的巨人之力與遷移學習</a> </br>
+<a href="https://taweihuang.hpd.io/2017/03/01/tfidf/">TF-IDF 演算法：快速計算單字與文章的關聯</a></p>
   </div>
   <div class="tag-cloud">
     <p>
