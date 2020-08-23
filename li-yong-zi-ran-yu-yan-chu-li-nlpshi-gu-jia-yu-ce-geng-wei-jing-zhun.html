@@ -29,13 +29,13 @@
 
 
 <meta name="author" content="Michael Chien" />
-<meta name="description" content="本篇結合自然語言處理的相關技術與統計資料分析為2019年選修資工所類神經網路課程時所做的side project。 前言 (2020/08/13更新) 股價的漲跌往往不是我們這些股市菜鳥所能夠理解的，尤其是在股價的起伏還受到各種消息面的影響，甚至老闆的一句話就可以讓股價一飛沖天或跌落谷底，近年來最著名的例子就是特斯拉的執行長 Elon Musk，若沒有掌握到這些消息將會對股價的漲幅丈二金剛摸不著頭緒。 img+br+em,a+br+em, img+em, a+em { font-size: 90%; /*使用較小的文字*/ font-color: #AAAAAA; /*使用較淡的文字色彩*/ font-style: normal; /*以正常字體呈現*/ } Elon Musk 總是喜歡在Twitter上發表個人看法，他的一言一行牽動著旗下公司股價的漲跌 ( 圖片來源 ) 有些股市老手會說：哎呀花時間閱讀那些資訊是沒有用的，等你看到時早就已經反映在股價上了，但事實上可能有些資訊早就潛藏在其中，只是礙於我們的經驗不足而無法做出適當的判斷。 因此本篇將透過自然語言處理(Natural Language Processing,NLP)試著將公司行號釋出的重大消息資訊納入，透過科技來輔佐我們在茫茫的資訊海中抽絲剝繭，以期望能輔助我們尋找出其中的脈絡並先行做出部署 …" />
+<meta name="description" content="本篇結合自然語言處理的相關技術與統計資料分析為2019年選修資工所類神經網路課程時所做的side project。 前言 （2020/08/13更新） 股價的漲跌往往不是我們這些股市菜鳥所能夠理解的，尤其是在股價的起伏還受到各種消息面的影響，甚至老闆的一句話就可以讓股價一飛沖天或跌落谷底，近年來最著名的例子就是特斯拉的執行長 Elon Musk，若沒有掌握到這些消息將會對股價的漲幅丈二金剛摸不著頭緒。 img+br+em,a+br+em, img+em, a+em { font-size: 90%; /*使用較小的文字*/ font-color: #AAAAAA; /*使用較淡的文字色彩*/ font-style: normal; /*以正常字體呈現*/ } Elon Musk 總是喜歡在Twitter上發表個人看法，他的一言一行牽動著旗下公司股價的漲跌 ( 圖片來源 ) 有些股市老手會說：哎呀花時間閱讀那些資訊是沒有用的，等你看到時早就已經反映在股價上了，但事實上可能有些資訊早就潛藏在其中，只是礙於我們的經驗不足而無法做出適當的判斷。 因此本篇將透過自然語言處理（Natural Language Processing, NLP）試著將公司行號釋出的重大消息資訊納入，透過科技來輔佐我們在茫茫的資訊海中抽絲剝繭，以期望能輔助我們尋找出其中的脈絡並先行做出部署 …" />
 <meta name="keywords" content="Natural Language Processing, Stock">
 
 
 <meta property="og:site_name" content="Learning note & Build some side projects | Michael Chien"/>
 <meta property="og:title" content="利用自然語言處理(NLP)使股價預測更為精準"/>
-<meta property="og:description" content="本篇結合自然語言處理的相關技術與統計資料分析為2019年選修資工所類神經網路課程時所做的side project。 前言 (2020/08/13更新) 股價的漲跌往往不是我們這些股市菜鳥所能夠理解的，尤其是在股價的起伏還受到各種消息面的影響，甚至老闆的一句話就可以讓股價一飛沖天或跌落谷底，近年來最著名的例子就是特斯拉的執行長 Elon Musk，若沒有掌握到這些消息將會對股價的漲幅丈二金剛摸不著頭緒。 img+br+em,a+br+em, img+em, a+em { font-size: 90%; /*使用較小的文字*/ font-color: #AAAAAA; /*使用較淡的文字色彩*/ font-style: normal; /*以正常字體呈現*/ } Elon Musk 總是喜歡在Twitter上發表個人看法，他的一言一行牽動著旗下公司股價的漲跌 ( 圖片來源 ) 有些股市老手會說：哎呀花時間閱讀那些資訊是沒有用的，等你看到時早就已經反映在股價上了，但事實上可能有些資訊早就潛藏在其中，只是礙於我們的經驗不足而無法做出適當的判斷。 因此本篇將透過自然語言處理(Natural Language Processing,NLP)試著將公司行號釋出的重大消息資訊納入，透過科技來輔佐我們在茫茫的資訊海中抽絲剝繭，以期望能輔助我們尋找出其中的脈絡並先行做出部署 …"/>
+<meta property="og:description" content="本篇結合自然語言處理的相關技術與統計資料分析為2019年選修資工所類神經網路課程時所做的side project。 前言 （2020/08/13更新） 股價的漲跌往往不是我們這些股市菜鳥所能夠理解的，尤其是在股價的起伏還受到各種消息面的影響，甚至老闆的一句話就可以讓股價一飛沖天或跌落谷底，近年來最著名的例子就是特斯拉的執行長 Elon Musk，若沒有掌握到這些消息將會對股價的漲幅丈二金剛摸不著頭緒。 img+br+em,a+br+em, img+em, a+em { font-size: 90%; /*使用較小的文字*/ font-color: #AAAAAA; /*使用較淡的文字色彩*/ font-style: normal; /*以正常字體呈現*/ } Elon Musk 總是喜歡在Twitter上發表個人看法，他的一言一行牽動著旗下公司股價的漲跌 ( 圖片來源 ) 有些股市老手會說：哎呀花時間閱讀那些資訊是沒有用的，等你看到時早就已經反映在股價上了，但事實上可能有些資訊早就潛藏在其中，只是礙於我們的經驗不足而無法做出適當的判斷。 因此本篇將透過自然語言處理（Natural Language Processing, NLP）試著將公司行號釋出的重大消息資訊納入，透過科技來輔佐我們在茫茫的資訊海中抽絲剝繭，以期望能輔助我們尋找出其中的脈絡並先行做出部署 …"/>
 <meta property="og:locale" content="en_US"/>
 <meta property="og:url" content="/li-yong-zi-ran-yu-yan-chu-li-nlpshi-gu-jia-yu-ce-geng-wei-jing-zhun.html"/>
 <meta property="og:type" content="article"/>
@@ -120,7 +120,7 @@
 <p><strong>本篇結合自然語言處理的相關技術與統計資料分析為2019年選修資工所類神經網路課程時所做的side project。</strong></p>
 <p></br></p>
 <h1><font size = 5 > <strong>前言</strong> </font></h1>
-<p>(2020/08/13更新)</p>
+<p>（2020/08/13更新）</p>
 <p>股價的漲跌往往不是我們這些股市菜鳥所能夠理解的，尤其是在股價的起伏還受到各種消息面的影響，甚至老闆的一句話就可以讓股價一飛沖天或跌落谷底，近年來最著名的例子就是特斯拉的執行長 Elon Musk，若沒有掌握到這些消息將會對股價的漲幅丈二金剛摸不著頭緒。</p>
 <style>
  img+br+em,a+br+em, img+em, a+em {
@@ -142,10 +142,10 @@
 
 <p></br></p>
 <p>有些股市老手會說：哎呀花時間閱讀那些資訊是沒有用的，等你看到時早就已經反映在股價上了，但事實上可能有些資訊早就潛藏在其中，只是礙於我們的經驗不足而無法做出適當的判斷。</p>
-<p>因此本篇將透過自然語言處理(Natural Language Processing,NLP)試著將公司行號釋出的重大消息資訊納入，透過科技來輔佐我們在茫茫的資訊海中抽絲剝繭，以期望能輔助我們尋找出其中的脈絡並先行做出部署，來預測股價的漲跌。</p>
+<p>因此本篇將透過自然語言處理（Natural Language Processing, NLP）試著將公司行號釋出的重大消息資訊納入，透過科技來輔佐我們在茫茫的資訊海中抽絲剝繭，以期望能輔助我們尋找出其中的脈絡並先行做出部署，來預測股價的漲跌。</p>
 <p></br></p>
 <h1><font size = 5 > <strong>資料來源</strong> </font></h1>
-<p>首先透過爬蟲(web crawler)的方式取得本篇拿來分析用的歷史股價－玉晶光(3406)。</p>
+<p>首先透過爬蟲（web crawler）的方式取得本篇拿來分析用的歷史股價－玉晶光（3406）。</p>
 <div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">np</span> 
 <span class="kn">import</span> <span class="nn">pandas</span> <span class="kn">as</span> <span class="nn">pd</span> 
 <span class="kn">import</span> <span class="nn">requests</span>
@@ -213,7 +213,7 @@
 <p>我們能夠從重大消息公告當中得知公司的財務資訊, 交易對象等，甚至是該消息發布的緣由都會附上詳盡的文字敘述。而新聞媒體所發布的新聞稿在本篇分析當中將先不納入我們的資料來源，因為考量到不同媒體報導的角度可能不同，導致對於事件的描述上有所差異，用詞上情感的強烈亦會影響模型判斷的依據，徒增資料分析上的變因。</p>
 <p></br></p>
 <h1><font size = 5 ><strong>那我們如何將文字轉換為有意義的量值呢?</strong></font></h1>
-<p>一個詞彙的涵義可能在不同使用者的經歷或是書寫的習慣上的差異，而使得語意上有所差距，因此如何使一個詞彙表達出表達出語意上真正的涵義，Tomas Mikolov在2013年提出了他的看法：<font color = #FF4500 ><strong>字詞就如同我們人一般，能夠透過周遭相似的詞彙（context）反映出它真正的涵義。</strong></font> [<a href="https://arxiv.org/pdf/1301.3781.pdf">原文連結</a>]</p>
+<p>一個詞彙的涵義可能在不同使用者的經歷或是書寫的習慣上的差異，而使得語意上有所差距，因此如何使一個詞彙表達出表達出語意上真正的涵義，Tomas Mikolov 在 2013 年提出了他的看法：<font color = #FF4500 ><strong>字詞就如同我們人一般，能夠透過周遭相似的詞彙（context）反映出它真正的涵義。</strong></font> [<a href="https://arxiv.org/pdf/1301.3781.pdf">原文連結</a>]</p>
 <p></br></p>
 <p>概念如下圖：</p>
 <p align="center">
@@ -272,7 +272,7 @@
 </blockquote>
 <p>但是今天如果有一個詞（ex. 撤資）它只出現在特定的幾篇相較於廣泛出現的用語（ex. 資金），前者的重要性以及獨特性應該要更高，這也是逆向文件頻率（Inverse Document Frequency, IDF）的概念，計算的公式為：</p>
 <blockquote>
-<p>log(字詞在文章中出現的次數 / 文章的總詞彙數)</p>
+<p>log (字詞在文章中出現的次數 / 文章的總詞彙數)</p>
 </blockquote>
 <p>並將TF與IDF相乘得到該篇公開消息的特徵值。</p>
 <p>接下來我們可以利用 <code>consine similarity</code> 來評估所有公開消息與以下三項類別的相似程度：</p>
@@ -304,10 +304,10 @@
 <ol>
 <li>字詞出現的頻率較高不一定就能完整的表達該消息欲傳達的內容。</li>
 <li>無法辨識同義詞，甚至是，甚至是同一個詞的變形也不能處理。</li>
-<li>多義詞亦是TF-IDF無法處理的狀況。</li>
+<li>多義詞亦是 TF-IDF 無法處理的狀況。</li>
 <li>存在特徵稀疏（Sparse feature）的問題。 （<a href="https://www.zhihu.com/question/31951092">參考文章</a>）</li>
 </ol>
-<p>若是結合文章標註Document tag （<code>TF-IDF + Word2Vec</code>）及 <code>cosine similarity</code> 的話，雖然能包含文檔中的上下文，使其對於同義詞的辨識度提高，<font color = #FF4500 > <strong>但是同樣對於多義詞的辨識束手無策</strong> </font>。 </p>
+<p>若是結合文章標註 Document tag （<code>TF-IDF + Word2Vec</code>）及 <code>cosine similarity</code> 的話，雖然能包含文檔中的上下文，使其對於同義詞的辨識度提高，<font color = #FF4500 > <strong>但是同樣對於多義詞的辨識束手無策</strong> </font>。 </p>
 <p></br></p>
 <h1><font size = 5 > <strong>語言的博大精深！！</strong> </font></h1>
 <p>舉個有趣的例子為例:</p>
@@ -334,16 +334,68 @@
 依照提取出來的特徵做 expression，再根據不同的 case 微調（fine tuning）做監督式學習（supervised learning），來達成我們要的目的。</p>
 <p></br></p>
 <h2><font size = 5 > <strong>BERT</strong> </font></h2>
-<p>最終我決定以 GOOGLE 在2018年發表的自然語言模型－ BERT作為我們分類器（Classifier）的最終 model，在 <a href="https://colab.research.google.com/github/tensorflow/tpu/blob/master/tools/colab/bert_finetuning_with_cloud_tpus.ipynb">colab</a> 可以看到 GOOGLE 自附的所有教學以及完整的 code，若要自行搭載環境也可以參考以下文章：</p>
+<p>最終我決定以 GOOGLE 在 2018 年發表的自然語言模型－ BERT 作為我們分類器（Classifier）的最終 model，在 <a href="https://colab.research.google.com/github/tensorflow/tpu/blob/master/tools/colab/bert_finetuning_with_cloud_tpus.ipynb">colab</a> 可以看到 GOOGLE 自附的所有教學以及完整的 code，若要自行搭載環境也可以參考以下文章：</p>
 <ul>
 <li><a href="https://leemeng.tw/attack_on_bert_transfer_learning_in_nlp.html">進擊的 BERT：NLP 界的巨人之力與遷移學習</a> </br></li>
 </ul>
-<p>詳細的原理可以參考李宏毅老師的影片以及其他網路上的資源：　
+<p>BERT整個 model 最重要的部分是以 <code>transformer</code> 中 <font color = #FF4500 > <strong>Attention</strong> </font> 的機制所組成，原因是考慮了過去常用的類神經網路－ RNN是依照時間的次序（time series）由左往右計算，這對模型產生了一定程度上的限制。
+在 <code>transformer</code> 作者的研究論文當中給予的定義也提到：</p>
+<blockquote>
+<p>Transformer is the first transduction model relying entirely on self-attention to compute representations of its input and output without using sequence aligned RNNs or convolution.</p>
+</blockquote>
+<p align="center">
+
+  <img src="../extra/rnn-animate.gif">
+  <font color = #AAAAAA> </br> RNN模型中需要一步步地按照順序從頭處理所有詞語 ( 
+  <a href="https://www.youtube.com/watch?time_continue=2&v=LHXXI4-IEns">圖片來源</a> )
+  </font>
+
+</p>
+
+<p>以前面提到的英文例句為例：</p>
+<blockquote>
+<p><font size = 4 > <strong>I arrived at the <font color = #FF4500 > bank </font> after crossing the river.</strong> </font> </p>
+</blockquote>
+<p>要解析出<font color = #FF4500 > <strong>bank</strong> </font>真正的涵義須完整閱讀到<font color = #FF4500 > <strong>river</strong> </font> ，如果這兩個詞語距離較遠時RNN的執行效率就會較差。
+而 <font color = #FF4500 > <strong>Attention</strong> </font> 則是透過計算每個單詞與其他所有單詞之間的關聯性，能夠很快地得出在翻譯 bank 的同時， river 有較高的 Attention score ，就可以依此作加權，反饋至前一個神經網絡，能夠迅速且充分地掌握上下文信息的特徵。（<a href="https://zhuanlan.zhihu.com/p/47282410">參考文章</a>）</p>
+<p align="center">
+
+  <img src="../extra/self_attention.gif">
+  <font color = #AAAAAA> </br> Self-Attention計算每個字詞與其他所有字詞之間的關係，掌握上下文的關聯性 ( 
+  <a href="https://zhuanlan.zhihu.com/p/47282410">圖片來源</a> )
+  </font>
+
+</p>
+
+<p>也因為 <code>transformer</code> 這樣的並行機制較符合現行GPU的框架，model 運行的速度亦能得到大幅地提升，如果想要更詳細地了解其運作原理可以閱讀 <a href="http://jalammar.github.io/"><strong>Jay Alammer</strong></a> 的文章，附有大量的圖文解說：</br>
+* <a href="http://jalammar.github.io/illustrated-transformer/">The Illustrated Transformer</a></p>
+<p>BERT 詳細的原理可以參考李宏毅老師的影片以及其他網路上的資源：　
 * <a href="https://www.youtube.com/watch?v=UYPa347-DdE">ELMO, BERT, GPT</a> </br>
 * <a href="https://www.jishuwen.com/d/2M6u/zh-tw">BERT模型詳解</a> </br></p>
+<p>BERT提供了四種下游的任務供使用者選取</p>
+<ul>
+<li>Sentence Pair Cassification </br>
+ex. 給定一對句子，目標是預測第二個句子相對第一個句子是包含、矛盾還是中立。</li>
+<li>Single Sentence Classification </br>
+ex. 從電影評論中提取句子或者是標註人類帶有情緒性的用詞。</li>
+<li>Question Answering  </br>
+ex. 給定一個問題以及包含答案的段落，預測答案落在文本的哪一範圍中。</li>
+<li>Single Sentence Tagging </br>
+ex. 識別文本內具有特別意義的字詞－人名、地名、專有名詞等。</li>
+</ul>
+<p align="center">
+
+  <img src="../extra/BERT_tasks.png">
+  <font color = #AAAAAA> </br> Self-Attention計算每個字詞與其他所有字詞之間的關係，掌握上下文的關聯性 ( 
+  <a href="https://arxiv.org/pdf/1810.04805.pdf">圖片來源</a> )
+  </font>
+
+</p>
+
 <p><a href="https://www.kesci.com/home/project/5be7e948954d6e0010632ef2">文本分類算法錦集</a> </br>
-<a href="https://taweihuang.hpd.io/2017/03/01/tfidf/">TF-IDF 演算法：快速計算單字與文章的關聯</a>
-<a href="https://zhuanlan.zhihu.com/p/152526817">TFIDF+Wordembedding无监督多标签文本分类算法（论文解读)</a></p>
+<a href="https://taweihuang.hpd.io/2017/03/01/tfidf/">TF-IDF 演算法：快速計算單字與文章的關聯</a> </br>
+<a href="https://zhuanlan.zhihu.com/p/152526817">TFIDF+Wordembedding无监督多标签文本分类算法（论文解读)</a> </br>
+<a href="https://zhuanlan.zhihu.com/p/102208639">BERT下游任務</a></p>
   </div>
   <div class="tag-cloud">
     <p>
