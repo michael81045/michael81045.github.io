@@ -170,7 +170,7 @@
 
 <p><img align = "left" witdh = 1000 src= "../extra/stock_3406.png"></p>
 <p></br></br></br></br></br></br></br></br></p>
-<p>再來我們一樣透過爬蟲的方式將公開資訊網站(https://mops.twse.com.tw/)內過去曾發布過的<strong>重大消息與公告</strong>給抓取下來。</p>
+<p>再來我們一樣透過爬蟲的方式將<a href="https://mops.twse.com.tw/">公開資訊網站</a>內過去曾發布過的<strong>重大消息與公告</strong>給抓取下來。</p>
 <p>抓到的內容如下（以其中一篇重大消息為例）:</p>
 <blockquote>
 <p>1.事實發生日:108/05/14
@@ -275,13 +275,21 @@
 <p>log(字詞在文章中出現的次數 / 文章的總詞彙數)</p>
 </blockquote>
 <p>並將TF與IDF相乘得到該篇公開消息的特徵值。</p>
-<p>接下來我們可以利用 <code>consine similarity</code> 來評估所有公開消息與以下三項類別的相似程度：
-* 上漲 （Up） </br>
- <code>當日股價相較於前一日股價</code> $\geq$ 1% </br>
-* 持平 （Stay） </br>
--1 % $\leq$ <code>當日股價相較於前一日股價</code> $\leq$ 1 % </br>
-* 下跌 （Down） </br>
-<code>當日股價相較於前一日股價</code> $\leq$ -1 % </br></p>
+<p>接下來我們可以利用 <code>consine similarity</code> 來評估所有公開消息與以下三項類別的相似程度：</p>
+<ul>
+<li>
+<p>上漲 （Up） </br>
+ <code>當日股價相較於前一日股價</code> &ge; 1 % </br></p>
+</li>
+<li>
+<p>持平 （Stay） </br>
+-1 % &le; <code>當日股價相較於前一日股價</code> &le; 1 % </br></p>
+</li>
+<li>
+<p>下跌 （Down） </br>
+<code>當日股價相較於前一日股價</code> &le; -1 % </br></p>
+</li>
+</ul>
 <p align="center">
 
   <img src="../extra/cosine-similarity.png">
@@ -325,11 +333,15 @@
 <p>近年來深度學習快速的發展，現在已經能夠將一個詞投影到較低維的空間當中，使得近似詞能夠獲得上下文資訊，透過非監督式學習（unsupervised learning）提取特徵，能廣泛的利用在其他的狀況（generalization）。
 依照提取出來的特徵做 expression，再根據不同的 case 微調（fine tuning）做監督式學習（supervised learning），來達成我們要的目的。</p>
 <p></br></p>
-<h1><font size = 5 > <strong>BERT</strong> </font></h1>
+<h2><font size = 5 > <strong>BERT</strong> </font></h2>
+<p>最終我決定以 GOOGLE 在2018年發表的自然語言模型－ BERT作為我們分類器（Classifier）的最終 model，在 <a href="https://colab.research.google.com/github/tensorflow/tpu/blob/master/tools/colab/bert_finetuning_with_cloud_tpus.ipynb">colab</a> 可以看到 GOOGLE 自附的所有教學以及完整的 code，若要自行搭載環境也可以參考以下文章：</p>
+<ul>
+<li><a href="https://leemeng.tw/attack_on_bert_transfer_learning_in_nlp.html">進擊的 BERT：NLP 界的巨人之力與遷移學習</a> </br></li>
+</ul>
+<p>詳細的原理可以參考李宏毅老師的影片以及其他網路上的資源：　
+* <a href="https://www.youtube.com/watch?v=UYPa347-DdE">ELMO, BERT, GPT</a> </br>
+* <a href="https://www.jishuwen.com/d/2M6u/zh-tw">BERT模型詳解</a> </br></p>
 <p><a href="https://www.kesci.com/home/project/5be7e948954d6e0010632ef2">文本分類算法錦集</a> </br>
-<a href="https://www.jishuwen.com/d/2M6u/zh-tw">BERT模型詳解</a> </br>
-<a href="https://www.youtube.com/watch?v=UYPa347-DdE">ELMO, BERT, GPT</a> </br>
-<a href="https://leemeng.tw/attack_on_bert_transfer_learning_in_nlp.html">進擊的 BERT：NLP 界的巨人之力與遷移學習</a> </br>
 <a href="https://taweihuang.hpd.io/2017/03/01/tfidf/">TF-IDF 演算法：快速計算單字與文章的關聯</a>
 <a href="https://zhuanlan.zhihu.com/p/152526817">TFIDF+Wordembedding无监督多标签文本分类算法（论文解读)</a></p>
   </div>
