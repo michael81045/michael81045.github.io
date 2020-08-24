@@ -170,7 +170,7 @@
 
 <p><img align = "left" witdh = 1000 src= "../extra/stock_3406.png"></p>
 <p></br></br></br></br></br></br></br></br></p>
-<p>再來我們一樣透過爬蟲的方式將<a href="https://mops.twse.com.tw/">公開資訊網站</a>內過去曾發布過的<strong>重大消息與公告</strong>給抓取下來。</p>
+<p>再來我一樣透過爬蟲的方式將<a href="https://mops.twse.com.tw/">公開資訊網站</a>內過去曾發布過的<strong>重大消息與公告</strong>給抓取下來。</p>
 <p>抓到的內容如下（以其中一篇重大消息為例）:</p>
 <blockquote>
 <p>1.事實發生日:108/05/14
@@ -210,7 +210,7 @@
 無</p>
 </blockquote>
 <p></br></p>
-<p>我們能夠從重大消息公告當中得知公司的財務資訊, 交易對象等，甚至是該消息發布的緣由都會附上詳盡的文字敘述。而新聞媒體所發布的新聞稿在本篇分析當中將先不納入我們的資料來源，因為考量到不同媒體報導的角度可能不同，導致對於事件的描述上有所差異，用詞上情感的強烈亦會影響模型判斷的依據，徒增資料分析上的變因。</p>
+<p>我們能夠從重大消息公告當中得知公司的財務資訊, 交易對象等，甚至是該消息發布的緣由都會附上詳盡的文字敘述。而新聞媒體所發布的新聞稿在本篇分析當中將先不納入我的資料來源，因為考量到不同媒體報導的角度可能不同，導致對於事件的描述上有所差異，用詞上情感的強烈亦會影響模型判斷的依據，徒增資料分析上的變因。</p>
 <p></br></p>
 <h1><font size = 5 ><strong>那我們如何將文字轉換為有意義的量值呢?</strong></font></h1>
 <p>一個詞彙的涵義可能在不同使用者的經歷或是書寫的習慣上的差異，而使得語意上有所差距，因此如何使一個詞彙表達出表達出語意上真正的涵義，Tomas Mikolov 在 2013 年提出了他的看法：<font color = #FF4500 ><strong>字詞就如同我們人一般，能夠透過周遭相似的詞彙（context）反映出它真正的涵義。</strong></font> [<a href="https://arxiv.org/pdf/1301.3781.pdf">原文連結</a>]</p>
@@ -262,7 +262,7 @@
 <ul>
 <li><a href="https://www.ycc.idv.tw/confusion-matrix.html">如何辨別機器學習模型的好壞？秒懂Confusion Matrix</a> </br></li>
 </ul>
-<p>按照上述的方式我們將所有抓取到的玉晶光重大公開消息做為本篇文本分析的語料庫（corpus），在刪除停用詞（stopword）等一些常用的詞或沒有意義的符號，例如：<code>在</code>、<code>不外乎</code>、<code>不只</code>等這一類的詞，將所有的詞集合而成一個向量。</p>
+<p>按照上述的方式我將所有抓取到的玉晶光重大公開消息做為本篇文本分析的語料庫（corpus），在刪除停用詞（stopword）等一些常用的詞或沒有意義的符號，例如：<code>在</code>、<code>不外乎</code>、<code>不只</code>等這一類的詞，將所有的詞集合而成一個向量。</p>
 <blockquote>
 <p>101 / 台北 / 北市 / 台北市 / 信義區</p>
 </blockquote>
@@ -334,7 +334,7 @@
 依照提取出來的特徵做 expression，再根據不同的 case 微調（fine tuning）做監督式學習（supervised learning），來達成我們要的目的。</p>
 <p></br></p>
 <h2><font size = 5 > <strong>BERT</strong> </font></h2>
-<p>最終我決定以 GOOGLE 在 2018 年發表的自然語言模型－ BERT 作為我們分類器（Classifier）的最終 model，在 <a href="https://colab.research.google.com/github/tensorflow/tpu/blob/master/tools/colab/bert_finetuning_with_cloud_tpus.ipynb">colab</a> 可以看到 GOOGLE 自附的所有教學以及完整的 code，若要自行搭載環境也可以參考以下文章：</p>
+<p>最終我決定以 GOOGLE 在 2018 年發表的自然語言模型－ BERT 作為我分類器（Classifier）的最終 model，在 <a href="https://colab.research.google.com/github/tensorflow/tpu/blob/master/tools/colab/bert_finetuning_with_cloud_tpus.ipynb">colab</a> 可以看到 GOOGLE 自附的所有教學以及完整的 code，若要自行搭載環境也可以參考以下文章：</p>
 <ul>
 <li><a href="https://leemeng.tw/attack_on_bert_transfer_learning_in_nlp.html">進擊的 BERT：NLP 界的巨人之力與遷移學習</a> </br></li>
 </ul>
@@ -367,11 +367,15 @@
 
 </p>
 
-<p>也因為 <code>transformer</code> 這樣的並行機制較符合現行GPU的框架，model 運行的速度亦能得到大幅地提升，如果想要更詳細地了解其運作原理可以閱讀 <a href="http://jalammar.github.io/"><strong>Jay Alammer</strong></a> 的文章，附有大量的圖文解說：</br>
-* <a href="http://jalammar.github.io/illustrated-transformer/">The Illustrated Transformer</a></p>
-<p>BERT 詳細的原理可以參考李宏毅老師的影片以及其他網路上的資源：</br>　
-* <a href="https://www.youtube.com/watch?v=UYPa347-DdE">ELMO, BERT, GPT</a> </br>
-* <a href="https://www.jishuwen.com/d/2M6u/zh-tw">BERT模型詳解</a> </br></p>
+<p>也因為 <code>transformer</code> 這樣的並行機制較符合現行GPU的框架，model 運行的速度亦能得到大幅地提升，如果想要更詳細地了解其運作原理可以閱讀 <a href="http://jalammar.github.io/"><strong>Jay Alammer</strong></a> 的文章，附有大量的圖文解說：</br></p>
+<ul>
+<li><a href="http://jalammar.github.io/illustrated-transformer/">The Illustrated Transformer</a></li>
+</ul>
+<p>BERT 詳細的原理可以參考李宏毅老師的影片以及其他網路上的資源：</br>　</p>
+<ul>
+<li><a href="https://www.youtube.com/watch?v=UYPa347-DdE">ELMO, BERT, GPT</a> </br></li>
+<li><a href="https://www.jishuwen.com/d/2M6u/zh-tw">BERT模型詳解</a> </br></li>
+</ul>
 <p>BERT提供了四種下游的任務供使用者選取</p>
 <ul>
 <li>Sentence Pair Cassification </br>
@@ -393,7 +397,7 @@ ex. 識別文本內具有特別意義的字詞－人名、地名、專有名詞�
 </p>
 
 <p></br></p>
-<p>依照我們的需求，我們使用 <a href="https://tfhub.dev/tensorflow/bert_zh_L-12_H-768_A-12/2">TensorFlow</a> 中與中文相關的 <font color = #FF4500 > <strong>pre-train model</strong> </font> 對我們整理好的資料集做下游的 <code>Single Sentence Classification</code> 監督式學習任務。</p>
+<p>依照我的需求，我使用 <a href="https://tfhub.dev/tensorflow/bert_zh_L-12_H-768_A-12/2">TensorFlow</a> 中與中文相關的 <font color = #FF4500 > <strong>pre-train model</strong> </font> 對整理好的資料集做下游的 <code>Single Sentence Classification</code> 監督式學習任務。</p>
 <p align="center">
 
   <img src="../extra/3406_text.png">
@@ -402,10 +406,10 @@ ex. 識別文本內具有特別意義的字詞－人名、地名、專有名詞�
 
 </p>
 
-<p>首先，我們先將我們的原始資料集轉換成BERT能夠讀得懂的格式</p>
+<p>首先，將原始資料集轉換成BERT能夠讀得懂的格式</p>
 <ul>
 <li>text_a </br>
-我們需要被給定分類類別的文本。</li>
+需要被給定分類類別的文本。</li>
 <li>text_b  </br>
 ex. 給定一個問題以及包含答案的段落，預測答案落在文本的哪一範圍中。</li>
 <li>label </br>
@@ -418,16 +422,18 @@ ex. 給定一個問題以及包含答案的段落，預測答案落在文本的�
 <span class="sd">&quot;&quot;&quot;</span>
 <span class="n">data_column</span> <span class="o">=</span> <span class="s1">&#39;Text&#39;</span>
 <span class="n">label_column</span> <span class="o">=</span> <span class="s1">&#39;Signal&#39;</span>
+<span class="c1"># label_list is the list of labels</span>
+<span class="n">label_list</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">]</span>
 
 <span class="n">train_InputExamples</span> <span class="o">=</span> <span class="n">train</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">bert</span><span class="o">.</span><span class="n">run_classifier</span><span class="o">.</span><span class="n">InputExample</span><span class="p">(</span>
                                                                    <span class="n">text_a</span> <span class="o">=</span> <span class="n">train_set</span><span class="p">[</span><span class="n">data_column</span><span class="p">],</span> 
 
-       <span class="n">label</span> <span class="o">=</span> <span class="n">train_set</span><span class="p">[</span><span class="n">label_column</span><span class="p">]),</span> <span class="n">axis</span> <span class="o">=</span> <span class="mi">1</span><span class="p">)</span>
+                                                                   <span class="n">label</span> <span class="o">=</span> <span class="n">train_set</span><span class="p">[</span><span class="n">label_column</span><span class="p">]),</span> <span class="n">axis</span> <span class="o">=</span> <span class="mi">1</span><span class="p">)</span>
 
 <span class="n">test_InputExamples</span> <span class="o">=</span> <span class="n">test</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">bert</span><span class="o">.</span><span class="n">run_classifier</span><span class="o">.</span><span class="n">InputExample</span><span class="p">(</span>
                                                                    <span class="n">text_a</span> <span class="o">=</span> <span class="n">test_set</span><span class="p">[</span><span class="n">data_column</span><span class="p">],</span> 
 
-                                                                   <span class="n">label</span> <span class="o">=</span> <span class="n">train_set</span><span class="p">[</span><span class="n">label_column</span><span class="p">]),</span> <span class="n">axis</span> <span class="o">=</span> <span class="mi">1</span><span class="p">)</span>
+                                                                   <span class="n">label</span> <span class="o">=</span> <span class="n">test_set</span><span class="p">[</span><span class="n">label_column</span><span class="p">]),</span> <span class="n">axis</span> <span class="o">=</span> <span class="mi">1</span><span class="p">)</span>
 
 
 <span class="n">BERT_MODEL_HUB</span> <span class="o">=</span> <span class="s2">&quot;https://tfhub.dev/tensorflow/bert_zh_L-12_H-768_A-12/2&quot;</span>
@@ -452,6 +458,18 @@ ex. 給定一個問題以及包含答案的段落，預測答案落在文本的�
 </pre></div>
 
 
+<p>格式轉換完畢之後就可以開始訓練下游的任務模型了！！詳細的 code 以及參數設定可以參考 Google 在 Colab 上釋出的 <a href="https://colab.research.google.com/github/google-research/bert/blob/master/predicting_movie_reviews_with_bert_on_tf_hub.ipynb#scrollTo=IuMOGwFui4it">Google BERT Predicting Movie Reviews with BERT on TF Hub</a> ，在<font color = #FF4500 ><strong>本篇當中只是將 Classification 改成 Multi-Classification</strong></font>。</p>
+<p>以下是我最終的流程架構圖：</p>
+<p align="center">
+
+  <img src="../extra/stock_flow_structure.png">
+  <font color = #AAAAAA> </br> 預測的準確度還算可以，但仍然有許多調整的空間 
+  </font>
+
+</p>
+
+<h1><font size = 5 > <strong>結論</strong> </font></h1>
+<h1><font size = 5 > <strong>參考文獻</strong> </font></h1>
 <p><a href="https://www.kesci.com/home/project/5be7e948954d6e0010632ef2">文本分類算法錦集</a> </br>
 <a href="https://taweihuang.hpd.io/2017/03/01/tfidf/">TF-IDF 演算法：快速計算單字與文章的關聯</a> </br>
 <a href="https://zhuanlan.zhihu.com/p/152526817">TFIDF+Wordembedding无监督多标签文本分类算法（论文解读)</a> </br>
