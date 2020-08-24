@@ -279,15 +279,15 @@
 <ul>
 <li>
 <p>上漲 （Up） </br>
- <code>當日股價相較於前一日股價</code> &ge; 1 % </br></p>
+ <code>當天股價漲幅</code> &ge; 1 % </br></p>
 </li>
 <li>
 <p>持平 （Stay） </br>
--1 % &le; <code>當日股價相較於前一日股價</code> &le; 1 % </br></p>
+-1 % &le; <code>當天股價漲幅</code> &le; 1 % </br></p>
 </li>
 <li>
 <p>下跌 （Down） </br>
-<code>當日股價相較於前一日股價</code> &le; -1 % </br></p>
+<code>當天股價漲幅</code> &le; -1 % </br></p>
 </li>
 </ul>
 <p align="center">
@@ -369,7 +369,7 @@
 
 <p>也因為 <code>transformer</code> 這樣的並行機制較符合現行GPU的框架，model 運行的速度亦能得到大幅地提升，如果想要更詳細地了解其運作原理可以閱讀 <a href="http://jalammar.github.io/"><strong>Jay Alammer</strong></a> 的文章，附有大量的圖文解說：</br>
 * <a href="http://jalammar.github.io/illustrated-transformer/">The Illustrated Transformer</a></p>
-<p>BERT 詳細的原理可以參考李宏毅老師的影片以及其他網路上的資源：　
+<p>BERT 詳細的原理可以參考李宏毅老師的影片以及其他網路上的資源：</br>　
 * <a href="https://www.youtube.com/watch?v=UYPa347-DdE">ELMO, BERT, GPT</a> </br>
 * <a href="https://www.jishuwen.com/d/2M6u/zh-tw">BERT模型詳解</a> </br></p>
 <p>BERT提供了四種下游的任務供使用者選取</p>
@@ -391,6 +391,66 @@ ex. 識別文本內具有特別意義的字詞－人名、地名、專有名詞�
   </font>
 
 </p>
+
+<p></br></p>
+<p>依照我們的需求，我們使用 <a href="https://tfhub.dev/tensorflow/bert_zh_L-12_H-768_A-12/2">TensorFlow</a> 中與中文相關的 <font color = #FF4500 > <strong>pre-train model</strong> </font> 對我們整理好的資料集做下游的 <code>Single Sentence Classification</code> 監督式學習任務。</p>
+<p align="center">
+
+  <img src="../extra/3406_text.png">
+  <font color = #AAAAAA> </br> 將玉晶光的歷史股價與日期所對應的公開消息整理成一個dataset 
+  </font>
+
+</p>
+
+<p>首先，我們先將我們的原始資料集轉換成BERT能夠讀得懂的格式</p>
+<ul>
+<li>text_a </br>
+我們需要被給定分類類別的文本。</li>
+<li>text_b  </br>
+ex. 給定一個問題以及包含答案的段落，預測答案落在文本的哪一範圍中。</li>
+<li>label </br>
+總共要區分為哪幾類。</li>
+</ul>
+<div class="highlight"><pre><span></span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">上漲: 0</span>
+<span class="sd">持平: 1</span>
+<span class="sd">下跌: 2</span>
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="n">data_column</span> <span class="o">=</span> <span class="s1">&#39;Text&#39;</span>
+<span class="n">label_column</span> <span class="o">=</span> <span class="s1">&#39;Signal&#39;</span>
+
+<span class="n">train_InputExamples</span> <span class="o">=</span> <span class="n">train</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">bert</span><span class="o">.</span><span class="n">run_classifier</span><span class="o">.</span><span class="n">InputExample</span><span class="p">(</span>
+                                                                   <span class="n">text_a</span> <span class="o">=</span> <span class="n">train_set</span><span class="p">[</span><span class="n">data_column</span><span class="p">],</span> 
+
+       <span class="n">label</span> <span class="o">=</span> <span class="n">train_set</span><span class="p">[</span><span class="n">label_column</span><span class="p">]),</span> <span class="n">axis</span> <span class="o">=</span> <span class="mi">1</span><span class="p">)</span>
+
+<span class="n">test_InputExamples</span> <span class="o">=</span> <span class="n">test</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">bert</span><span class="o">.</span><span class="n">run_classifier</span><span class="o">.</span><span class="n">InputExample</span><span class="p">(</span>
+                                                                   <span class="n">text_a</span> <span class="o">=</span> <span class="n">test_set</span><span class="p">[</span><span class="n">data_column</span><span class="p">],</span> 
+
+                                                                   <span class="n">label</span> <span class="o">=</span> <span class="n">train_set</span><span class="p">[</span><span class="n">label_column</span><span class="p">]),</span> <span class="n">axis</span> <span class="o">=</span> <span class="mi">1</span><span class="p">)</span>
+
+
+<span class="n">BERT_MODEL_HUB</span> <span class="o">=</span> <span class="s2">&quot;https://tfhub.dev/tensorflow/bert_zh_L-12_H-768_A-12/2&quot;</span>
+
+<span class="k">def</span> <span class="nf">create_tokenizer_from_hub_module</span><span class="p">():</span>
+  <span class="sd">&quot;&quot;&quot;Get the vocab file and casing info from the Hub module.&quot;&quot;&quot;</span>
+    <span class="k">with</span> <span class="n">tf</span><span class="o">.</span><span class="n">Graph</span><span class="p">()</span><span class="o">.</span><span class="n">as_default</span><span class="p">():</span>
+        <span class="n">bert_module</span> <span class="o">=</span> <span class="n">hub</span><span class="o">.</span><span class="n">Module</span><span class="p">(</span><span class="n">BERT_MODEL_HUB</span><span class="p">)</span>
+        <span class="n">tokenization_info</span> <span class="o">=</span> <span class="n">bert_module</span><span class="p">(</span><span class="n">signature</span><span class="o">=</span><span class="s2">&quot;tokenization_info&quot;</span><span class="p">,</span> <span class="n">as_dict</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+        <span class="k">with</span> <span class="n">tf</span><span class="o">.</span><span class="n">Session</span><span class="p">()</span> <span class="k">as</span> <span class="n">sess</span><span class="p">:</span>
+            <span class="n">vocab_file</span><span class="p">,</span> <span class="n">do_lower_case</span> <span class="o">=</span> <span class="n">sess</span><span class="o">.</span><span class="n">run</span><span class="p">([</span><span class="n">tokenization_info</span><span class="p">[</span><span class="s2">&quot;vocab_file&quot;</span><span class="p">],</span><span class="n">tokenization_info</span><span class="p">[</span><span class="s2">&quot;do_lower_case&quot;</span><span class="p">]])</span>
+
+    <span class="k">return</span> <span class="n">bert</span><span class="o">.</span><span class="n">tokenization</span><span class="o">.</span><span class="n">FullTokenizer</span><span class="p">(</span><span class="n">vocab_file</span><span class="o">=</span><span class="n">vocab_file</span><span class="p">,</span> <span class="n">do_lower_case</span><span class="o">=</span><span class="n">do_lower_case</span><span class="p">)</span>
+
+<span class="n">tokenizer</span> <span class="o">=</span> <span class="n">create_tokenizer_from_hub_module</span><span class="p">()</span>
+
+<span class="c1"># We&#39;ll set sequences to be at most 128 tokens long.</span>
+<span class="n">MAX_SEQ_LENGTH</span> <span class="o">=</span> <span class="mi">128</span>
+<span class="c1"># Convert our train and test features to InputFeatures that BERT understands.</span>
+<span class="n">train_features</span> <span class="o">=</span> <span class="n">bert</span><span class="o">.</span><span class="n">run_classifier</span><span class="o">.</span><span class="n">convert_examples_to_features</span><span class="p">(</span><span class="n">train_InputExamples</span><span class="p">,</span> <span class="n">label_list</span><span class="p">,</span> <span class="n">MAX_SEQ_LENGTH</span><span class="p">,</span> <span class="n">tokenizer</span><span class="p">)</span>
+<span class="n">test_features</span> <span class="o">=</span> <span class="n">bert</span><span class="o">.</span><span class="n">run_classifier</span><span class="o">.</span><span class="n">convert_examples_to_features</span><span class="p">(</span><span class="n">test_InputExamples</span><span class="p">,</span> <span class="n">label_list</span><span class="p">,</span> <span class="n">MAX_SEQ_LENGTH</span><span class="p">,</span> <span class="n">tokenizer</span><span class="p">)</span>
+</pre></div>
+
 
 <p><a href="https://www.kesci.com/home/project/5be7e948954d6e0010632ef2">文本分類算法錦集</a> </br>
 <a href="https://taweihuang.hpd.io/2017/03/01/tfidf/">TF-IDF 演算法：快速計算單字與文章的關聯</a> </br>
