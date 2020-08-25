@@ -119,7 +119,7 @@
     <p></br></p>
 <p><strong>本篇結合自然語言處理的相關技術與統計資料分析為2019年選修資工所類神經網路課程時所做的side project。</strong></p>
 <p></br></p>
-<h1><font size = 5 > <strong>前言</strong> </font></h1>
+<h1><font size = 6 > <strong>前言</strong> </font></h1>
 <p>（2020/08/13更新）</p>
 <p>股價的漲跌往往不是我們這些股市菜鳥所能夠理解的，尤其是在股價的起伏還受到各種消息面的影響，甚至老闆的一句話就可以讓股價一飛沖天或跌落谷底，近年來最著名的例子就是特斯拉的執行長 Elon Musk，若沒有掌握到這些消息將會對股價的漲幅丈二金剛摸不著頭緒。</p>
 <style>
@@ -144,7 +144,8 @@
 <p>有些股市老手會說：哎呀花時間閱讀那些資訊是沒有用的，等你看到時早就已經反映在股價上了，但事實上可能有些資訊早就潛藏在其中，只是礙於我們的經驗不足而無法做出適當的判斷。</p>
 <p>因此本篇將透過自然語言處理（Natural Language Processing, NLP）試著將公司行號釋出的重大消息資訊納入，透過科技來輔佐我們在茫茫的資訊海中抽絲剝繭，以期望能輔助我們尋找出其中的脈絡並先行做出部署，來預測股價的漲跌。</p>
 <p></br></p>
-<h1><font size = 5 > <strong>資料來源</strong> </font></h1>
+<hr>
+<h1><font size = 6 > <strong>資料來源</strong> </font></h1>
 <p>首先透過爬蟲（web crawler）的方式取得本篇拿來分析用的歷史股價－玉晶光（3406）。</p>
 <div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">np</span> 
 <span class="kn">import</span> <span class="nn">pandas</span> <span class="kn">as</span> <span class="nn">pd</span> 
@@ -212,6 +213,7 @@
 <p></br></p>
 <p>我們能夠從重大消息公告當中得知公司的財務資訊, 交易對象等，甚至是該消息發布的緣由都會附上詳盡的文字敘述。而新聞媒體所發布的新聞稿在本篇分析當中將先不納入我的資料來源，因為考量到不同媒體報導的角度可能不同，導致對於事件的描述上有所差異，用詞上情感的強烈亦會影響模型判斷的依據，徒增資料分析上的變因。</p>
 <p></br></p>
+<hr>
 <h1><font size = 5 ><strong>那我們如何將文字轉換為有意義的量值呢?</strong></font></h1>
 <p>一個詞彙的涵義可能在不同使用者的經歷或是書寫的習慣上的差異，而使得語意上有所差距，因此如何使一個詞彙表達出表達出語意上真正的涵義，Tomas Mikolov 在 2013 年提出了他的看法：<font color = #FF4500 ><strong>字詞就如同我們人一般，能夠透過周遭相似的詞彙（context）反映出它真正的涵義。</strong></font> [<a href="https://arxiv.org/pdf/1301.3781.pdf">原文連結</a>]</p>
 <p></br></p>
@@ -226,7 +228,8 @@
 </p>
 
 <p></br></p>
-<h1><font size = 5 > <strong>雛型架構 Naive model</strong> </font></h1>
+<hr>
+<h1><font size = 6 > <strong>雛型架構 Naive model</strong> </font></h1>
 <blockquote>
 <ol>
 <li>Extractor 用來提取重大消息中有用的資訊</li>
@@ -235,7 +238,8 @@
 </blockquote>
 <p>接下來就看我是怎麼實做這個部分的內容瞜</p>
 <p></br></p>
-<h1><font size = 5 > <strong>文章分類 Document Classification</strong> </font></h1>
+<hr>
+<h1><font size = 6 > <strong>文章分類 Document Classification</strong> </font></h1>
 <p>在斷詞的使用上我是透過 <a href="https://github.com/fxsjy/jieba">jieba</a> 的 <code>search_mode</code>。</p>
 <p>以下方的例子為例，將 <code>text = "101在台北市信義區"</code>，可以很明顯的看出不同模式在斷詞結果上的差別。</p>
 <ul>
@@ -329,11 +333,12 @@
 <p></br></p>
 <p>而判斷的基準則是必須透過上下文的方式來判斷這個單字真正的涵義，這樣的現象在中文當中同樣也可以發現到。</p>
 <p></br></p>
-<h1><font size = 5 > <strong>類神經網路（Neural Network）</strong> </font></h1>
+<h1><font size = 6 > <strong>類神經網路（Neural Network）</strong> </font></h1>
 <p>近年來深度學習快速的發展，現在已經能夠將一個詞投影到較低維的空間當中，使得近似詞能夠獲得上下文資訊，透過非監督式學習（unsupervised learning）提取特徵，能廣泛的利用在其他的狀況（generalization）。
 依照提取出來的特徵做 expression，再根據不同的 case 微調（fine tuning）做監督式學習（supervised learning），來達成我們要的目的。</p>
 <p></br></p>
-<h2><font size = 5 > <strong>BERT</strong> </font></h2>
+<hr>
+<h2><strong>BERT</strong></h2>
 <p>最終我決定以 GOOGLE 在 2018 年發表的自然語言模型－ BERT 作為我分類器（Classifier）的最終 model，在 <a href="https://colab.research.google.com/github/tensorflow/tpu/blob/master/tools/colab/bert_finetuning_with_cloud_tpus.ipynb">colab</a> 可以看到 GOOGLE 自附的所有教學以及完整的 code，若要自行搭載環境也可以參考以下文章：</p>
 <ul>
 <li><a href="https://leemeng.tw/attack_on_bert_transfer_learning_in_nlp.html">進擊的 BERT：NLP 界的巨人之力與遷移學習</a> </br></li>
@@ -352,6 +357,7 @@
 
 </p>
 
+<hr>
 <p>以前面提到的英文例句為例：</p>
 <blockquote>
 <p><font size = 4 > <strong>I arrived at the <font color = #FF4500 > bank </font> after crossing the river.</strong> </font> </p>
@@ -376,6 +382,7 @@
 <li><a href="https://www.youtube.com/watch?v=UYPa347-DdE">ELMO, BERT, GPT</a> </br></li>
 <li><a href="https://www.jishuwen.com/d/2M6u/zh-tw">BERT模型詳解</a> </br></li>
 </ul>
+<hr>
 <p>BERT提供了四種下游的任務供使用者選取</p>
 <ul>
 <li>Sentence Pair Cassification </br>
@@ -468,12 +475,80 @@ ex. 給定一個問題以及包含答案的段落，預測答案落在文本的�
 
 </p>
 
-<h1><font size = 5 > <strong>結論</strong> </font></h1>
-<h1><font size = 5 > <strong>參考文獻</strong> </font></h1>
+<p></br></p>
+<hr>
+<h1><strong>結論</strong></h1>
+<p>本篇到這邊也算是告一個段落，透過NLP的方式將消息面量化運用在股價的預測上，整個模型的架構不用到很複雜也能有很不錯的表現，但仍然能有幾處可以持續精進的地方，未來或許可以從以下這些方面下手使模型預測的準確度再向上提升。</p>
+<p></br></p>
+<p><font color = #FF4500 > <strong>（2020/08/13更新）</strong> </font></p>
+<h2><strong>Data Segmentation</strong></h2>
+<p>首先是繁體中文方面的斷詞，本篇實作是透過大陸那邊的開源工具－jieba，但是在用語上與臺灣還是略微不同，好在中研院資訊所的繁體中文斷詞系統<font color = #FF4500 > <strong><a href="https://github.com/ckiplab/ckiptagger">CKIP（CkipTagger）</a></strong> </font> 在去年九月時開源在Github上，在繁體中文斷詞的表現上可是比 jieba 還要好上許多!</p>
+<p align="center">
+
+  <img src="../extra/nlp_performance.png">
+  <font color = #AAAAAA> </br> 中研院的研究團隊表示在中文處理方面的準確率還比 jieba 高出七個百分點 ( 
+  <a href="https://github.com/ckiplab/ckiptagger">圖片來源</a> )
+  </font>
+
+</p>
+
+<p>再者，我們也能夠針對不同的case建置字典使中文識別上能夠更加的精確，以本篇所採用的公開消息為例，jieba在對許多投資金融相關的專業用語辨識度實在是差強人意，甚至是<font color = #FF4500 ><strong>股東</strong></font>兩個字都會被切開，若大家有仔細去看過各公司行號所發布的公開消息，不難發現有許多資訊是針對投資金額以及股東相關權益，或許正是丟失了這部分的資訊，導致模型的準確率下降，我們可以透過自定義字典來將這方面的資訊補齊。</p>
+<h2><strong>評測指標（Evaluation Metric）</strong></h2>
+<p>這部分其實在前面一開始的部分有提到評估模型的好壞不能只看預測出來的準確率（accurracy）來判定，倘若的資料正反例不平衡的情況下，準確率這項指標可能就會失去參考價值，因此其他常見的判定指標還有精確率（precision）以及召回率（recall），概念如下圖：</p>
+<p align="center">
+
+  <img src="../extra/precision_recall.png">
+  <font color = #AAAAAA> </br> Precision and Recall ( 
+  <a href="https://en.wikipedia.org/wiki/Precision_and_recall">圖片來源</a> )
+  </font>
+
+</p>
+
+<p>這也是我們前面所提到的混淆矩陣（<a href="https://www.ycc.idv.tw/confusion-matrix.html">Confusion Matrix</a>），但是往往 Precision 與 Recall 兩者不能兼得，想獲得更多的 Ground Truth 為 Truth 的例子則可能造成Recall上升，Precision下降，因此除了上述提到的這兩項指標外 F1-score 也是另一項常見的量化指標，此外也會使用 ROC-AUC 及 PR-AUC 來評估相同資料集下的表現結果（<a href="https://cynthiachuang.github.io/Common-Evaluation-MetricAccuracy-Precision-Recall-F1-ROCAUC-and-PRAUC/">參考文章</a>）。</br>
+亦或者是使用Kaggle上通用的 Multi-Class-Log-Loss作為不同模型的評測指標，本篇只嘗試使用傳統文本分析的方法：TF - IDF 及 BERT，對於其他的分類器（Classifier）如：Logistic Regression、SVM、XGBoost 等等都還未實際嘗試過，或許能有更佳的分類表現也說不定。</p>
+<h2><strong>演化式運算（Evolutionary Computation）</strong></h2>
+<p>演化式運算的概念其實脫胎於生物演化，最佳化是我們最終的目標，要達到勢必得經過一條漫漫長路，而在演化過程當中，會有生物不堪負荷而走進演化的死胡同（evolutionary dead end），就如同模型在進行參數組合最佳化的過程當中，少數模型表現的準確性會較差而被淘汰，最終留下符合最佳化目的且動用最少資源（符合最大簡約法）的模型參數。</p>
+<p><a href="https://www.zhihu.com/question/22752108/answer/22515037">越来越多的群体智能算法（蛙跳算法、猫群算法、蟑螂算法等等）有存在的必要吗？</a>
+<a href="https://zhuanlan.zhihu.com/p/191390471">机器学习助力单目标优化演化计算的文献分类</a>
+<a href="https://web.ntnu.edu.tw/~tcchiang/recruit.htm">啟發式演算法 (metaheuristics) 之設計與應用</a>
+<a href="https://zhuanlan.zhihu.com/p/36212065">【学界】数据+进化算法=数据驱动进化优化？进化计算PK 数学优化</a></p>
+<h2><strong>樣本不平衡（Unbalanced Data）</strong></h2>
+<p><a href="https://www.zhihu.com/question/269698662">欠采样（undersampling）和过采样（oversampling）会对模型带来怎样的影响？</a></p>
+<h2><strong>模型集成（Model Ensembling）</strong></h2>
+<p><a href="http://violin-tao.blogspot.com/2018/01/ml-ensemble.html">Ensemble - Bagging, Boosting &amp; Stacking</a></p>
+<p><a href="https://web.stanford.edu/class/archive/cs/cs224n/cs224n.1194/reports/default/15775971.pdf">Applying Ensembling Methods to BERT to Boost
+Model Performance</a></p>
+<p><a href="https://www.coursera.org/lecture/competitive-data-science/ensembling-tips-and-tricks-XqLc1">Ensembling Tips and Tricks</a></p>
+<p><a href="https://medium.com/@chih.sheng.huang821/%E6%A9%9F%E5%99%A8%E5%AD%B8%E7%BF%92-ensemble-learning%E4%B9%8Bbagging-boosting%E5%92%8Cadaboost-af031229ebc3">機器學習: Ensemble learning之Bagging、Boosting和AdaBoost</a></p>
+<p><a href="https://medium.com/@chuntingkuo/machine-learning-practical-stacking-ensemble-%E5%B0%8F%E6%95%B4%E7%90%86-994d207c8e35"></a></p>
+<h2><a href="https://zhuanlan.zhihu.com/p/145473883">集成模型：Bagging、Boosting和Stacking</a></h2>
+<h1><font size = 6 > <strong>參考文獻</strong> </font></h1>
 <p><a href="https://www.kesci.com/home/project/5be7e948954d6e0010632ef2">文本分類算法錦集</a> </br>
 <a href="https://taweihuang.hpd.io/2017/03/01/tfidf/">TF-IDF 演算法：快速計算單字與文章的關聯</a> </br>
 <a href="https://zhuanlan.zhihu.com/p/152526817">TFIDF+Wordembedding无监督多标签文本分类算法（论文解读)</a> </br>
 <a href="https://zhuanlan.zhihu.com/p/102208639">BERT下游任務</a></p>
+<p><img alt="50%" src="https://progress-bar.dev/50"></p>
+<div class="col-six tab-full left">
+            <h3>All of us are unique.</h3>
+            <p>
+                依照不同業界、不同的環境需求，甚至是所處的企業的發展階段，一個資料科學家（Data Scientist）所累積的經驗、點的技能都會有所不同。
+                更遑論是一個像我一樣，從軟體工程做到資料工程，又轉到資料科學家的人了。
+            </p>
+            <p>
+                資料科學是透過理解資料，從資料中萃取有意義的價值與洞見。而為了達到這目的，
+                有很多領域需要了解：大數據、BI、程式設計、資料分析、統計概念、資料視覺化、機器學習、雲端運算 ... 族繁不及備載。
+            </p>
+            <p>
+                要客觀且定量地衡量一個資料科學家在以上各領域的專業程度不容易。我試著以自己目前最為熟悉的深度學習為基準，
+                設置熟悉度為 100 %，則在與其他領域比較之後，可以得到對應的相對分數。最後就成了右邊（或者下面）這個超級主觀的衡量表，博君一笑。
+            </p>
+            <p>
+                歡迎跟我說說你在各領域的熟悉程度
+                <a href="#contact" class="smoothscroll">
+                    <i class="im im-paperplane" aria-hidden="true"></i>
+                </a>
+            </p>
+        </div>
   </div>
   <div class="tag-cloud">
     <p>
