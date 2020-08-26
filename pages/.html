@@ -38,7 +38,9 @@
 <meta property="og:url" content=""/>
 <meta property="og:image" content="static/profile.jpg">
 
-  <title>Learning note & Build some side projects | Michael Chien &ndash; Tag Natural Language Processing</title>
+
+
+  <title>Learning note & Build some side projects | Michael Chien &ndash; </title>
 
 </head>
 <body class="light-theme">
@@ -95,58 +97,27 @@
 
     </nav>
 
-
-
-<article>
+<article class="single">
   <header>
-    <h2><a href="/li-yong-zi-ran-yu-yan-chu-li-nlpshi-gu-jia-yu-ce-geng-wei-jing-zhun.html#li-yong-zi-ran-yu-yan-chu-li-nlpshi-gu-jia-yu-ce-geng-wei-jing-zhun">利用自然語言處理(NLP)使股價預測更為精準</a></h2>
-    <p>
-      Posted on 週三 05 六月 2019 in <a href="/category/articles.html">articles</a>
-
-          &#8226; Tagged with
-              <a href="/tag/natural-language-processing.html">Natural Language Processing</a>,              <a href="/tag/stock.html">Stock</a>
-    </p>
+    
+    <h1 id=""></h1>
   </header>
   <div>
-      <p></br></p>
-<p><strong>本篇結合自然語言處理的相關技術與統計資料分析為2019年選修資工所類神經網路課程時所做的side project。</strong></p>
-<p>（2020/08/13更新）
-</br></p>
-<h1><font size = 6 > <strong>前言</strong> </font></h1>
-<p>股價的漲跌往往不是我們這些股市菜鳥所能夠理解的，尤其是在股價的起伏還受到各種消息面的影響，甚至老闆的一句話就可以讓股價一飛沖天或跌落谷底，近年來最著名的例子就是特斯拉的執行長 Elon Musk，若沒有掌握到這些消息將會對股價的漲幅丈二金剛摸不著頭緒。</p>
-<style>
- img+br+em,a+br+em, img+em, a+em {
-     font-size: 90%;  /*使用較小的文字*/
-     font-color: #AAAAAA; /*使用較淡的文字色彩*/
-     font-style: normal; /*以正常字體呈現*/
- } 
-</style>
-
-<p></br></p>
-<p align="center">
-
-  <img src="../extra/musk.png">
-  <font color = #AAAAAA> Elon Musk 總是喜歡在Twitter上發表個人看法，他的一言一行牽動著旗下公司股價的漲跌 ( 
-  <a href="https://technews.tw/?p=596503">圖片來源</a> )
-  </font>
-
+<p><img align="left" src="../extra/point_bar.png"/></p>
+<p><font size = 4 > <strong>參考文獻</strong> </font>
+ <p>
+ 演化式運算的概念其實脫胎於生物演化，最佳化是我們最終的目標，要達到勢必得經過一條漫漫長路，而在演化過程當中，會有生物不堪負荷而走進演化的死胡同（evolutionary dead end），就如同模型在進行參數組合最佳化的過程當中，少數模型表現的準確性會較差而被淘汰，最終留下符合最佳化目的且動用最少資源（符合最大簡約法）的模型參數。</p>
+<p>演化式運算的概念其實脫胎於生物演化，最佳化是我們最終的目標，要達到勢必得經過一條漫漫長路，而在演化過程當中，會有生物不堪負荷而走進演化的死胡同（evolutionary dead end），就如同模型在進行參數組合最佳化的過程當中，少數模型表現的準確性會較差而被淘汰，最終留下符合最佳化目的且動用最少資源（符合最大簡約法）的模型參數。
+ 演化式運算的概念其實脫胎於生物演化，最佳化是我們最終的目標，要達到勢必得經過一條漫漫長路，而在演化過程當中，會有生物不堪負荷而走進演化的死胡同（evolutionary dead end），就如同模型在進行參數組合最佳化的過程當中，少數模型表現的準確性會較差而被淘汰，最終留下符合最佳化目的且動用最少資源（符合最大簡約法）的模型參數。</p>
 </p>
 
-<p></br></p>
-<p>有些股市老手會說：哎呀花時間閱讀那些資訊是沒有用的，等你看到時早就已經反映在股價上了，但事實上可能有些資訊早就潛藏在其中，只是礙於我們的經驗不足而無法做出適當的判斷。</p>
-<p>因此本篇將透過自然語言處理（Natural Language Processing, NLP）試著將公司行號釋出的重大消息資訊納入，透過科技來輔佐我們在茫茫的資訊海中抽絲剝繭，以期望能輔助我們尋找出其中的脈絡並先行做出部署 …</p>
-        <br>
-        <a class="btn"
-           href="/li-yong-zi-ran-yu-yan-chu-li-nlpshi-gu-jia-yu-ce-geng-wei-jing-zhun.html#li-yong-zi-ran-yu-yan-chu-li-nlpshi-gu-jia-yu-ce-geng-wei-jing-zhun">
-          Continue reading
-        </a>
-  </div>
+<p><font size = 4 > <strong>參考文獻</strong> </font>
+ <p>
+ 演化式運算的概念其實脫胎於生物演化，最佳化是我們最終的目標，要達到勢必得經過一條漫漫長路，而在演化過程當中，會有生物不堪負荷而走進演化的死胡同（evolutionary dead end），就如同模型在進行參數組合最佳化的過程當中，少數模型表現的準確性會較差而被淘汰，最終留下符合最佳化目的且動用最少資源（符合最大簡約法）的模型參數。</p>
+<p>演化式運算的概念其實脫胎於生物演化，最佳化是我們最終的目標，要達到勢必得經過一條漫漫長路，而在演化過程當中，會有生物不堪負荷而走進演化的死胡同（evolutionary dead end），就如同模型在進行參數組合最佳化的過程當中，少數模型表現的準確性會較差而被淘汰，最終留下符合最佳化目的且動用最少資源（符合最大簡約法）的模型參數。
+ 演化式運算的概念其實脫胎於生物演化，最佳化是我們最終的目標，要達到勢必得經過一條漫漫長路，而在演化過程當中，會有生物不堪負荷而走進演化的死胡同（evolutionary dead end），就如同模型在進行參數組合最佳化的過程當中，少數模型表現的準確性會較差而被淘汰，最終留下符合最佳化目的且動用最少資源（符合最大簡約法）的模型參數。</p>
+</p>  </div>
 </article>
-
-  <div class="pagination">
-  </div>
-
-
 
     <footer>
 <p>&copy; Michael Chien 2020</p>

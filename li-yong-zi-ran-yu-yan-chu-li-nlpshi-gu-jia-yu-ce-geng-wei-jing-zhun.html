@@ -29,13 +29,13 @@
 
 
 <meta name="author" content="Michael Chien" />
-<meta name="description" content="本篇結合自然語言處理的相關技術與統計資料分析為2019年選修資工所類神經網路課程時所做的side project。 前言 （2020/08/13更新） 股價的漲跌往往不是我們這些股市菜鳥所能夠理解的，尤其是在股價的起伏還受到各種消息面的影響，甚至老闆的一句話就可以讓股價一飛沖天或跌落谷底，近年來最著名的例子就是特斯拉的執行長 Elon Musk，若沒有掌握到這些消息將會對股價的漲幅丈二金剛摸不著頭緒。 img+br+em,a+br+em, img+em, a+em { font-size: 90%; /*使用較小的文字*/ font-color: #AAAAAA; /*使用較淡的文字色彩*/ font-style: normal; /*以正常字體呈現*/ } Elon Musk 總是喜歡在Twitter上發表個人看法，他的一言一行牽動著旗下公司股價的漲跌 ( 圖片來源 ) 有些股市老手會說：哎呀花時間閱讀那些資訊是沒有用的，等你看到時早就已經反映在股價上了，但事實上可能有些資訊早就潛藏在其中，只是礙於我們的經驗不足而無法做出適當的判斷。 因此本篇將透過自然語言處理（Natural Language Processing, NLP）試著將公司行號釋出的重大消息資訊納入，透過科技來輔佐我們在茫茫的資訊海中抽絲剝繭，以期望能輔助我們尋找出其中的脈絡並先行做出部署 …" />
+<meta name="description" content="本篇結合自然語言處理的相關技術與統計資料分析為2019年選修資工所類神經網路課程時所做的side project。 （2020/08/13更新） 前言 股價的漲跌往往不是我們這些股市菜鳥所能夠理解的，尤其是在股價的起伏還受到各種消息面的影響，甚至老闆的一句話就可以讓股價一飛沖天或跌落谷底，近年來最著名的例子就是特斯拉的執行長 Elon Musk，若沒有掌握到這些消息將會對股價的漲幅丈二金剛摸不著頭緒。 img+br+em,a+br+em, img+em, a+em { font-size: 90%; /*使用較小的文字*/ font-color: #AAAAAA; /*使用較淡的文字色彩*/ font-style: normal; /*以正常字體呈現*/ } Elon Musk 總是喜歡在Twitter上發表個人看法，他的一言一行牽動著旗下公司股價的漲跌 ( 圖片來源 ) 有些股市老手會說：哎呀花時間閱讀那些資訊是沒有用的，等你看到時早就已經反映在股價上了，但事實上可能有些資訊早就潛藏在其中，只是礙於我們的經驗不足而無法做出適當的判斷。 因此本篇將透過自然語言處理（Natural Language Processing, NLP）試著將公司行號釋出的重大消息資訊納入，透過科技來輔佐我們在茫茫的資訊海中抽絲剝繭，以期望能輔助我們尋找出其中的脈絡並先行做出部署 …" />
 <meta name="keywords" content="Natural Language Processing, Stock">
 
 
 <meta property="og:site_name" content="Learning note & Build some side projects | Michael Chien"/>
 <meta property="og:title" content="利用自然語言處理(NLP)使股價預測更為精準"/>
-<meta property="og:description" content="本篇結合自然語言處理的相關技術與統計資料分析為2019年選修資工所類神經網路課程時所做的side project。 前言 （2020/08/13更新） 股價的漲跌往往不是我們這些股市菜鳥所能夠理解的，尤其是在股價的起伏還受到各種消息面的影響，甚至老闆的一句話就可以讓股價一飛沖天或跌落谷底，近年來最著名的例子就是特斯拉的執行長 Elon Musk，若沒有掌握到這些消息將會對股價的漲幅丈二金剛摸不著頭緒。 img+br+em,a+br+em, img+em, a+em { font-size: 90%; /*使用較小的文字*/ font-color: #AAAAAA; /*使用較淡的文字色彩*/ font-style: normal; /*以正常字體呈現*/ } Elon Musk 總是喜歡在Twitter上發表個人看法，他的一言一行牽動著旗下公司股價的漲跌 ( 圖片來源 ) 有些股市老手會說：哎呀花時間閱讀那些資訊是沒有用的，等你看到時早就已經反映在股價上了，但事實上可能有些資訊早就潛藏在其中，只是礙於我們的經驗不足而無法做出適當的判斷。 因此本篇將透過自然語言處理（Natural Language Processing, NLP）試著將公司行號釋出的重大消息資訊納入，透過科技來輔佐我們在茫茫的資訊海中抽絲剝繭，以期望能輔助我們尋找出其中的脈絡並先行做出部署 …"/>
+<meta property="og:description" content="本篇結合自然語言處理的相關技術與統計資料分析為2019年選修資工所類神經網路課程時所做的side project。 （2020/08/13更新） 前言 股價的漲跌往往不是我們這些股市菜鳥所能夠理解的，尤其是在股價的起伏還受到各種消息面的影響，甚至老闆的一句話就可以讓股價一飛沖天或跌落谷底，近年來最著名的例子就是特斯拉的執行長 Elon Musk，若沒有掌握到這些消息將會對股價的漲幅丈二金剛摸不著頭緒。 img+br+em,a+br+em, img+em, a+em { font-size: 90%; /*使用較小的文字*/ font-color: #AAAAAA; /*使用較淡的文字色彩*/ font-style: normal; /*以正常字體呈現*/ } Elon Musk 總是喜歡在Twitter上發表個人看法，他的一言一行牽動著旗下公司股價的漲跌 ( 圖片來源 ) 有些股市老手會說：哎呀花時間閱讀那些資訊是沒有用的，等你看到時早就已經反映在股價上了，但事實上可能有些資訊早就潛藏在其中，只是礙於我們的經驗不足而無法做出適當的判斷。 因此本篇將透過自然語言處理（Natural Language Processing, NLP）試著將公司行號釋出的重大消息資訊納入，透過科技來輔佐我們在茫茫的資訊海中抽絲剝繭，以期望能輔助我們尋找出其中的脈絡並先行做出部署 …"/>
 <meta property="og:locale" content="en_US"/>
 <meta property="og:url" content="/li-yong-zi-ran-yu-yan-chu-li-nlpshi-gu-jia-yu-ce-geng-wei-jing-zhun.html"/>
 <meta property="og:type" content="article"/>
@@ -69,8 +69,8 @@
 
               <li>
                 <a target="_self"
-                   href="/pages/about.html#about">
-                  about
+                   href="/pages/.html#">
+                  
                 </a>
               </li>
 
@@ -118,9 +118,9 @@
   <div>
     <p></br></p>
 <p><strong>本篇結合自然語言處理的相關技術與統計資料分析為2019年選修資工所類神經網路課程時所做的side project。</strong></p>
-<p></br></p>
+<p>（2020/08/13更新）
+</br></p>
 <h1><font size = 6 > <strong>前言</strong> </font></h1>
-<p>（2020/08/13更新）</p>
 <p>股價的漲跌往往不是我們這些股市菜鳥所能夠理解的，尤其是在股價的起伏還受到各種消息面的影響，甚至老闆的一句話就可以讓股價一飛沖天或跌落谷底，近年來最著名的例子就是特斯拉的執行長 Elon Musk，若沒有掌握到這些消息將會對股價的漲幅丈二金剛摸不著頭緒。</p>
 <style>
  img+br+em,a+br+em, img+em, a+em {
@@ -238,7 +238,6 @@
 </blockquote>
 <p>接下來就看我是怎麼實做這個部分的內容瞜</p>
 <p></br></p>
-<hr>
 <h1><font size = 6 > <strong>文章分類 Document Classification</strong> </font></h1>
 <p>在斷詞的使用上我是透過 <a href="https://github.com/fxsjy/jieba">jieba</a> 的 <code>search_mode</code>。</p>
 <p>以下方的例子為例，將 <code>text = "101在台北市信義區"</code>，可以很明顯的看出不同模式在斷詞結果上的差別。</p>
@@ -337,7 +336,6 @@
 <p>近年來深度學習快速的發展，現在已經能夠將一個詞投影到較低維的空間當中，使得近似詞能夠獲得上下文資訊，透過非監督式學習（unsupervised learning）提取特徵，能廣泛的利用在其他的狀況（generalization）。
 依照提取出來的特徵做 expression，再根據不同的 case 微調（fine tuning）做監督式學習（supervised learning），來達成我們要的目的。</p>
 <p></br></p>
-<hr>
 <h2><strong>BERT</strong></h2>
 <p>最終我決定以 GOOGLE 在 2018 年發表的自然語言模型－ BERT 作為我分類器（Classifier）的最終 model，在 <a href="https://colab.research.google.com/github/tensorflow/tpu/blob/master/tools/colab/bert_finetuning_with_cloud_tpus.ipynb">colab</a> 可以看到 GOOGLE 自附的所有教學以及完整的 code，若要自行搭載環境也可以參考以下文章：</p>
 <ul>
@@ -478,8 +476,8 @@ ex. 給定一個問題以及包含答案的段落，預測答案落在文本的�
 <p></br></p>
 <hr>
 <h1><strong>結論</strong></h1>
-<p>本篇到這邊也算是告一個段落，透過NLP的方式將消息面量化運用在股價的預測上，整個模型的架構不用到很複雜也能有很不錯的表現，但仍然能有幾處可以持續精進的地方，未來或許可以從以下這些方面下手使模型預測的準確度再向上提升。</p>
-<p></br></p>
+<p>本篇到這邊也算是告一個段落，透過NLP的方式將消息面量化運用在股價的預測上，整個模型的架構不用到很複雜也能有很不錯的表現，但仍然能有幾處可以持續精進的地方，<font color = #FF4500 ><strong>未來或許可以從以下這些方面下手使模型預測的準確度再向上提升</strong> </font>。</p>
+<hr>
 <p><font color = #FF4500 > <strong>（2020/08/13更新）</strong> </font></p>
 <h2><strong>Data Segmentation</strong></h2>
 <p>首先是繁體中文方面的斷詞，本篇實作是透過大陸那邊的開源工具－jieba，但是在用語上與臺灣還是略微不同，好在中研院資訊所的繁體中文斷詞系統<font color = #FF4500 > <strong><a href="https://github.com/ckiplab/ckiptagger">CKIP（CkipTagger）</a></strong> </font> 在去年九月時開源在Github上，在繁體中文斷詞的表現上可是比 jieba 還要好上許多!</p>
@@ -493,6 +491,11 @@ ex. 給定一個問題以及包含答案的段落，預測答案落在文本的�
 </p>
 
 <p>再者，我們也能夠針對不同的case建置字典使中文識別上能夠更加的精確，以本篇所採用的公開消息為例，jieba在對許多投資金融相關的專業用語辨識度實在是差強人意，甚至是<font color = #FF4500 ><strong>股東</strong></font>兩個字都會被切開，若大家有仔細去看過各公司行號所發布的公開消息，不難發現有許多資訊是針對投資金額以及股東相關權益，或許正是丟失了這部分的資訊，導致模型的準確率下降，我們可以透過自定義字典來將這方面的資訊補齊。</p>
+<h2><strong>樣本不平衡（Unbalanced Data）</strong></h2>
+<p>我們蒐集到的樣本往往不如理想情況那樣每一個類別的樣本數都是相同的，一定會有樣本數不平衡的情形發生，以本篇的資料來源為例：股價的漲跌與持平的天數可能不會完全相同，在樣本數不平衡的情況下所建構出來的模型預測能力可能會失準，因此我們或許可以透過<font color = #FF4500 ><strong>調整閾值</strong></font>的方式使模型對於數量較少的類別更加敏感，亦或者是<font color = #FF4500 ><strong>藉由採樣（sampling）來改善數據不平衡的現象</strong></font>。</br>
+但是其中仍有許多需要注意的地方，可以參考以下文章：
+* <a href="https://www.zhihu.com/question/269698662">欠采样（undersampling）和过采样（oversampling）会对模型带来怎样的影响？</a> </br></p>
+<p><strong>至於是否一定得透過採樣的方式來優化模型，則必須回歸到當初建構模型的目的以及Domain Knowledge的判斷，衡量其中的利弊，或者是我們可以乾脆更改模型的<font color = #FF4500 >評測指標</font>，重新評估模型的表現</strong>。</p>
 <h2><strong>評測指標（Evaluation Metric）</strong></h2>
 <p>這部分其實在前面一開始的部分有提到評估模型的好壞不能只看預測出來的準確率（accurracy）來判定，倘若的資料正反例不平衡的情況下，準確率這項指標可能就會失去參考價值，因此其他常見的判定指標還有精確率（precision）以及召回率（recall），概念如下圖：</p>
 <p align="center">
@@ -506,27 +509,35 @@ ex. 給定一個問題以及包含答案的段落，預測答案落在文本的�
 
 <p>這也是我們前面所提到的混淆矩陣（<a href="https://www.ycc.idv.tw/confusion-matrix.html">Confusion Matrix</a>），但是往往 Precision 與 Recall 兩者不能兼得，想獲得更多的 Ground Truth 為 Truth 的例子則可能造成Recall上升，Precision下降，因此除了上述提到的這兩項指標外 F1-score 也是另一項常見的量化指標，此外也會使用 ROC-AUC 及 PR-AUC 來評估相同資料集下的表現結果（<a href="https://cynthiachuang.github.io/Common-Evaluation-MetricAccuracy-Precision-Recall-F1-ROCAUC-and-PRAUC/">參考文章</a>）。</br>
 亦或者是使用Kaggle上通用的 Multi-Class-Log-Loss作為不同模型的評測指標，本篇只嘗試使用傳統文本分析的方法：TF - IDF 及 BERT，對於其他的分類器（Classifier）如：Logistic Regression、SVM、XGBoost 等等都還未實際嘗試過，或許能有更佳的分類表現也說不定。</p>
-<h2><strong>演化式運算（Evolutionary Computation）</strong></h2>
-<p>演化式運算的概念其實脫胎於生物演化，最佳化是我們最終的目標，要達到勢必得經過一條漫漫長路，而在演化過程當中，會有生物不堪負荷而走進演化的死胡同（evolutionary dead end），就如同模型在進行參數組合最佳化的過程當中，少數模型表現的準確性會較差而被淘汰，最終留下符合最佳化目的且動用最少資源（符合最大簡約法）的模型參數。</p>
-<p><a href="https://www.zhihu.com/question/22752108/answer/22515037">越来越多的群体智能算法（蛙跳算法、猫群算法、蟑螂算法等等）有存在的必要吗？</a>
-<a href="https://zhuanlan.zhihu.com/p/191390471">机器学习助力单目标优化演化计算的文献分类</a>
-<a href="https://web.ntnu.edu.tw/~tcchiang/recruit.htm">啟發式演算法 (metaheuristics) 之設計與應用</a>
-<a href="https://zhuanlan.zhihu.com/p/36212065">【学界】数据+进化算法=数据驱动进化优化？进化计算PK 数学优化</a></p>
-<h2><strong>樣本不平衡（Unbalanced Data）</strong></h2>
-<p><a href="https://www.zhihu.com/question/269698662">欠采样（undersampling）和过采样（oversampling）会对模型带来怎样的影响？</a></p>
 <h2><strong>模型集成（Model Ensembling）</strong></h2>
-<p><a href="http://violin-tao.blogspot.com/2018/01/ml-ensemble.html">Ensemble - Bagging, Boosting &amp; Stacking</a></p>
-<p><a href="https://web.stanford.edu/class/archive/cs/cs224n/cs224n.1194/reports/default/15775971.pdf">Applying Ensembling Methods to BERT to Boost
-Model Performance</a></p>
-<p><a href="https://www.coursera.org/lecture/competitive-data-science/ensembling-tips-and-tricks-XqLc1">Ensembling Tips and Tricks</a></p>
-<p><a href="https://medium.com/@chih.sheng.huang821/%E6%A9%9F%E5%99%A8%E5%AD%B8%E7%BF%92-ensemble-learning%E4%B9%8Bbagging-boosting%E5%92%8Cadaboost-af031229ebc3">機器學習: Ensemble learning之Bagging、Boosting和AdaBoost</a></p>
-<p><a href="https://medium.com/@chuntingkuo/machine-learning-practical-stacking-ensemble-%E5%B0%8F%E6%95%B4%E7%90%86-994d207c8e35"></a></p>
-<h2><a href="https://zhuanlan.zhihu.com/p/145473883">集成模型：Bagging、Boosting和Stacking</a></h2>
+<p>不同的模型在當初被設計出來時的目的可能與我們的case不盡相同，擅長的方面也不同，而且在做完這個project後仍然陸續有許多新的model被推出，如：XLNet、GPT-3等等，甚至是有許多模型是以優化BERT為出發點所設計出來的，如：RoBERTa，因此我們或許可以集結各種不同model的長處，來達到我們建構模型的目的，而這也是目前各家經常採取的方式，從許多資料集的Leaderboard上就可以略窺一二：
+* GLUE：<a href="https://gluebenchmark.com/leaderboard/">LeaderBoard</a>
+* RACE：<a href="http://www.qizhexie.com/data/RACE_leaderboard.html">LeaderBoard</a>
+* SQuAD：<a href="https://rajpurkar.github.io/SQuAD-explorer/">LeaderBoard</a></p>
+<p><font color = #FF4500 ><strong>我們要做的就是保持開放且樂於學習的態度，汲取新知並應用在適合的project上</strong></font>。</p>
+<p>更多集成式學習的詳細介紹及使用技巧可以參考以下文章：
+ * <a href="http://violin-tao.blogspot.com/2018/01/ml-ensemble.html">Ensemble - Bagging, Boosting &amp; Stacking</a>
+ * <a href="https://www.coursera.org/lecture/competitive-data-science/ensembling-tips-and-tricks-XqLc1">Ensembling Tips and Tricks</a></p>
+<h2><strong>資料增強（Data Augmentation）</strong></h2>
+<p>在NLP領域當中同樣也有學者提出增強式學習（Reinforcement Learning, RL）的方式來優化模型的表現，在2019年的研究論文提出可以<font color = #FF4500 >透過同意詞替換、隨機插入、隨機交換及隨機刪除等四種方式來達到資料增強</font>（<a href="https://arxiv.org/pdf/1901.11196.pdf">參考文章</a>）。
+</br>
+關於中文文本方面的應用，已經有人套用在專案上，可以參考：
+* <a href="https://github.com/zhanlaoban/EDA_NLP_for_Chinese">EDA_NLP_for_Chinese</a>　</br></p>
+<p>或者是Microsoft研究團隊將RL應用在文字特徵提取上面，使模型提取的特徵更為精確來提升整體model預測的準確性（<a href="https://www.microsoft.com/en-us/research/wp-content/uploads/2017/11/zhang.pdf">參考文章</a>）。
+我們可以持續關注在這方面的研究，並篩選適合的內容應用在專案上。</p>
+<h2><strong>演化式運算（Evolutionary Computation）</strong></h2>
+<p>演化式運算的概念其實脫胎於生物演化，<font color = #FF4500 ><strong>最佳化</strong></font>是我們最終的目標，要達到勢必得經過一條漫漫長路，而在演化過程當中，會有生物競爭力低落而走進演化的死胡同（evolutionary dead end），就如同模型在進行參數組合最佳化的過程當中，少數模型表現的準確性會較差而被淘汰，最終留下符合最佳化目的且動用最少資源（符合最大簡約法）的模型參數。</br>
+這種最佳化方式其實在許多研究領域當中都會被運用上，以我從事的巨量基因體資料研究為例：<font color = #FF4500 ><strong>數十億甚至數千億的基因體序列排序，比對基因體的功能，結合從古到今的氣候因子與基因體序列的關聯性，尋找生物最適分布範圍，推測出生物演化的途徑</strong> </font>。
+這樣的計算方式能夠在確定所有的模型建構流程後，將模型參數優化至最佳狀態。</p>
+<p><a href="https://web.ntnu.edu.tw/~tcchiang/recruit.htm">啟發式演算法 (metaheuristics) 之設計與應用</a>
+<a href="https://www.sciencedirect.com/science/article/pii/S1568494601000242?via%3Dihub"></a></p>
+<hr>
 <h1><font size = 6 > <strong>參考文獻</strong> </font></h1>
 <p><a href="https://www.kesci.com/home/project/5be7e948954d6e0010632ef2">文本分類算法錦集</a> </br>
 <a href="https://taweihuang.hpd.io/2017/03/01/tfidf/">TF-IDF 演算法：快速計算單字與文章的關聯</a> </br>
 <a href="https://zhuanlan.zhihu.com/p/152526817">TFIDF+Wordembedding无监督多标签文本分类算法（论文解读)</a> </br>
-<a href="https://zhuanlan.zhihu.com/p/102208639">BERT下游任務</a></p>
+<a href="https://zhuanlan.zhihu.com/p/102208639">BERT下游任務</a>
+<a href="https://web.stanford.edu/class/archive/cs/cs224n/cs224n.1184/lectures/lecture16-guest.pdf">Reinforcement Learning for NLP</a></p>
   </div>
   <div class="tag-cloud">
     <p>
